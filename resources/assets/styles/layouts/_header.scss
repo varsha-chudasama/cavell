@@ -161,6 +161,14 @@
       }
     }
   }
+
+  &.hidden {
+        transform: translateY(-200px);
+    }
+
+    &.header-fixed-os {
+        transform: translateY(0px);
+    }
 }
 
 body {

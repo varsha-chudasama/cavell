@@ -16,8 +16,12 @@
             background-color: $color-1F6678;
         }
         background: none;
-        filter: invert(1);
         opacity: 100%;
+        @include media-breakpoint-down(lg){
+            img{
+                filter: invert(1);
+            }
+        }
         
         img{
             height: 17px;
