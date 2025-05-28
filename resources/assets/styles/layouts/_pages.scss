@@ -1,0 +1,187 @@
+.check-ul {
+    ul {
+        margin-bottom: 0;
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        @include media-breakpoint-down(lg){
+            flex-direction: column;
+        }
+
+        li {
+            width: 50%;
+            position: relative;
+            padding-left: 38px;
+            margin-bottom: 18px;
+
+            @include media-breakpoint-down(lg){
+                width: 100%;
+                &:last-child{
+                    margin-bottom: 0px !important;
+                }
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 26px;
+                width: 26px;
+                background-image: url("/wp-content/themes/cavell/templates/images/check.svg");
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    &.full-ul{
+      li{
+        width: 100%;
+      }
+    }
+  }
+
+.prefix-container{
+    .bg-prefix{
+        &:nth-child(odd){
+            background-color: rgba($color: $color-00DCC8, $alpha: 0.2);
+        }
+        &:nth-child(even){
+            background-color: rgba($color: $white, $alpha: 0.05);
+        }
+    }
+}
+
+.bg-prefix {
+    padding: 6px 16px;
+
+    &.bg-00DCC8-prefix {
+        background-color: rgba($color: $color-00DCC8, $alpha: 0.2);
+    }
+
+    &.bg-1F6678-prefix {
+        background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+    }
+
+  &.bg-1F6678-prefix-20 {
+    background-color: rgba($color: $color-1F6678, $alpha: 0.2);
+  }
+
+  &.bg-white-prefix {
+    background-color: rgba($color: $white, $alpha: 0.05);
+  }
+  &.bg-dark-00DCC8-prefix {
+    background-color: $color-00DCC8;
+  }
+  &.bg-00DCC8-blur-prefix {
+    background-color: rgba($color: $color-00DCC8, $alpha: 0.1);
+    backdrop-filter: blur(30px) brightness(4);
+  }
+
+    &.bg-dark-00DCC8-prefix {
+        background-color: $color-00DCC8;
+    }
+
+    &.bg-00DCC8-blur-prefix {
+        background-color: rgba($color: $color-00DCC8, $alpha: 0.1);
+        backdrop-filter: blur(30px) brightness(4);
+    }
+
+    &.bg-1F6678-prefix {
+        background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+    }
+
+    &.bg-1F6678-blur-prefix {
+        background-color: rgba($color: $color-1F6678, $alpha: 0.1);
+        backdrop-filter: blur(30px);
+    }
+}
+
+.recent-card-buttons,
+.full-text-img-buttons {
+    .btnA {
+        &:first-child {
+            margin-left: 0px !important;
+        }
+
+        &:last-child {
+            margin-right: 0px !important;
+        }
+    }
+}
+
+.content-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  &.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+}
+.audio-button {
+    background-color: rgba($color: $color-172426, $alpha: 0.1);
+    backdrop-filter: blur(30px) brightness(3);
+    padding: 15px 20px;
+
+    .play-audio-btn {
+        display: flex;
+    }
+
+    .pause-audio-btn {
+        display: none;
+    }
+
+    &.pause-btn {
+        .play-audio-btn {
+            display: none;
+        }
+
+        .pause-audio-btn {
+            display: flex;
+        }
+    }
+}
+
+.video-content {
+    height: 545px;
+
+    @include media-breakpoint-down(lg) {
+        height: 368px;
+    }
+
+    .bg-white {
+        opacity: 0.7;
+        width: 81px;
+        height: 81px;
+        border-radius: 5px;
+    }
+
+    .play-btn {
+        width: 20px;
+    }
+}
+
+
+.filter-button-row{
+  .filter-button{
+    padding: 6px 13px;
+    color: $color-172426;
+    background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+    &.active{
+      background-color: $color-172426;
+      color: $white;
+    }
+  }
+
+  .book-tickets-btn{
+    height: 41px;
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+}

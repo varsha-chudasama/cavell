@@ -1,0 +1,179 @@
+.card-hover {
+  .img {
+    transform: scale(1);
+    transition: 0.3s all ease-in-out;
+  }
+
+  &:hover {
+    .img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.insights-card{
+    .insights-card-img{
+        height: 305px;
+        @include media-breakpoint-down(lg){
+          height: 240px;
+        }
+    }
+}
+
+.service-card {
+  background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+  padding: 42px 25px;
+  .service-logo {
+    height: 70px;
+  }
+
+  .service-arrow {
+    height: 31px;
+    width: 31px;
+    img {
+      width: 8px;
+    }
+  }
+
+  &:hover {
+    background-color: rgba($color: $color-1F6678, $alpha: 0.1);
+    .service-arrow {
+      transform: translate(5px, 5px);
+    }
+  }
+}
+
+.recent-cards {
+  @include media-breakpoint-up(lg){
+    &:nth-child(1), 
+      &:nth-child(2),
+      &:nth-child(3){
+      margin-top: 0px !important;
+    }
+  }
+  &:first-child{
+    margin-top: 0px !important;
+  }
+  .recent-card {
+    padding-left: 32px;
+    padding-right: 32px;
+    border: 1px solid $color-1E6678;
+
+    @include media-breakpoint-down(lg){
+       padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .recent-card-img {
+      height: 382px;
+      @include media-breakpoint-down(lg){
+        height: 313px;
+      }
+    }
+    .recent-card-list {
+      li {
+        padding-left: 18px;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          left: 0px;
+          top: 8px;
+          background-color: $color-00DCC8;
+          border-radius: 50px;
+        }
+      }
+    }
+
+    &:hover{
+        background-color: rgba($color: $color-1F6678, $alpha: 0.1);
+        .service-arrow{
+            transform: translate(5px, 5px);
+        }
+    }
+}
+}
+
+.outcomes-card{
+    padding: 45px 32px 52px;
+    background-color: rgba($color: $color-1F6678, $alpha: 0.05);   
+    @include media-breakpoint-down(lg){
+      padding: 43px 20px 78px;
+    }
+}
+
+.two-cards-section{
+  .report-cards{
+    border:1px solid $color-1F6679;
+    padding-left: 50px;
+    padding-right: 50px;
+    @include media-breakpoint-down(lg){
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+  }
+}
+
+.two-cards{
+  &:first-child{
+    margin-top: 0px !important;
+  }
+}
+.channel-card{
+    background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+    padding: 40px 35px;
+    @include media-breakpoint-down(lg){
+      padding: 24px 24px 50px;
+    }
+    .channel-card-logo{
+        height: 70px;
+    }
+}
+
+.event-cards {
+  @include media-breakpoint-up(lg){
+      &:nth-child(1), 
+      &:nth-child(2),
+      &:nth-child(3){
+      margin-top: 0px !important;
+    }
+  }
+  &:first-child{
+    margin-top: 0px !important;
+  }
+  .event-card {
+    .event-img {
+      height: 475px;
+
+      @include media-breakpoint-down(lg){
+        height: 400px;
+      }
+
+      .evernt--layer {
+        height: 175px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+      }
+
+      .event-card-schedule {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px) brightness(0.8);
+         padding-left: 15px;
+          padding-right: 15px;
+
+        .event-card-time {
+          border-right: 1px solid rgba($color: $white, $alpha: 0.5);
+
+          &:last-child {
+            border-right: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.review-cards{
+  padding: 0px 45px 35px;
+}

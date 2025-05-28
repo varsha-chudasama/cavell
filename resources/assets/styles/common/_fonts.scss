@@ -1,0 +1,28 @@
+// @font-face {
+//     font-family: "IBM Plex Sans";
+//     src: url('/wp-content/themes/canada/assets/font/IBM Plex Sans.ttf') format('truetype');
+//     font-style: normal;
+// }
+@font-face {
+  font-family: "roboto-regular";
+  src: url("/wp-content/themes/cavell/assets/fonts/roboto-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "roboto-medium";
+  src: url("/wp-content/themes/cavell/assets/fonts/roboto-medium.ttf") format("truetype");
+}
+
+
+.roboto-regular {
+  font-family: "roboto-regular";
+}
+
+.roboto-medium {
+  font-family: "roboto-medium";
+}
+
+.basker-regular {
+  font-family: "baskerville-display-pt",serif;
+  font-weight: 400;
+}

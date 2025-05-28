@@ -1,0 +1,31 @@
+.left-right-section {
+  .left-img {
+    height: 665px;
+
+    @include media-breakpoint-down(lg){
+      height: 353px;
+    }
+
+    .play-audio {
+      right: 40px;
+      bottom: 40px;
+        @include media-breakpoint-down(lg){
+             right: 16px;
+            bottom: 16px;
+          }
+      .play-img {
+        height: 15px;
+        width: 12px;
+      }
+    }
+  }
+}
+
+.left-small-image-section {
+  .left-image {
+    height: 665px;
+    @include media-breakpoint-down(lg){
+      height: 353px;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.our-work-section {
+    .service-card {
+        padding: 35px 25px;
+    }
+}
+
+.about-hero-section {
+    .right-side-content {
+        .about-hero-img {
+            height: 665px;
+            @include media-breakpoint-down(lg){
+                height: 353px;
+            }
+        }
+    }
+}
+
+.associate-cards-section{
+    .associate-card{
+        padding: 78px 50px 70px 50px;
+        &:last-child{
+            margin-bottom: 0px !important;
+        }
+        @include media-breakpoint-down(lg){
+            padding: 47px 24px 50px;
+        }
+        .btnA{
+           padding-left: 20px;
+           padding-right: 20px;
+        }
+    }
+}

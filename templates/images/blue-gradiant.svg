@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="332" height="383.944" viewBox="0 0 332 383.944">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.945" cy="1" r="0.853" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00dcc8"/>
+      <stop offset="1" stop-color="#00dcc8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="0.867" cy="0.92" r="0.939" xlink:href="#radial-gradient"/>
+  </defs>
+  <g id="Group_6650" data-name="Group 6650" transform="translate(-32 -2593.999)">
+    <rect id="pexels-fauxels-3184416" width="332" height="383.944" rx="20" transform="translate(364 2977.943) rotate(180)" opacity="0.5" fill="url(#radial-gradient)"/>
+    <rect id="pexels-fauxels-3184416-2" data-name="pexels-fauxels-3184416" width="332" height="383.943" rx="20" transform="translate(32 2594)" opacity="0.5" fill="url(#radial-gradient-2)"/>
+  </g>
+</svg>

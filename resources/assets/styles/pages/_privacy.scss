@@ -1,0 +1,73 @@
+.privacy-section {
+    .left-content {
+
+        ul {
+            top: 200px;
+
+            li {
+                a {
+                    background: rgba($color: $color-1F6678, $alpha: 0.1);
+                }
+
+                &.active {
+                    a {
+                        background: $color-172426;
+                        color: $white !important;
+                        opacity: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .single-content {
+        &:first-child {
+            padding-top: 0 !important;
+        }
+
+        div {
+            &:last-child {
+                margin-bottom: 0px !important;
+            }
+        }
+    }
+
+    .bg--layer {
+        height: 400px;
+        background: linear-gradient(180deg, rgba(243, 255, 255, 0.4) 0%, #F3FFFF 100%);
+    }
+}
+
+.closet-accordion {
+    .accordion-item {
+
+        .closet-header {
+            border-bottom: 1px solid rgba($color: $color-1F6678, $alpha: 0.3);
+
+            .arrow-bg {
+                height: 47px;
+                width: 47px;
+
+                .accordion-arrow {
+                    width: 20px;
+                }
+            }
+
+            &.active {
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+
+                .accordion-arrow {
+                    transform: rotate(45deg) translate(0px, -2px);
+                }
+
+            }
+        }
+
+        .closet-content {
+            display: none;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+    }
+}

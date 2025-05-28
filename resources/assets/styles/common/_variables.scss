@@ -1,0 +1,195 @@
+/*******************************************************************************
+******************************* COLOUR VARIABLES *******************************
+*******************************************************************************/
+$color-F3FFFF: #f3ffff;
+$color-172426: #172426;
+$color-1F6678: #1f6678;
+$color-FFFFFF: #ffffff;
+$color-00DCC8: #00dcc8;
+$color-ACFCFE: #acfcfe;
+$color-FFFFFF29: #ffffff29;
+$color-1F667834: #1f667834;
+$color-00000029: #00000029;
+$color-17242621: #17242621;
+$color-F3FFFF00: #f3ffff00;
+$color-00000000: #00000000;
+$color-707070: #707070;
+$color-0000001A: #0000001a;
+$color-1724264D: #1724264d;
+$color-1f66780d: #1f66780d;
+$color-1E6678: #1e6678;
+$color-1F6679: #1F6679;
+$color-1F6577: #1F6577;
+$color-D98E00: #D98E00;
+$color-C6C6C6: #C6C6C6;
+$color-8E5410: #8E5410;
+
+/*******************************************************************************
+******************************* FONTS VARIABLES *******************************
+*******************************************************************************/
+$font12: 12px;
+$font14: 14px;
+$font16: 16px;
+$font18: 18px;
+$font20: 20px;
+$font22: 22px;
+$font24: 24px;
+$font30: 30px;
+$font36: 36px;
+$font40: 40px;
+$font46: 46px;
+$font49: 49px;
+$font50: 50px;
+$font56: 56px;
+$font60: 60px;
+$font66: 66px;
+$font76: 76px;
+$font90: 90px;
+
+$res-font10 : 10px;
+$res-font25 : 25px;
+$res-font28 : 28px;
+$res-font35 : 35px;
+
+
+/*******************************************************************************
+*******************************   LINE HEIGHT *******************************
+*******************************************************************************/
+$leading18: 18px;
+$leading19: 19px;
+$leading21: 21px;
+$leading24: 24px;
+$leading26: 26px;
+$leading28: 28px;
+$leading32: 32px;
+$leading44: 44px;
+$leading56: 56px;
+$leading60: 60px;
+$leading70: 70px;
+$leading80: 80px;
+$leading100: 100px;
+
+/*******************************************************************************
+******************************* LETTER SPACING *******************************
+*******************************************************************************/
+$space-02: -0.2px;
+$space-03: -0.3px;
+$space-04: -0.4px;
+$space-05: -0.5px;
+$space-06: -0.6px;
+$space-09: -0.9px;
+$space-0_14: -0.14px;
+$space-0_18: -0.18px;
+$space-0_16: -0.16px;
+$space-0_22: -0.22px;
+$space-0_24: -0.24px;
+$space-0_36: -0.36px;
+$space-0_46: -0.46px;
+$space-0_49: -0.49px;
+$space-0_56: -0.56px;
+$space-0_66: -0.66px;
+$space-0_76: -0.76px;
+
+$res-space-0_25: -0.25px;
+$res-space-0_35: -0.35px;
+
+
+/*******************************************************************************
+******************************* ANIMATION VARIABLES ****************************
+*******************************************************************************/
+$radius5: 5px;
+$radius10: 10px;
+$radius15: 15px;
+$radius20: 20px;
+$radius30: 30px;
+
+/*******************************************************************************
+******************************* ANIMATION VARIABLES ****************************
+*******************************************************************************/
+
+$opacity5: 5%;
+$opacity10: 10%;
+$opacity20: 20%;
+$opacity30: 30%;
+
+/*******************************************************************************
+******************************* ANIMATION VARIABLES ****************************
+*******************************************************************************/
+@mixin generate-transition($name, $duration, $type) {
+  -webkit-transition: $name $duration $type;
+  /* Safari 4+ */
+  -moz-transition: $name $duration $type;
+  /* Fx 5+ */
+  -o-transition: $name $duration $type;
+  /* Opera 12+ */
+  transition: $name $duration $type;
+  /* IE 10+, Fx 29+ */
+}
+
+@mixin generate-animation-delay($seconds) {
+  -webkit-animation-delay: $seconds;
+  /* Safari 4+ */
+  -moz-animation-delay: $seconds;
+  /* Fx 5+ */
+  -o-animation-delay: $seconds;
+  /* Opera 12+ */
+  animation-delay: $seconds;
+  /* IE 10+, Fx 29+ */
+}
+
+@mixin generate-placeholder($color, $fontsize) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $fontsize;
+  }
+
+  &:-moz-placeholder {
+    /* Firefox 18- */
+    color: $color;
+    font-size: $fontsize;
+  }
+
+  &::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $color;
+    font-size: $fontsize;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $fontsize;
+  }
+}
+
+@mixin generate-scale-transition() {
+  -webkit-transform: scale(1.1);
+  /* Safari and Chrome */
+  -moz-transform: scale(1.1);
+  /* Firefox */
+  -ms-transform: scale(1.1);
+  /* IE 9 */
+  -o-transform: scale(1.1);
+  /* Opera */
+  transform: scale(1.1);
+}
+
+@mixin generate-transform($transform) {
+  -webkit-transform: $transform;
+  /* Safari and Chrome */
+  -moz-transform: $transform;
+  /* Firefox */
+  -ms-transform: $transform;
+  /* IE 9 */
+  -o-transform: $transform;
+  /* Opera */
+  transform: $transform;
+}
+
+@mixin generate-filter($filter) {
+  -webkit-filter: $filter;
+  filter: $filter;
+  -moz-filter: $filter;
+  -o-filter: $filter;
+}
+
+$enable-negative-margins: true;

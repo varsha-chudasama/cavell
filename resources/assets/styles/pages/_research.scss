@@ -1,0 +1,215 @@
+.logo-slider-section{
+    .logo-slider{
+        .logo-slide{
+            height: 115px;
+            border: 1px solid $color-1F6678;
+            @include media-breakpoint-down(lg){
+                height: 92px;
+            }
+            .logo-img{
+                height: 30px;
+                width: auto;
+            }   
+        }
+    }
+}
+
+.team-slider-container{
+    .team-slide{
+        .team-card{ 
+            .team-img{
+                height: 380px;
+                @include media-breakpoint-down(lg){
+                    height: 313px;
+                }
+                &:hover{
+                    background: url('/wp-content/themes/cavell/templates/images/blue-gradiant.svg');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            
+            }
+        }
+    }
+}
+
+.meet-the-team-section{
+    .tem-card-col{
+        @include media-breakpoint-up(lg){
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4){
+                margin-top: 0px !important;
+            }
+        }
+        
+        &:nth-child(1),
+        &:nth-child(2){
+            margin-top: 0px !important;
+        }
+    }
+      .team-card{ 
+            .team-img{
+                height: 380px;
+                @include media-breakpoint-down(lg){
+                    height: 204px;
+                }
+                &:hover{
+                    background: url('/wp-content/themes/cavell/templates/images/blue-gradiant.svg');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            
+            }
+        }
+}
+
+    .team-linkdin{
+        bottom: 18px;
+        right: 18px;
+        .bg-prefix{
+            height: 36px;
+            width: 36px;
+            backdrop-filter: blur(30px);
+            img{
+                height: 12px;
+            }
+            @include media-breakpoint-down(lg){
+                height: 30px;
+                width: 30px;
+            }
+        }
+    }
+
+.testimonial-section{
+    .quote{
+        height: 80px;
+    }
+}
+
+.contents-table{
+    border: 1px solid $color-1F6577;
+    padding: 55px 45px 70px;
+    .table-row{
+        column-count: 3;
+        column-gap: 110px;
+        .table-col{
+            break-inside: avoid;
+            page-break-inside: avoid;
+
+        }
+
+    }
+    @include media-breakpoint-down(lg){
+     padding: 45px 20px 58px;
+        .table-row{
+          column-count: 1;
+           .table-col{
+               &:last-child{
+                .check-ul{
+                        margin-bottom: 0px !important;
+                    }
+                }
+           }
+        }
+    }
+}
+
+
+.brochure-full-banner{
+    height: 396px;
+    .layer{
+        background-color: rgba($color: $black, $alpha: 0.1);
+    }
+}
+
+.full-left-right-card-section{
+    .full-left-right-card{
+        padding-left: 80px;
+        padding-right: 30px;
+
+        .full-left-right-card-img{
+            height: 493px;
+        }
+        @include media-breakpoint-down(lg){
+            padding-left: 15px;
+            padding-right: 15px;
+             .full-left-right-card-img{
+                height: 270px;
+            }
+        }
+    }
+}
+
+.counter-card{
+    height: 185px;
+    border: 1px solid $color-1F6678;
+    @include media-breakpoint-down(lg){
+        height: 171px;
+    }
+}
+
+.industry-section{
+    .industry-card{
+        height: 489px;
+        .bg-layer{
+            height: 176px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+        }
+        .right-arrow{
+            background-color: rgba($color: $color-172426, $alpha: 0.1);
+            backdrop-filter: blur(30px) brightness(5);
+            height: 41px;
+            width: 41px;   
+            img{
+                height: 15px;
+            }
+        }
+        @include media-breakpoint-down(lg){
+            height: 390px;
+            .right-arrow{
+                height: 35px;
+                width: 35px;   
+            }
+        }
+    }
+}
+
+.review-section{
+    .review-cards-container{
+        .review-cards-col{
+            .review-cards{
+                box-shadow: 0px 0px 26px #17242621;
+                .review-logo{
+                    height: 80px;
+                }
+            }
+        }
+    }
+
+    .bg-layer{
+        background: linear-gradient(180deg, rgba(243, 255, 255, 0), rgba(243, 255, 255, 1));
+        height: 363px;
+    }
+}
+
+
+.reports-button{
+    &.reports-button-sticky{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: $white;
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        z-index: 3;
+    }
+}
+
+.cavell-full-banner-img {
+    height: 396px;
+}

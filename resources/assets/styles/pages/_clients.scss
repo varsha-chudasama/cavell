@@ -1,0 +1,40 @@
+.client-left-right-cards-section {
+    .client-left-right-card{
+        &:last-child{
+            margin-bottom: 0px !important;
+        }
+    }
+    .client-img {
+        height: 489px;
+        @include media-breakpoint-down(lg){
+            height: 353px;
+        }
+    }
+    .learn-more-btn {
+         padding-left: 18px;
+         padding-right: 18px;
+    }
+}
+
+
+.client-service-hero-section {
+    .client-service-img{
+        height: 636px;
+        @include media-breakpoint-down(lg){
+            height: 250px;
+        }
+    }
+    .get-touch-btn{
+       padding-left: 33px;
+        padding-right: 33px;
+    }
+}
+
+.client-service-two-cards-section{
+    .service-card{
+        padding: 38px 38px 48px 32px;
+        @include media-breakpoint-down(lg){
+            padding: 42px 24px;
+        }
+    }
+}

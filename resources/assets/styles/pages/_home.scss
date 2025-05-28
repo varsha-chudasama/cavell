@@ -1,0 +1,23 @@
+.full-text-card,
+.full-left-right-card{
+    background-image: url('/wp-content/themes/cavell/templates/images/background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.event-left-right-img{
+    height: 490px;
+
+    .bg-black-layer{
+        height: 245px;
+        background: linear-gradient(180deg,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.5));
+    }
+
+    @include media-breakpoint-down(lg){
+        height: 467px;
+        .bg-black-layer{
+            height: 353px;
+        }
+    }
+}

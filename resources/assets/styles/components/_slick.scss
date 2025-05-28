@@ -1,0 +1,99 @@
+.service-cards-slider,
+.outcomes-slider,
+.logo-slider,
+.team-slider-container,
+.event-speakers-slider,
+.industry-card-slider,
+.channel-cards-slider{
+    .slick-list{
+        margin-left: -8px !important;
+        margin-right: -8px !important;
+        .slick-slide{
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+}
+.insights-slider{
+    .slick-list{
+        margin-left: -10px !important;
+        margin-right: -10px !important;
+        .slick-slide{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+}
+
+.outcomes-slider,
+.event-speakers-slider{
+    @include media-breakpoint-up(lg){
+        width: calc(35% + 58vw) !important;
+        overflow: hidden;
+    }
+}
+
+.outcomes-slider,
+.logo-slider,
+.event-speakers-slider{
+    .slick-list{
+        overflow: visible !important;
+    }
+}
+
+.service-cards-slider,
+.insights-slider,
+.team-slider-container,
+.industry-card-slider,
+.channel-cards-slider{
+    @include media-breakpoint-down(lg){
+        .slick-list{
+            overflow: visible !important;
+        }
+    }
+}
+
+.service-cards-slider,
+.outcomes-slider,
+.event-speakers-slider,
+.insights-slider,
+.channel-cards-slider{
+    .slick-list{
+        .slick-track{
+            display: flex;
+            .slick-slide{
+                height: auto;
+                &>div{
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+.outcomes-slider-section ,
+.team-slider-section,
+.event-speakers-slider-section{
+    .slick-arrow{
+        .prev-arrow,
+        .next-arrow{
+          height: 41px;  
+          width: 41px;
+          background-color: $color-1F6678;
+          img{
+            height: 17px;
+          }
+          @include media-breakpoint-down(lg){
+            height: 35px;
+            width: 35px;
+          }
+        }
+
+        .prev-arrow,
+        .next-arrow{
+            &.slick-disabled{
+                background-color: rgba($color: $color-1F6678, $alpha: 0.4);
+            }
+        }
+    }
+}
