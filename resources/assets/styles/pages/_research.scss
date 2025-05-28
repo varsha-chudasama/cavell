@@ -110,8 +110,10 @@
            .table-col{
                &:last-child{
                 .check-ul{
-                        margin-bottom: 0px !important;
-                    }
+                        @include media-breakpoint-up(lg){
+                            margin-bottom: 0px !important;
+                        }
+                }
                 }
            }
         }
@@ -140,6 +142,15 @@
              .full-left-right-card-img{
                 height: 270px;
             }
+        }
+    }
+    .full-left-right-card-desc{
+        p{
+            font-family: "roboto-regular";
+            font-size: $font20;
+            line-height: $leading28;
+            letter-spacing: $space-02;
+            color: $white;
         }
     }
 }
@@ -180,6 +191,11 @@
 
 .review-section{
     .review-cards-container{
+        @include media-breakpoint-up(lg){
+            #col-1{
+                margin-top: -35px;
+            }
+        }
         .review-cards-col{
             .review-cards{
                 box-shadow: 0px 0px 26px #17242621;
@@ -191,8 +207,10 @@
     }
 
     .bg-layer{
-        background: linear-gradient(180deg, rgba(243, 255, 255, 0), rgba(243, 255, 255, 1));
-        height: 363px;
+        @include media-breakpoint-up(lg){
+            background: linear-gradient(180deg,rgba(243, 255, 255, 0), rgba(243, 255, 255, 1));
+            height: 363px;
+        }
     }
 }
 

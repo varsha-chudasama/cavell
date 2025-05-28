@@ -205,7 +205,6 @@ $select_faqs = $events_faqs['select_faqs'];
             <div class="col-lg-6 col-12 ">
                 <div class="col-lg-11 pe-lg-5">
                     <div class="location-img radius30 overflow-hidden tmb-30">
-
                         <?php echo $event_map_embed; ?>
                     </div>
                 </div>
@@ -262,7 +261,7 @@ $select_faqs = $events_faqs['select_faqs'];
                 ?>
                     <div class="accordion-item overflow-hidden">
                         <div
-                            class="closet-header position-relative dpt-10 dpb-10 d-flex justify-content-between align-items-center cursor-pointer transition">
+                            class="closet-header position-relative dpt-20 dpb-20 d-flex justify-content-between align-items-center cursor-pointer transition">
                             <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $select_faq_single_title; ?></div>
                             <div
                                 class="arrow-bg bg-505050 rounded-circle d-flex justify-content-center align-items-center">

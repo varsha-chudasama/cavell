@@ -29,8 +29,9 @@ export class Feedback {
                     },
                     success: function (response) {
                         if (response.success && response.data.posts.length > 0) {
-                            const html = template({ posts: response.data.posts });
-                            $('#feedbackContainer').append(html);
+                            // const html = template({ posts: response.data.posts });
+                            // $('#feedbackContainer').append(html);
+                            renderFeedback(response.data.posts)
                             currentPage++;
                             if (!response.data.has_more) {
                                 $('#loadMoreFeedback').hide();
@@ -52,6 +53,28 @@ export class Feedback {
                 loadFeedback();
             });
         });
+
+         function renderFeedback(posts) {
+            // Clear previous content if needed
+            // $('#col-0, #col-1, #col-2').empty();
+
+            posts.forEach(function(post, index) {
+                // Create the HTML block manually
+                var html = `
+                    <div class="review-cards bg-white radius20 mb-4">
+                        <div class="review-logo">
+                            <img src="${post.thumbnail}" class="h-100" alt="">
+                        </div>
+                        <div class="roboto-regular font16 leading21 space-0_16 dmb-30 text-172426">${post.content}</div>
+                        <div class="roboto-regular font14 leading19 space-0_14 text-172426"><b>${post.title}</b> - ${post.excerpt}</div>
+                    </div>
+                `;
+
+                // Determine column based on index
+                var columnIndex = index % 3;
+                $('#col-' + columnIndex).append(html);
+            });
+        }
     }
 
     reportsFilter() {

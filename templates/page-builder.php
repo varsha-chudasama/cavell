@@ -58,7 +58,7 @@ $flexibleContent = get_field('flexible_content');
                                 ?>
                                     <?php if (!empty($link_single['url'])):
                                         $target_2 = ($link_single['target'] == '_blank') ? "_blank" : ""; ?>
-                                        <a class="btnA bg-00DCC8-btn roboto-medium font16 space-0_16 radius5 text-172426 text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                        <a class="btnA bg-00DCC8-btn roboto-medium font16 space-0_16 radius5 text-172426 text-decoration-none d-inline-flex justify-content-center align-items-center transition tmb-15 me-2"
                                             href=" <?php echo $link_single['url']; ?>" target="<?php echo $target_2; ?>">
                                             <?php echo $link_single['title']; ?>
                                         </a>
@@ -125,7 +125,7 @@ $flexibleContent = get_field('flexible_content');
             <?php if ($number_of_cards == "3") : ?>
                 <section class="channel-cards-section overflow-hidden">
                     <div class="container">
-                        <div class="col-lg-8 col-10 px-lg-4 mx-auto text-center dmb-40 tmb-50">
+                        <div class="col-lg-8 col-12 px-lg-4 mx-auto text-center dmb-40 tmb-50">
                             <?php if (!empty($heading)): ?>
                                 <div class="basker-regular font56 leading60 space-0_56 text-172426 dmb-10 res-font30 res-leading44 res-space-03"><?php echo $heading; ?></div>
                             <?php endif; ?>
@@ -366,25 +366,45 @@ $flexibleContent = get_field('flexible_content');
                                     <img src="<?php echo $event_image; ?>" class="w-100 h-100 object-cover" alt="">
                                     <div class="bg-black-layer position-absolute bottom-0 w-100"></div>
                                     <div class="position-absolute bottom-0 w-100 start-0">
-                                        <div class="d-flex ps-lg-5 pe-lg-4 px-3">
-                                            <div>
-                                                <div class="basker-regular font49 leading56 space-0_49 text-white res-font30 res-leading44 res-space-03"><?php echo $event_title; ?></div>
-                                                <div class="roboto-medium font18 leading26 space-0_18 text-white opacity-50 dmb-10 res-font16 res-leading24 res-space-0_16"><?php echo $venue_address; ?>, <?php echo $venue_city; ?></div>
-                                                <div class="d-lg-flex d-none flex-wrap">
-                                                    <?php if (!empty($event_button['url']) && !empty($event_button['title'])) : ?>
-                                                        <a href="<?php echo $event_button['url']; ?>"
-                                                            class="bg-prefix bg-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 dmb-10 d-inline-flex me-2">
-                                                            <?php echo $event_button['title']; ?>
-                                                        </a>
-                                                    <?php endif; ?>
-                                                    <div class="bg-prefix bg-00DCC8-blur-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block dmb-20 me-2">
-                                                        <?php echo $formatted_date; ?>
-
+                                        <div class="d-flex justify-content-between align-items-lg-end flex-column flex-lg-row w-100 ps-lg-5 pe-lg-4 px-3 dmb-30 tmb-20">
+                                                <div class="col-lg-5">
+                                                    <div class="basker-regular font49 leading56 space-0_49 text-white res-font30 res-leading44 res-space-03"><?php echo $event_title; ?></div>
+                                                    <div class="roboto-medium font18 leading26 space-0_18 text-white opacity-50 dmb-10 res-font16 res-leading24 res-space-0_16"><?php echo $venue_address; ?>, <?php echo $venue_city; ?></div>
+                                                    <div class="d-lg-flex d-none flex-wrap">
+                                                            <div>
+                                                                <?php if (!empty($event_button['url']) && !empty($event_button['title'])) : ?>
+                                                                    <a href="<?php echo $event_button['url']; ?>"
+                                                                        class="bg-prefix bg-dark-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-block me-2">
+                                                                        <?php echo $event_button['title']; ?>
+                                                                    </a>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                            <div class="bg-prefix bg-00DCC8-blur-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block me-2">
+                                                                <?php echo $formatted_date; ?>
+                                                            </div>
                                                     </div>
-                                                    <div id="countdown-<?php echo esc_attr($event_id); ?>" class="text-white mt-2 roboto-medium font14"></div>
-
                                                 </div>
-                                            </div>
+                                                    <div
+                                                    class="event-card-schedule radius10 dpt-15 dpb-15 d-flex justify-content-center align-items-center w-fit ms-lg-auto res-w-100"
+                                                    data-event-date="<?php echo esc_attr($event_date); ?>">
+
+                                                    <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
+                                                        <div class="roboto-medium font30 leading26 space-03 text-white countdown-days res-font25 res-leading32 res-space-0_25">00</div>
+                                                        <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Days</div>
+                                                    </div>
+                                                    <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
+                                                        <div class="roboto-medium font30 leading26 space-03 text-white countdown-hours res-font25 res-leading32 res-space-0_25">00</div>
+                                                        <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Hours</div>
+                                                    </div>
+                                                    <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
+                                                        <div class="roboto-medium font30 leading26 space-03 text-white countdown-minutes res-font25 res-leading32 res-space-0_25">00</div>
+                                                        <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Mins</div>
+                                                    </div>
+                                                    <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
+                                                        <div class="roboto-medium font30 leading26 space-03 text-white countdown-seconds res-font25 res-leading32 res-space-0_25">00</div>
+                                                        <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Secs</div>
+                                                    </div>
+                                                </div>
                                         </div>
                                     </div>
                                     <div class="position-absolute top-0 w-100 start-0 px-3 mt-3">
@@ -410,32 +430,39 @@ $flexibleContent = get_field('flexible_content');
                     </div>
                 </div>
             </section>
-
-
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    function updateCountdown(id, timestamp) {
-                        const el = document.getElementById('countdown-' + id);
-                        if (!el) return;
+                    const countdownEl = document.querySelector('.event-card-schedule');
+                    if (!countdownEl) return;
 
-                        function update() {
-                            const now = new Date().getTime();
-                            const distance = timestamp * 1000 - now;
+                    const targetDate = new Date(countdownEl.getAttribute('data-event-date')).getTime();
 
-                            if (distance < 0) {
-                                el.innerHTML = "Event started";
-                                return;
-                            }
-                            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                            el.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-                            setTimeout(update, 1000);
+                    function updateCountdown() {
+                        const now = new Date().getTime();
+                        const distance = targetDate - now;
+
+                        if (distance <= 0) {
+                            document.querySelector('.countdown-days').textContent = '00';
+                            document.querySelector('.countdown-hours').textContent = '00';
+                            document.querySelector('.countdown-minutes').textContent = '00';
+                            document.querySelector('.countdown-seconds').textContent = '00';
+                            clearInterval(timer);
+                            return;
                         }
-                        update();
+
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        document.querySelector('.countdown-days').textContent = String(days).padStart(2, '0');
+                        document.querySelector('.countdown-hours').textContent = String(hours).padStart(2, '0');
+                        document.querySelector('.countdown-minutes').textContent = String(minutes).padStart(2, '0');
+                        document.querySelector('.countdown-seconds').textContent = String(seconds).padStart(2, '0');
                     }
-                    updateCountdown('<?php echo esc_js($event_id); ?>', <?php echo esc_js($event_timestamp); ?>);
+
+                    updateCountdown();
+                    const timer = setInterval(updateCountdown, 1000);
                 });
             </script>
 
@@ -742,31 +769,33 @@ $flexibleContent = get_field('flexible_content');
             <section class="review-section position-relative">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="basker-regular font56 leading60 space-0_56 text-172426 text-center dmb-60 tmb-40 res-font30 res-leading44 res-space-03">
+                        <div class="basker-regular font56 leading60 space-0_56 text-172426 text-center dmb-95 tmb-40 res-font30 res-leading44 res-space-03">
                             <?php echo $heading; ?>
                         </div>
                     <?php endif; ?>
-                    <div class="mx-auto col-10">
-                        <div class="review-cards-container row row11" id="feedbackContainer"></div>
+                    <div class="mx-auto col-lg-10 col-12">
+                       <div class="review-cards-container row row11" id="feedbackContainer">
+                            <div class="col-lg-4 col-12" id="col-0"></div>
+                            <div class="col-lg-4 col-12" id="col-1"></div>
+                            <div class="col-lg-4 col-12" id="col-2"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-layer position-absolute bottom-0 w-100 d-flex justify-content-center align-items-center">
-                    <a id="loadMoreFeedback" class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none justify-content-center align-items-center transition" href="#">
-                        View more
-                    </a>
+                <div class="bg-layer position-absolute bottom-0 w-100 d-flex justify-content-center align-items-center p-initial tmt-20">
+                        <a id="loadMoreFeedback" class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none align-content-center transition" href="#">
+                            View more
+                        </a>
                 </div>
 
 
                 <script id="feedback-template" type="text/x-handlebars-template">
                     {{#each posts}}
-                        <div class="col-lg-4 col-12 review-cards-col">
-                            <div class="review-cards bg-white radius20">
-                                <div class="review-logo">
-                                    <img src="{{thumbnail}}" class="h-100" alt="">
-                                </div>
-                                <div class="roboto-regular font16 leading21 space-0_16 dmb-30 text-172426">{{{content}}}</div>
-                                <div class="roboto-regular font14 leading19 space-0_14 text-172426"><b>{{title}}</b> - {{excerpt}}</div>
+                        <div class="review-cards bg-white radius20">
+                            <div class="review-logo">
+                                <img src="{{thumbnail}}" class="h-100" alt="">
                             </div>
+                            <div class="roboto-regular font16 leading21 space-0_16 dmb-30 text-172426">{{{content}}}</div>
+                            <div class="roboto-regular font14 leading19 space-0_14 text-172426"><b>{{title}}</b> - {{excerpt}}</div>
                         </div>
                     {{/each}}
                 </script>
@@ -793,13 +822,13 @@ $flexibleContent = get_field('flexible_content');
 
                     if (!empty($terms) && !is_wp_error($terms)) : ?>
                         <div class="d-flex align-items-center justify-content-center dmb-95 tmb-70 reports-button transition">
-                            <div class="roboto-medium font14 leading19 space-0_14 text-172426 me-3 text-nowrap">
+                            <div class="roboto-medium font14 leading19 space-0_14 text-172426 me-3 text-nowrap ps-4 ps-lg-0">
                                 Filter by:
                             </div>
                             <div class="filter-button-row d-flex align-items-center justify-content-between text-nowrap overflow-auto">
                                 <?php foreach ($terms as $term) : ?>
                                     <button data-category="<?php echo esc_attr($term->slug); ?>"
-                                        class="category-btn roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5">
+                                        class="category-btn filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5">
                                         <?php echo esc_html($term->name); ?>
                                     </button>
                                 <?php endforeach; ?>
@@ -822,7 +851,7 @@ $flexibleContent = get_field('flexible_content');
                                     <div class="recent-card-img radius10 overflow-hidden dmb-30 tmb-25 res-radius20">
                                         <img src="{{thumbnail}}" alt="" class="w-100 h-100 object-cover">
                                     </div>
-                                    <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-30 tmb-20">
+                                    <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-30 tmb-20 recent-card-desc">
                                         {{{content}}}
                                     </div>
 
@@ -900,7 +929,7 @@ $flexibleContent = get_field('flexible_content');
                     <div class="full-left-right-card dpt-80 dpb-90 tpt-60 tpb-60 radius20">
                         <div class="row align-items-center flex-column-reverse flex-lg-row">
                             <div class="col-lg-5 col-12">
-                                <div class="col-12 pe-lg-4">
+                                <div class="col-12 pe-lg-5">
                                     <div class="dmb-20 tmb-15">
                                         <?php if (!empty($back_link['url'])):
                                             $target_2 = ($back_link['target'] == '_blank') ? "_blank" : ""; ?>
@@ -916,10 +945,10 @@ $flexibleContent = get_field('flexible_content');
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                                    <div class="basker-regular font46 leading56 space-0_46 text-white dmb-20 res-font30 res-leading44 res-space-03 check-ul full-ul">
+                                    <div class="basker-regular font46 leading56 space-0_46 text-white dmb-20 res-font30 res-leading44 res-space-03">
                                         <?php echo $heading; ?>
                                     </div>
-                                    <div class="roboto-regular font20 leading28 space-02 text-white dmb-25 pe-lg-5 res-font16 res-leading24 res-space-0_16">
+                                    <div class="roboto-regular font20 leading28 space-02 text-white dmb-25 pe-lg-5 res-font16 res-leading24 res-space-0_16 full-left-right-card-desc check-ul full-ul">
                                         <?php echo $content; ?>
                                     </div>
 
@@ -1238,26 +1267,56 @@ $flexibleContent = get_field('flexible_content');
                                 ?>
                                     <div class="dpb-20 dpt-15 agenda-col">
                                         <div class="roboto-regular font16 leading24 space-0_16 text-172426 "><?php echo $start_time; ?> - <?php echo $end_date; ?></div>
-                                        <?php foreach ($single_row as $single_row_full) :
+
+                                        <?php if(count($single_row) == 1): ?>
+                                             <?php foreach ($single_row as $single_row_full) :
                                             $schedule_heading = $single_row_full['schedule_heading'];
                                             $schedule_details = $single_row_full['schedule_details'];
                                         ?>
-                                            <div class="d-flex flex-column flex-lg-row">
+                                            <div class="d-flex flex-column flex-lg-row ">
                                                 <div class="col-lg-5 col-12">
+                                                     <?php if (!empty($schedule_heading)): ?>
                                                     <div
                                                         class="roboto-regular font16 leading24 space-0_16 text-172426 fw-bold col-lg-8 col-10">
                                                         <?php echo $schedule_heading; ?>
                                                     </div>
+                                                     <?php endif; ?>
                                                 </div>
-                                                <?php if (!empty($schedule_details)): ?>
-                                                    <div class="col-lg-6 col-12">
+                                                <div class="col-lg-6 col-12">
+                                                    <?php if (!empty($schedule_details)): ?>
                                                         <div class="roboto-regular font16 leading24 space-0_16 text-172426 pe-2 pe-lg-0 tmt-25">
                                                             <?php echo $schedule_details; ?>
                                                         </div>
-                                                    </div>
                                                 <?php endif; ?>
+                                                </div>
                                             </div>
                                         <?php endforeach; ?>
+                                        <?php else: ?>
+                                        <?php if (!empty($single_row)) : ?>
+                                            <div class="d-flex flex-column flex-lg-row agenda-wrapper">
+                                                <div class="col-lg-5 col-12">
+                                                <?php foreach ($single_row as $index => $single_row_full) :
+                                                    $schedule_heading = $single_row_full['schedule_heading'];
+                                                    $schedule_details = $single_row_full['schedule_details'];
+                                                    if (!empty($schedule_heading)) :
+                                                ?>
+                                                    <div
+                                                    class="roboto-regular font16 leading24 space-0_16 text-172426 fw-bold col-lg-8 col-10 d-flex opacity30 agenda-title cursor-pointer transition dmb-15<?php echo $index === 0 ? ' active' : ''; ?>">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/templates/images/right-black-arrow.svg"
+                                                        data-desc="<?php echo wp_kses_post( strip_tags( $schedule_details ) ); ?>"
+                                                        class="agenda-arrow me-2 mt-2" alt="">
+                                                    <?php echo $schedule_heading; ?>
+                                                    </div>
+                                                <?php endif; endforeach; ?>
+                                                </div>
+
+                                                <div class="col-lg-6 col-12">
+                                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 pe-2 pe-lg-0 tmt-25 description"></div>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+
+                                    <?php endif; ?>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
