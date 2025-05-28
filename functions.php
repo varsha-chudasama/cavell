@@ -249,24 +249,26 @@ function load_reports_by_category()
 }
 
 
-function enqueue_event_countdown_script() {
-    if (!is_admin()) {
-        wp_enqueue_script(
-            'event-countdown',
-            get_template_directory_uri() . '/resources/assets/scripts/parts/countdown.js',
-            array(), 
-            '1.0',
-            true 
-        );
-    }
+function enqueue_event_countdown_script()
+{
+  if (!is_admin()) {
+    wp_enqueue_script(
+      'event-countdown',
+      get_template_directory_uri() . '/resources/assets/scripts/parts/countdown.js',
+      array(),
+      '1.0',
+      true
+    );
+  }
 }
 add_action('wp_enqueue_scripts', 'enqueue_event_countdown_script');
 
 
-function cavell_include_page_builder() {
-    ob_start();
-    include get_template_directory() . '/templates/page-builder.php';
-    return ob_get_clean();
+function cavell_include_page_builder()
+{
+  ob_start();
+  include get_template_directory() . '/templates/page-builder.php';
+  return ob_get_clean();
 }
 add_shortcode('page_builder', 'cavell_include_page_builder');
 
@@ -317,3 +319,123 @@ function faqs_custom_post_type()
     )
   );
 }
+
+
+function enqueue_custom_scripts()
+{
+  wp_enqueue_script('jquery');
+  wp_enqueue_script('custom-ajax', get_template_directory_uri() . '/resources/assets/scripts/parts/filter.js', ['jquery'], '1.0', true);
+
+  wp_localize_script('custom-ajax', 'ajax_params', [
+    'ajax_url' => admin_url('admin-ajax.php')
+  ]);
+}
+
+
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+function load_teams()
+{
+  $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+  $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 3;
+
+  $args = [
+    'post_type' => 'teams',
+    'posts_per_page' => $posts_per_page,
+    'paged' => $paged,
+    'orderby' => 'date',
+    'order' => 'DESC',
+  ];
+
+  $query = new WP_Query($args);
+  $posts = [];
+
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post();
+      $id = get_the_ID();
+
+      $posts[] = [
+        'title' => get_the_title(),
+        'thumbnail' => get_the_post_thumbnail_url($id, 'medium_large'),
+        'designation' => get_field('designation'),
+        'linkedin_link' => get_field('linkedin_link'),
+      ];
+    }
+    wp_reset_postdata();
+  }
+
+  wp_send_json_success(['posts' => $posts]);
+}
+add_action('wp_ajax_load_teams', 'load_teams');
+add_action('wp_ajax_nopriv_load_teams', 'load_teams');
+
+
+
+
+
+
+
+function load_posts()
+{
+  $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : 'all';
+  $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+  $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 3;
+
+  $args = [
+    'post_type' => 'post',
+    'posts_per_page' => $posts_per_page,
+    'paged' => $paged,
+    'orderby' => 'date',
+    'order' => 'DESC',
+  ];
+
+  if ($category !== 'all') {
+    $args['tax_query'] = [
+      [
+        'taxonomy' => 'category',
+        'field' => 'slug',
+        'terms' => $category,
+      ],
+    ];
+  }
+
+  $query = new WP_Query($args);
+  $posts = [];
+
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post();
+      $id = get_the_ID();
+      $categories = get_the_terms($id, 'category');
+      $category_data = [];
+      if (!empty($categories) && !is_wp_error($categories)) {
+        foreach ($categories as $category) {
+          $category_data[] = [
+            'name' => $category->name,
+            'slug' => $category->slug,
+          ];
+        }
+      }
+      $posts[] = [
+        'title' => get_the_title(),
+        'content' => get_the_content(),
+        'excerpt' => get_the_excerpt(),
+        'link' => get_permalink($id),
+        'thumbnail' => get_the_post_thumbnail_url($id,'medium_large'),
+        'date' => get_the_date('d F Y', $id),
+        'date' =>  $content = get_post_field('post_content', $select_post_single_id);
+                                        $word_count = str_word_count(strip_tags($content));
+                                        $read_time = ceil($word_count / 200);
+
+
+ 
+      ];
+    }
+    wp_reset_postdata();
+  }
+
+  wp_send_json_success(['posts' => $posts]);
+}
+add_action('wp_ajax_load_posts', 'load_posts');
+add_action('wp_ajax_nopriv_load_posts', 'load_posts');

@@ -294,7 +294,7 @@ $flexibleContent = get_field('flexible_content');
                                         <?php
                                         $content = get_post_field('post_content', $select_post_single_id);
                                         $word_count = str_word_count(strip_tags($content));
-                                        $read_time = ceil($word_count / 200); // 200 WPM
+                                        $read_time = ceil($word_count / 200);
                                         echo $read_time . ' min read';
                                         ?>
                                     </div>
@@ -1008,7 +1008,7 @@ $flexibleContent = get_field('flexible_content');
                     </div>
                     <div class="row">
                         <div class="col-lg-1 col-12">
-                            <img src="assets/images/quote.svg" alt="" class="quote">
+                            <img src="<?php echo get_template_directory_uri(); ?>/templates/images/quote.svg" alt="" class="quote">
                         </div>
                         <div class="col-lg-10 col-12">
                             <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-40 res-font30 res-leading44 res-space-03 pe-2 pe-lg-0 tmb-30"><?php echo $content; ?></div>
@@ -1413,8 +1413,376 @@ $flexibleContent = get_field('flexible_content');
             </section>
 
 
+        <?php elseif (get_row_layout() == 'hero_section_3') :
+            $back_link = get_sub_field('back_link');
+            $image = get_sub_field('image');
+            $heading = get_sub_field('heading');
+            $content = get_sub_field('content');
+            $links = get_sub_field('links');
+            $show_label = get_sub_field('show_label');
+        ?>
+            <section class="about-hero-section">
+                <div class="container">
+                    <div class="row align-items-center flex-column-reverse flex-lg-row">
+                        <div class="col-lg-6 col-12">
+                            <div class="d-flex align-items-center dmb-15 tmb-25">
+                                <?php if (!empty($back_link['url'])):
+                                    $target_2 = ($back_link['target'] == '_blank') ? "_blank" : ""; ?>
+                                    <a href="<?php echo $back_link['url']; ?>" target="<?php echo $target_2; ?>"
+                                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                                        <?php echo $back_link['title']; ?>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if ($show_label == "yes") : ?>
+                                    <div
+                                        class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 d-inline-flex">
+                                        <?php echo get_the_title(); ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-10 col-11 dmb-20 tmb-15 res-font25 res-leading32 res-space-0_25">
+                                <?php echo $heading; ?>
+                            </div>
+                            <div class="roboto-regular font20 leading28 space-02 text-172426 col-lg-11 pe-3 pe-lg-0 dmb-25 tmb-40 res-font16 res-leading24 res-space-0_16">
+                                <?php echo $content; ?>
+                            </div>
+                            <?php foreach ($links as $link_single) :
+                                $link_type = $link_single['link_type'];
+                                $link = $link_single['link'];
+                                $button_text = $link_single['button_text'];
+                                $button_file = $link_single['button_file'];
+                            ?>
+                                <?php if ($link_type == "link") : ?>
+                                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white px-4 text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                        href="<?php echo $link['url']; ?>">
+                                        <?php echo $link['title']; ?>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if ($link_type == "file") : ?>
+                                    <a download class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white px-4 text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                        href="<?php echo $button_file['url']; ?>">
+                                        <?php echo $button_text; ?>
+                                    </a>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="col-lg-6 col-12 right-side-content">
+                            <div class="col-lg-11 col-12 ps-lg-5 ms-auto">
+                                <div class="about-hero-img radius20 overflow-hidden tmb-35">
+                                    <img src="<?php echo $image; ?>" alt="" class="w-100 h-100 object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 
+        <?php elseif (get_row_layout() == 'available_jobs') :
+            $job_cards = get_sub_field('job_cards');
+        ?>
+
+            <section class="associate-cards-section container">
+                <?php foreach ($job_cards as $job_card) :
+                    $job_card_heading = $job_card['heading'];
+                    $job_card_locations = $job_card['locations'];
+                    $job_card_content = $job_card['content'];
+                ?>
+                    <div class="associate-card bg-prefix bg-1F6678-prefix radius30 dmb-35 tmb-20">
+                        <div class="row">
+                            <div class="col-lg-4 col-12">
+                                <div class="basker-regular font30 leading32 space-03 text-172426 dmb-10 res-font28 res-leading32 res-space-0_25"><?php echo $job_card_heading; ?>
+                                </div>
+                                <div class="basker-regular font16 leading24 space-0_16 text-172426 dmb-30 tmb-25"><?php echo $job_card_locations; ?>
+                                </div>
+                                <div>
+                                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-none d-lg-inline-flex justify-content-center align-items-center transition"
+                                        href="#enquiryModal" data-bs-toggle="modal">
+                                        Apply Now
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-12 tmb-45">
+                                <div class="content-text roboto-regular font16 leading24 space-0_16 text-172426 dmb-15">
+                                    <?php echo $job_card_content; ?>
+                                </div>
+                                <a href="javascript:void(0);"
+                                    class="toggle-read roboto-medium font16 leading24 space-0_16 text-172426">Read more</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-lg-none d-inline-flex justify-content-center align-items-center transition"
+                                href="#enquiryModal" data-bs-toggle="modal">
+                                Apply Now
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </section>
+            <!-- modal -->
+            <div class="modal enquiry-modal fade text-center" data-bs-backdrop="static" id="enquiryModal" aria-hidden="true" aria-labelledby="memberModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-white radius20 border-0">
+                        <div class="close-div position-absolute">
+                            <button type="button"
+                                class="btn-close p-0 radius10 d-flex align-items-center justify-content-center"
+                                data-bs-dismiss="modal" aria-label="Close">
+                                <img src="<?php echo get_template_directory_uri(); ?>/templates/images/close.svg" alt="close-icon">
+                            </button>
+                        </div>
+                        <div class="basker-regular font30 leading32 space-03 text-172426 res-font25 res-space-0_25">Enquiry for Associate Consultant</div>
+                    </div>
+                </div>
+            </div>
+
+
+        <?php elseif (get_row_layout() == 'text_banner') :
+            $heading = get_sub_field('heading');
+            $link = get_sub_field('link');
+        ?>
+            <section class="left-content-section">
+                <div class="container">
+                    <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-10 dmb-20 tmb-30 res-font30 res-leading32 res-space-03">
+                        <?php echo $heading; ?>
+                    </div>
+                    <a class="get-touch-btn btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                        href="<?php echo $link['url']; ?>">
+                        <?php echo $link['title']; ?>
+                    </a>
+                </div>
+            </section>
+
+        <?php elseif (get_row_layout() == 'text_hero_banner') :
+            $heading = get_sub_field('heading');
+            $descriptions = get_sub_field('descriptions');
+        ?>
+            <section class="clients-content-section container">
+                <div
+                    class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20 tmb-25">
+                    <?php echo get_the_title(); ?>
+                </div>
+                <div class="basker-regular font76 leading80 space-0_76 text-172426 dmb-20 tmb-15 col-lg-8 res-font35 res-leading44 res-space-0_35">
+                    <?php echo $heading; ?>
+                </div>
+                <div class="roboto-regular font20 leading28 space-02 text-172426 col-lg-7 res-font16 res-leading24 res-space-0_16">
+                    <?php echo $descriptions; ?>
+                </div>
+            </section>
+
+        <?php elseif (get_row_layout() == 'our_services') :
+            $cards = get_sub_field('cards');
+        ?>
+            <section class="client-left-right-cards-section container">
+                <?php foreach ($cards as $card_single) :
+                    $card_single_image = $card_single['image'];
+                    $card_single_heading = $card_single['heading'];
+                    $card_single_content = $card_single['content'];
+                    $card_single_link = $card_single['link'];
+                ?>
+                    <div class="row align-items-center dmb-60 tmb-55 client-left-right-card">
+                        <div class="col-lg-8 col-12 pe-lg-5">
+                            <div class="pe-lg-2">
+                                <div class="client-img radius20 overflow-hidden">
+                                    <img src="<?php echo $card_single_image; ?>" alt="" class="w-100 h-100 object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <div class="basker-regular font50 leading56 space-05 text-172426 dmb-15 res-font28 tmb-10"><?php echo $card_single_heading; ?></div>
+                            <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-25 pe-4"><?php echo $card_single_content; ?></div>
+                            <a class="learn-more-btn btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none
+                         d-inline-flex justify-content-center align-items-center transition" href="<?php echo $card_single_link['url']; ?>">
+                                <?php echo $card_single_link['title']; ?>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </section>
+
+
+        <?php elseif (get_row_layout() == 'center_hero_section') :
+            $back_link = get_sub_field('back_link');
+            $image = get_sub_field('image');
+            $heading = get_sub_field('heading');
+            $descriptions = get_sub_field('descriptions');
+
+        ?>
+            <section class="client-service-hero-section container">
+                <div class="d-flex align-items-center justify-content-center dmb-15 tmb-25">
+                    <a href="<?php echo $back_link['url']; ?>"
+                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                        <?php echo $back_link['title']; ?>
+                    </a>
+                    <div
+                        class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 d-inline-flex">
+                        <?php echo get_the_title(); ?>
+                    </div>
+                </div>
+                <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-9 px-3 px-lg-0  mx-auto text-center res-font35 res-leading44 res-space-0_35">
+                    <?php echo $heading; ?>
+                </div>
+                <div class="col-lg-7 px-lg-5 mx-auto text-center dpt-15">
+                    <div class="roboto-regular  font20 leading28 space-02 text-172426 res-font16 res-leading24 res">Become our event sponsor and unlock the opportunity to position your company at the forefront of industry recognition.</div>
+                </div>
+                <?php if (!empty($image)): ?>
+                    <div class="client-service-img radius20 overflow-hidden dmt-60">
+                        <img src="<?php echo $image; ?>" alt="" class="w-100 h-100 object-cover">
+                    </div>
+                <?php endif; ?>
+            </section>
+
+        <?php elseif (get_row_layout() == 'all_team_member') : ?>
+
+            <section class="meet-the-team-section">
+                <div class="container">
+                    <div class="row row8 dmb-80" id="teamsContainer">
+
+                    </div>
+
+                    <script id="team-template" type="text/x-handlebars-template">
+                        {{#each posts}}
+                            <div class="col-lg-3 col-md-4 col-6 dmt-110 tem-card-col tmt-30">
+                                <div data-bs-target="#memberModal" data-bs-toggle="modal" class="team-card cursor-pointer w-100">
+                                    <div class="team-img overflow-hidden radius20 bg-1f66780d transition dmb-30 tmb-20 position-relative">
+                                        <img src="{{thumbnail}}" alt="team" class="h-100 w-100 object-cover">
+                                        <div class="position-absolute team-linkdin">
+                                            <a href="{{linkedin_link}}" class="bg-prefix bg-white-prefix radius30 overflow-hidden d-flex align-items-center justify-content-center">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/templates/images/LinkedIn_white.svg" alt="LinkedIn">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="roboto-medium font20 space-02 leading24 text-172426 mb-1">
+                                        {{title}}
+                                    </div>
+                                    <div class="roboto-regular font16 space-0_16 leading24 text-172426">
+                                        {{designation}}
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </script>
+
+                    <div class="d-flex justify-content-center mt-4">
+                        <button id="loadMore"
+                            class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white px-4 text-decoration-none  justify-content-center align-items-center transition">
+                            Load more +
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+
+        <?php elseif (get_row_layout() == 'all_news') :
+
+
+            $args = array(
+                'taxonomy' => 'category',
+                'orderby' => 'name',
+                'order' => 'ASC',
+                'hide_empty' => 1,
+            );
+            $cats = get_categories($args);
+            $master = new WP_Query([
+                'post_type' => 'post',
+                'posts_per_page' => -1,
+                'orderby' => 'date',
+                'order' => 'DESC',
+            ]);
+
+
+        ?>
+            <section class="insights-cards-section">
+                <div class="container">
+                    <div class="col-lg-6 col-12 mx-auto dmb-55 tmb-65 text-center">
+                        <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20 tmb-25">
+                            Clients
+                        </div>
+                        <div class="basker-regular font66 space-0_66 leading70 text-172426 text-center dmb-20 res-font35 res-leading44 res-space-0_35">
+                            Latest Insights
+                        </div>
+                        <div class="filter-button-row activity-category d-lg-flex align-items-center justify-content-center text-nowrap overflow-auto">
+                            <button data-category="all"
+                                class="fcategory-btn activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
+                                View all
+                            </button>
+                            <?php foreach ($cats as $cat): ?>
+                                <button data-category="<?php echo $cat->slug; ?>" class="fcategory-btn activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 radius5 border-0">
+                                    <?php echo $cat->name; ?>
+                                </button>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <!-- <div class="latest-post-card dmb-60">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 col-12">
+                                <div class="pe-lg-5">
+                                    <div class="latest-post-img radius30 res-radius20 overflow-hidden tmb-30"><img src="assets/images/about-hero-img.png" class="w-100 h-100 object-cover" alt=""></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <div class="d-flex dmb-30 tmb-25">
+                                    <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 me-1 d-inline-block">
+                                        Insights</div>
+                                    <div
+                                        class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 me-1 d-inline-block">
+                                        9 min read
+                                    </div>
+                                    <div
+                                        class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 me-1 d-inline-block">
+                                        3rd Apr, 2025
+                                    </div>
+                                </div>
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-40 tmb-30 res-font30 res-leading32 res-space-03">8×8 Analyst Summit 2025: Transforming in more ways than one</div>
+                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                    href="">
+                                    Member login
+                                </a>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row row10 dmb-60" id="postsContainer">
+                    </div>
+
+
+                    <script id="post-template" type="text/x-handlebars-template">
+                        {{#each posts}}
+                            <div class="col-lg-4 col-md-6 col-12 insights-col dmt-95 tmt-60 tmt-">
+                                <a href="{{link}}" class="insights-card d-inline-flex flex-column justify-content-between text-decoration-none card-hover overflow-hidden w-100 h-100">
+                                    <div>
+                                        <div class="insights-card-img radius15 position-relative dmb-20 overflow-hidden">
+                                            <img src="{{thumbnail}}" class="w-100 h-100 object-cover img" alt="">
+                                            <div class="bg-1F6678-blur-prefix roboto-medium font14 leading19 space-0_14 text-white position-absolute top-0 end-0 radius5 m-3 bg-prefix">Tag One</div>
+                                        </div>
+                                        <div class="roboto-medium font22 leading28 space-0_22 text-172426 dmb-25 col-lg-10 res-font18 res-leading26 res-space-0_18">{{title}}</div>
+                                    </div>
+                                    <div class="d-flex flex-wrap">
+                                        <div
+                                            class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 d-inline-block me-2">
+                                            9 min read
+                                        </div>
+                                        <div
+                                            class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 d-inline-block me-2">
+                                            {{date}}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {{/each}}
+                    </script>
+
+
+
+
+
+                    <div class="d-flex justify-content-center">
+                        <button id="loadMorePost" class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white px-4 text-decoration-none justify-content-center align-items-center transition">
+                            Load more +
+                        </button>
+                    </div>
+
+                </div>
+            </section>
 
         <?php elseif (get_row_layout() == 'spacing') :
             $desktop = get_sub_field('desktop');

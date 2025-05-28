@@ -13,6 +13,8 @@ import { Privacy } from './parts/privacy.js';
 import { Header } from './parts/header';
 import { Video } from './parts/video.js';
 import { Feedback } from './parts/feedback.js';
+import { Filter } from './parts/filter.js';
+
 
 // export for others scripts to use
 window.$ = $;
@@ -55,6 +57,9 @@ $(function () {
 
   window.feedback = new Feedback();
   window.feedback.init();
+
+  window.filter = new Filter();
+  window.filter.init();
 });
 
 // ===========================================================================
