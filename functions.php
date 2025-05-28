@@ -424,9 +424,7 @@ function load_posts()
         'link' => get_permalink($id),
         'thumbnail' => get_the_post_thumbnail_url($id,'medium_large'),
         'date' => get_the_date('d F Y', $id),
-        'date' =>  $content = get_post_field('post_content', $select_post_single_id);
-                                        $word_count = str_word_count(strip_tags($content));
-                                        $read_time = ceil($word_count / 200);
+        
 
 
  
