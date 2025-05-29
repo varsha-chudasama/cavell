@@ -70,6 +70,10 @@ $flexibleContent = get_field('flexible_content');
                 </div>
             </section>
 
+            <?php echo do_shortcode('[hubspot type="form" portal="242919235" id="19f5b9d5-c05d-4bb4-8872-eb82f98de85e"]'); ?>
+            
+
+
         <?php elseif (get_row_layout() == 'link_cards') :
             $number_of_cards = get_sub_field('number_of_cards');
             $heading = get_sub_field('heading');
@@ -94,11 +98,9 @@ $flexibleContent = get_field('flexible_content');
                                     $single_card_single_heading = $single_card_single['heading'];
                                     $single_card_single_content = $single_card_single['content'];
                                     $page_link_single = $single_card_single['page_link'];
-
                                 ?>
                                     <a href="<?php echo $page_link_single; ?>"
                                         class="service-card d-inline-block text-decoration-none radius30 transition h-100">
-
                                         <div class="d-flex flex-column justify-content-between h-100">
                                             <div>
                                                 <div class="service-logo dmb-30 tmb-35 d-flex justify-content-end">
@@ -1379,7 +1381,7 @@ $flexibleContent = get_field('flexible_content');
                             <?php if ($select_sponsors_archivement == "silver") : ?>
                                 <div class="event-col dpb-60 dpt-50">
                                     <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-35 res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
-                                    <div class="d-flex justify-content-center overflow-auto">
+                                    <div class="d-flex justify-content-lg-center overflow-auto">
                                         <?php foreach ($gallery as $single_image) : ?>
                                             <div
                                                 class="event-logo radius10 border-C6C6C6 d-inline-flex align-items-center justify-content-center mx-2">
@@ -1392,7 +1394,7 @@ $flexibleContent = get_field('flexible_content');
                             <?php if ($select_sponsors_archivement == "bronze") : ?>
                                 <div class="event-col dpb-60 dpt-50">
                                     <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-35 res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
-                                    <div class="d-flex justify-content-center overflow-auto">
+                                    <div class="d-flex justify-content-lg-center overflow-auto">
                                         <?php foreach ($gallery as $single_image) : ?>
                                             <div
                                                 class="event-logo radius10 border-8E5410 d-inline-flex align-items-center justify-content-center mx-2">
@@ -1488,7 +1490,7 @@ $flexibleContent = get_field('flexible_content');
                                 <?php if (!empty($back_link['url'])):
                                     $target_2 = ($back_link['target'] == '_blank') ? "_blank" : ""; ?>
                                     <a href="<?php echo $back_link['url']; ?>" target="<?php echo $target_2; ?>"
-                                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2 text-decoration-none">
                                         <?php echo $back_link['title']; ?>
                                     </a>
                                 <?php endif; ?>
@@ -1669,7 +1671,7 @@ $flexibleContent = get_field('flexible_content');
             <section class="client-service-hero-section container">
                 <div class="d-flex align-items-center justify-content-center dmb-15 tmb-25">
                     <a href="<?php echo $back_link['url']; ?>"
-                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2 text-decoration-none">
                         <?php echo $back_link['title']; ?>
                     </a>
                     <div
@@ -1762,11 +1764,11 @@ $flexibleContent = get_field('flexible_content');
                         </div>
                         <div class="filter-button-row activity-category d-lg-flex align-items-center justify-content-center text-nowrap overflow-auto">
                             <button data-category="all"
-                                class="fcategory-btn activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
+                                class="fcategory-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
                                 View all
                             </button>
                             <?php foreach ($cats as $cat): ?>
-                                <button data-category="<?php echo $cat->slug; ?>" class="fcategory-btn activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 radius5 border-0">
+                                <button data-category="<?php echo $cat->slug; ?>" class="fcategory-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 radius5 border-0">
                                     <?php echo $cat->name; ?>
                                 </button>
                             <?php endforeach; ?>

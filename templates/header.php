@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <ul
-                        class="main-menus h-100 list-none ps-0 mb-0 d-lg-flex d-none flex-column flex-lg-row tpb-80 tmt-75">
+                        class="main-menus h-100 list-none ps-0 mb-0 d-lg-flex d-none align-items-lg-center flex-column flex-lg-row tpb-80 tmt-75">
 
                         <?php foreach ($menu_links as $menu_link_single) :
                             $link_type = $menu_link_single['link_type'];
@@ -51,8 +51,6 @@
                             $banner_image = $sub_menu_content['banner_image'];
                             $banner_heading = $sub_menu_content['banner_heading'];
                             $banner_link = $sub_menu_content['banner_link'];
-
-
                         ?>
 
                             <?php if ($link_type == "sub_link") : ?>
@@ -119,8 +117,8 @@
                                 </div>
                             <?php endif; ?>
                             <?php if ($link_type == "single_link") : ?>
-                                <div class="menu-wrapper mx-2 dmt-35 tmt-0 dpb-35">
-                                    <li class="main-menu px-xl-2 d-flex align-items-center">
+                                <div class="mx-2 dmt-35 tmt-0 dpb-35">
+                                    <li class="px-xl-2 d-flex align-items-center">
                                         <a href="  <?php echo $single_link['url']; ?>"
                                             class="text-decoration-none roboto-medium font16 leading21 space-0_16 res-font20 text-172426 text-capitalize">
                                             <?php echo $single_link['title']; ?>

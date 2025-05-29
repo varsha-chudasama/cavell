@@ -57,17 +57,17 @@ $select_faqs = $events_faqs['select_faqs'];
             <div
                 class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
                 <div class="text-center col-10 col-lg-12">
-                    <div class="d-flex justify-content-center align-items-center dmb-15 TMB-25">
+                    <div class="d-flex justify-content-center align-items-center dmb-15 tmb-25 flex-wrap">
                         <div
-                            class="bg-prefix bg-00DCC8 roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                            class="bg-prefix bg-00DCC8 roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                             Event
                         </div>
                         <div
-                            class="bg-prefix bg-white roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                            class="bg-prefix bg-white roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                             <?php echo $event_city; ?>, <?php echo $event_country; ?>
                         </div>
                         <div
-                            class="bg-prefix bg-white roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 d-inline-flex">
+                            class="bg-prefix bg-white roboto-medium font14 leading18 space-0_14 text-172426 tmb-10 radius5 py-2 px-4 d-inline-flex">
                             <?php echo esc_html($formatted_date); ?>
                         </div>
                     </div>
@@ -111,17 +111,17 @@ $select_faqs = $events_faqs['select_faqs'];
                 <div
                     class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
                     <div class="text-center">
-                        <div class="d-flex justify-content-center align-items-center dmb-15 tmb-25">
+                        <div class="d-flex justify-content-center align-items-center dmb-15 tmb-25 flex-wrap">
                             <div
-                                class="bg-prefix bg-00DCC8 roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                                class="bg-prefix bg-00DCC8 roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                                 Event
                             </div>
                             <div
-                                class="bg-prefix bg-white roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                                class="bg-prefix bg-white roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                                 <?php echo $event_location; ?>, <?php echo $event_city; ?>
                             </div>
                             <div
-                                class="bg-prefix bg-white roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 d-inline-flex">
+                                class="bg-prefix bg-white roboto-medium font14 leading18 space-0_14 text-172426 tmb-10 radius5 py-2 px-4 d-inline-flex">
                                 <?php echo esc_html($formatted_date); ?>
                             </div>
                         </div>
