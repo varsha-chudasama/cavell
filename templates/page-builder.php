@@ -69,11 +69,7 @@ $flexibleContent = get_field('flexible_content');
                     </div>
                 </div>
             </section>
-
-            <?php echo do_shortcode('[hubspot type="form" portal="242919235" id="19f5b9d5-c05d-4bb4-8872-eb82f98de85e"]'); ?>
             
-
-
         <?php elseif (get_row_layout() == 'link_cards') :
             $number_of_cards = get_sub_field('number_of_cards');
             $heading = get_sub_field('heading');
@@ -1779,7 +1775,7 @@ $flexibleContent = get_field('flexible_content');
                         </div>
                         <div class="filter-button-row activity-category d-lg-flex align-items-center justify-content-center text-nowrap overflow-auto">
                             <button data-category="all"
-                                class="fcategory-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
+                                class="category-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
                                 View all
                             </button>
                             <?php foreach ($cats as $cat): ?>
