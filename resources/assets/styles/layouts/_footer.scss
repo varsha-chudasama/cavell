@@ -1,20 +1,27 @@
 .footer {
+  .footer-logo{
+    height: 33px;
+  }
   .social-media {
     li {
-      width: 46px;
-      height: 46px;
-      background-color: rgba($color: $color-1F6678, $alpha: 0.05);
-      border-radius: 50px;
-      img {
-        height: 14px;
+      a{
+        width: 46px;
+        height: 46px;
+        background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+        border-radius: 50px;
+        img {
+          height: 14px;
+        }
       }
     }
   }
   .footer-form {
     height: 375px;
     background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+    @include media-breakpoint-down(lg){
+      height: 504px;
+    }
   }
-
   .social-media,
   .footer-menu {
     li {

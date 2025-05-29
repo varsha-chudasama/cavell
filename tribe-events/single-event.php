@@ -22,11 +22,15 @@ $events_youtube = $events_video_group['events_youtube'];
 $events_vimeo = $events_video_group['events_vimeo'];
 $venue_id = tribe_get_venue_id($event_id);
 $events_location_content = get_field('events_location_content', $venue_id);
+$event_location_prefix_id = get_field('event_location_prefix_id', $venue_id);
 
 $events_faqs = get_field('events_faqs');
 $faq_heading = $events_faqs['heading'];
 $faq_sub_heading = $events_faqs['sub_heading'];
 $select_faqs = $events_faqs['select_faqs'];
+$faqs_prefix_id = $events_faqs['faqs_prefix_id'];
+
+$events_sticky_bar = get_field('events_sticky_bar');
 
 ?>
 
@@ -58,10 +62,10 @@ $select_faqs = $events_faqs['select_faqs'];
                 class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
                 <div class="text-center col-10 col-lg-12">
                     <div class="d-flex justify-content-center align-items-center dmb-15 tmb-25 flex-wrap">
-                        <div
+                        <a href="/cavell-events/"
                             class="bg-prefix bg-00DCC8 roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                             Event
-                        </div>
+                        </a>
                         <div
                             class="bg-prefix bg-white roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                             <?php echo $event_city; ?>, <?php echo $event_country; ?>
@@ -112,10 +116,10 @@ $select_faqs = $events_faqs['select_faqs'];
                     class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
                     <div class="text-center">
                         <div class="d-flex justify-content-center align-items-center dmb-15 tmb-25 flex-wrap">
-                            <div
+                            <a href="/cavell-events/"
                                 class="bg-prefix bg-00DCC8 roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                                 Event
-                            </div>
+                            </a>
                             <div
                                 class="bg-prefix bg-white roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                                 <?php echo $event_location; ?>, <?php echo $event_city; ?>
@@ -199,7 +203,7 @@ $select_faqs = $events_faqs['select_faqs'];
 
 
 <div class="dpt-160"></div>
-<section class="location-section">
+<section class="location-section" id="<?php echo $event_location_prefix_id; ?>">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-12 ">
@@ -241,7 +245,7 @@ $select_faqs = $events_faqs['select_faqs'];
 
 
 <div class="dpt-110"></div>
-<section class="faq-accordion-section">
+<section class="faq-accordion-section" id="<?php echo $faqs_prefix_id; ?>">
     <div class="container">
         <div class="col-lg-4 col-11 dmb-20">
             <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 text-uppercase tmb-25 dmb-15">
@@ -284,3 +288,32 @@ $select_faqs = $events_faqs['select_faqs'];
         </div>
     </div>
 </section>
+
+<?php if (!empty($events_sticky_bar)): ?>
+<div class="bg-white position-sticky bottom-0 z-3 w-100">
+    <div class="container">
+        <div class="filter-button-row d-flex align-items-center justify-content-lg-between dpt-15 dpb-15 overflow-auto text-nowrap">
+            <div class="me-4 me-lg-0">
+                <a href="#"
+                    class="event-filter-button filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
+                    View all
+                </a>
+                <?php foreach ($events_sticky_bar as $events_sticky_link) :
+                    $events_sticky_link_single = $events_sticky_link['link'];
+                    ?>
+                    <a href="<?php echo $events_sticky_link_single['url'] ?>"
+                        class="event-filter-button filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 ">
+                      <?php echo $events_sticky_link_single['title'] ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+            <div>
+                <a class="book-tickets-btn bg-172426 roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                    href="#ticket">
+                    Book tickets
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+       <?php endif; ?>

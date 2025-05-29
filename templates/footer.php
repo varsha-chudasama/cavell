@@ -11,7 +11,13 @@ $content = get_field('content', 'option');
 $button = get_field('button', 'option');
 $social_media = get_field('social_media', 'option');
 $menu_column = get_field('menu_column', 'option');
-
+$menu_column_links = $menu_column['links'];
+$sub_footer_links = get_field('sub_footer_links', 'option');
+$sub_footer_links_repeater = $sub_footer_links['links'];
+$copy_rights_content = get_field('copy_rights_content', 'option');
+$website_develop_by = get_field('website_develop_by', 'option');
+$copy_rights_content = get_field('copy_rights_content', 'option');
+$website_develop_by_link = get_field('website_develop_by_link', 'option');
 ?>
 
 <?php if ($footer_banner == "global") : ?>
@@ -78,106 +84,113 @@ $menu_column = get_field('menu_column', 'option');
     </section>
 <?php endif; ?>
 
-<!-- <footer class="footer tmt-80 tmb-40 dmt-75 dmb-20">
+<footer class="footer tmt-80 tmb-40 dmt-75 dmb-20">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 d-flex flex-wrap">
-                <div class="col-7 col-lg-4 d-flex flex-column justify-content-between tmb-50">
-                    <div class="col-10  col-lg-9">
-                        <div class="footer-logo tmb-15 dmb-25">
-                            <img src="<?php echo $logo; ?>" alt="">
+            <div class="col-lg-7 col-12">
+                <div class="d-flex flex-column flex-lg-row">
+                    <div class="col-lg-5 col-10 tmb-50">
+                        <div class="col-7">
+                            <div class="footer-logo tmb-15 dmb-25">
+                                <img src="<?php echo $logo; ?>" class="h-100" alt="">
+                            </div>
+                            <div class="roboto-regular font16 leading24 space-0_16 text-172426">
+                                <?php echo $content; ?>
+                            </div>
                         </div>
-                        <div class="roboto-regular font16 leading24 space-0_16 text-172426 tmb-35">
-                            <?php echo $content; ?>
-                        </div>
-                    </div>
-                    <div class="d-inline-flex">
-                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition dmt-120 tmt-35 d-lg-none"
                             href="<?php echo $button['url']; ?>">
-                            <?php echo $button['url']; ?>
+                            <?php echo $button['title']; ?>
                         </a>
                     </div>
-                </div>
-                <div class="col-6 col-lg-4 ps-lg-5 d-flex flex-column justify-content-between">
-                    <ul class="list-none ps-0 mb-0">
-                        <li class="dmb-20">
-                            <a href=""
-                                class="text-decoration-none roboto-regular font16 leading21 space-0_16 text-172426">Company</a>
-                        </li>
-                        <li class="dmb-20">
-                            <a href=""
-                                class="text-decoration-none roboto-regular font16 leading21 space-0_16 text-172426">About</a>
-                        </li>
-                        <li class="dmb-20">
-                            <a href=""
-                                class="text-decoration-none roboto-regular font16 leading21 space-0_16 text-172426">Careers</a>
-                        </li>
-                        <li class="dmb-20">
-                            <a href=""
-                                class="text-decoration-none roboto-regular font16 leading21 space-0_16 text-172426">Contact</a>
-                        </li>
-                        <li class="dmb-20">
-                            <a href=""
-                                class="text-decoration-none roboto-regular font16 leading21 space-0_16 text-172426">Insights</a>
-                        </li>
-                    </ul>
-                   
-                </div>
+                    <div class="col-lg-7 col-12 tmb-20">
+                        <ul class="list-none ps-0 mb-0 d-flex flex-wrap">
+                            <?php foreach ($menu_column_links as $menu_column_link) :
+                                $menu_column_link_single = $menu_column_link['link'];
+                            ?>
+                                <li class="dmb-20 col-6">
+                                    <a href="<?php echo $menu_column_link_single['url'] ?>"
+                                        class="text-decoration-none roboto-regular font16 leading21 space-0_16 text-172426 res-font14 res-space-0_14"><?php echo $menu_column_link_single['title'] ?></a>
+                                </li>
+                            <?php endforeach; ?>
 
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex flex-column flex-lg-row">
+                    <div class="col-lg-5">
+                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-lg-inline-flex justify-content-center align-items-center transition dmt-120 d-none"
+                            href="">
+                            Member login
+                        </a>
+                    </div>
+                    <div class="col-lg-7">
+                        <ul class="social-media list-none ps-0 tmb-55 dmb-35 d-flex align-items-center dmt-90 tmt-0">
+                            <?php foreach ($social_media as $social_media_single) :
+                                $social_media_single_icon = $social_media_single['icon'];
+                                $social_media_single_url = $social_media_single['url'];
+                            ?>
+                                <li class="mx-2">
+                                    <a href="<?php echo $social_media_single_url; ?>" target="_blank" class="d-flex align-items-center justify-content-center">
+                                        <img src="<?php echo $social_media_single_icon; ?>" alt="">
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-5 ps-lg-5 tmb-40">
-                <div class="footer-form radius20">
-                    <div>Subscribe to our newsletter for the latest updates.</div>
+            <div class="col-lg-5 col-12">
+                <div class="col-lg-11 col-12 ms-auto tmb-40">
+                    <div class="footer-form radius20">
+                        <div>Subscribe to our newsletter for the latest updates.</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 d-lg-none d-flex justify-content-center">
-            <ul class="footer-menu list-none ps-0 mb-0 d-flex">
-                <li class="mx-2">
-                    <a href=""
-                        class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Terms</a>
-                </li>
-                <li class="mx-2">
-                    <a href=""
-                        class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Policies</a>
-                </li>
-                <li class="mx-2">
-                    <a href=""
-                        class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Legal</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="footer-menu list-none ps-0 mb-0 d-flex justify-content-center d-lg-none">
+            <li class="mx-2">
+                <a href=""
+                    class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Terms</a>
+            </li>
+            <li class="mx-2">
+                <a href=""
+                    class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Policies</a>
+            </li>
+            <li class="mx-2">
+                <a href=""
+                    class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Legal</a>
+            </li>
+        </ul>
         <div class="dmt-30 tmt-20 tmb-20 border-bottom dmb-30"></div>
         <div class="row">
             <div class="col-lg-7 d-flex justify-content-center justify-content-lg-start">
                 <div class="col-lg-4 tmb-30">
                     <div class="roboto-regular font14 leading21 space-0_14 text-172426 ">
-                        © 2025 Cavell. All rights reserved.
+                        <?php echo $copy_rights_content; ?>
                     </div>
                 </div>
                 <div class="col-lg-4 ps-5 d-lg-flex d-none">
                     <ul class="footer-menu list-none ps-0 mb-0 d-flex">
-                        <li class="mx-2">
-                            <a href=""
-                                class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Terms</a>
-                        </li>
-                        <li class="mx-2">
-                            <a href=""
-                                class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Policies</a>
-                        </li>
-                        <li class="mx-2">
-                            <a href=""
-                                class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426">Legal</a>
-                        </li>
+                        <?php foreach ($sub_footer_links_repeater as $sub_footer_links_repeater_opem) :
+                            $sub_footer_links_repeater_opem_links = $sub_footer_links_repeater_opem['link'];
+                        ?>
+                            <li class="mx-2">
+                                <a href="<?php echo $sub_footer_links_repeater_opem_links['url']; ?>"
+                                    class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426"><?php echo $sub_footer_links_repeater_opem_links['title']; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-5 ps-lg-5">
-                <a href=""
+                <a href="<?php echo $website_develop_by_link; ?>" target="_blank"
                     class="text-decoration-none roboto-regular font14 leading21 space-0_14 text-172426 d-flex justify-content-center justify-content-lg-end">
-                    Website By The Curious
+                    <?php echo $website_develop_by; ?>
                 </a>
             </div>
         </div>
     </div>
-</footer> -->
+</footer>
