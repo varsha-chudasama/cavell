@@ -149,22 +149,26 @@
 }
 
 .video-content {
-    height: 545px;
+    height: 620px;
 
     @include media-breakpoint-down(lg) {
         height: 368px;
     }
 
-    .bg-white {
-        opacity: 0.7;
-        width: 81px;
-        height: 81px;
+    .play-button {
+        height: 49px;
+        width: 137px;
         border-radius: 5px;
+        background-color:rgba($color: $color-172426, $alpha: 0.1);
+        backdrop-filter: blur(30px);
+        img{
+            height: 15px;
+        }
     }
 
-    .play-btn {
-        width: 20px;
-    }
+    // .play-btn {
+    //     width: 20px;
+    // }
 }
 
 

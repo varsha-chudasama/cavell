@@ -2,7 +2,7 @@
 
     .left-content {
         top: 180px;
-        height: calc(100vh - 200px);
+        height: calc(100vh - 350px);
 
         @include media-breakpoint-down(lg) {
             height: fit-content;
@@ -10,6 +10,7 @@
 
         .left-content-img {
             height: 72px;
+            width: 72px;
         }
 
         ul {
@@ -55,6 +56,11 @@
         }
     }
 }
+
+    .left-content-img {
+            height: 72px;
+            width: 72px;
+        }
 
 
 .insights-cards-section {
