@@ -5,9 +5,9 @@
 @import "../../node_modules/slick-carousel/slick/slick-theme.css";
 //fancy box
 
-// @import "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css";
-// @import "../../node_modules/fancybox/dist/css/jquery.fancybox.css";
-// @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css";
+@import "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css";
+@import "../../node_modules/fancybox/dist/css/jquery.fancybox.css";
+@import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css";
 // Select2
 @import "../../node_modules/select2/dist/css/select2.min.css";
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
@@ -26,7 +26,6 @@ $grid-breakpoints: (
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/grid";
 @import "../../node_modules/bootstrap/scss/utilities";
-@import "../../node_modules/slick-carousel/slick/slick.scss";
 //fancybox
 // @import "@fancyapps/ui/dist/fancybox.css";
 // endbower

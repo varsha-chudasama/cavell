@@ -54,7 +54,7 @@ export class Filter {
 
     $(document).ready(function () {
             let currentPage = 1;
-            const postsPerPage = 6;
+            const postsPerPage = 9;
 
             function loadPosts(category, page) {
                 $.ajax({

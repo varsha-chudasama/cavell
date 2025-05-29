@@ -409,6 +409,17 @@ function load_posts()
       $id = get_the_ID();
       $categories = get_the_terms($id, 'category');
       $category_data = [];
+
+     $news_content = get_field('news_content', $id);
+      $total_word_count = 0;
+      foreach ($news_content as $content_single) {
+        $content = $content_single['post_content'];
+        $total_word_count += str_word_count(strip_tags($content));
+      }
+
+      $total_read_time = ceil($total_word_count / 200);
+
+
       if (!empty($categories) && !is_wp_error($categories)) {
         foreach ($categories as $category) {
           $category_data[] = [
@@ -422,12 +433,13 @@ function load_posts()
         'content' => get_the_content(),
         'excerpt' => get_the_excerpt(),
         'link' => get_permalink($id),
-        'thumbnail' => get_the_post_thumbnail_url($id,'medium_large'),
+        'thumbnail' => get_the_post_thumbnail_url($id, 'medium_large'),
         'date' => get_the_date('d F Y', $id),
-        
+        'read_time' => $total_read_time . ' min read',
+        'categories' => $category_data,
 
 
- 
+
       ];
     }
     wp_reset_postdata();
