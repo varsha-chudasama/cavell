@@ -271,6 +271,7 @@ $flexibleContent = get_field('flexible_content');
                             $select_post_single_id = $select_post_single->ID;
                             $select_post_single_title = $select_post_single->post_title;
                             $select_post_single_category = $select_post_single->post_title;
+                                       $news_content = get_field('news_content', $select_post_single_id);
                         ?>
                             <a href="<?php echo get_permalink($select_post_single_id); ?>" class="insights-card d-inline-flex flex-column justify-content-between text-decoration-none card-hover overflow-hidden w-100 h-100">
                                 <div>
@@ -292,10 +293,15 @@ $flexibleContent = get_field('flexible_content');
                                     <div
                                         class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 d-inline-block me-2">
                                         <?php
-                                        $content = get_post_field('post_content', $select_post_single_id);
-                                        $word_count = str_word_count(strip_tags($content));
-                                        $read_time = ceil($word_count / 200);
-                                        echo $read_time . ' min read';
+
+                                        $total_word_count = 0;
+                                        foreach ($news_content as $content_single) {
+                                            $content = $content_single['post_content'];
+                                            $total_word_count += str_word_count(strip_tags($content));
+                                        }
+
+                                        $total_read_time = ceil($total_word_count / 200);
+                                        echo $total_read_time . ' min read';
                                         ?>
                                     </div>
                                     <div
@@ -367,44 +373,44 @@ $flexibleContent = get_field('flexible_content');
                                     <div class="bg-black-layer position-absolute bottom-0 w-100"></div>
                                     <div class="position-absolute bottom-0 w-100 start-0">
                                         <div class="d-flex justify-content-between align-items-lg-end flex-column flex-lg-row w-100 ps-lg-5 pe-lg-4 px-3 dmb-30 tmb-20">
-                                                <div class="col-lg-5">
-                                                    <div class="basker-regular font49 leading56 space-0_49 text-white res-font30 res-leading44 res-space-03"><?php echo $event_title; ?></div>
-                                                    <div class="roboto-medium font18 leading26 space-0_18 text-white opacity-50 dmb-10 res-font16 res-leading24 res-space-0_16"><?php echo $venue_address; ?>, <?php echo $venue_city; ?></div>
-                                                    <div class="d-lg-flex d-none flex-wrap">
-                                                            <div>
-                                                                <?php if (!empty($event_button['url']) && !empty($event_button['title'])) : ?>
-                                                                    <a href="<?php echo $event_button['url']; ?>"
-                                                                        class="bg-prefix bg-dark-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-block me-2">
-                                                                        <?php echo $event_button['title']; ?>
-                                                                    </a>
-                                                                <?php endif; ?>
-                                                            </div>
-                                                            <div class="bg-prefix bg-00DCC8-blur-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block me-2">
-                                                                <?php echo $formatted_date; ?>
-                                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="basker-regular font49 leading56 space-0_49 text-white res-font30 res-leading44 res-space-03"><?php echo $event_title; ?></div>
+                                                <div class="roboto-medium font18 leading26 space-0_18 text-white opacity-50 dmb-10 res-font16 res-leading24 res-space-0_16"><?php echo $venue_address; ?>, <?php echo $venue_city; ?></div>
+                                                <div class="d-lg-flex d-none flex-wrap">
+                                                    <div>
+                                                        <?php if (!empty($event_button['url']) && !empty($event_button['title'])) : ?>
+                                                            <a href="<?php echo $event_button['url']; ?>"
+                                                                class="bg-prefix bg-dark-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-block me-2">
+                                                                <?php echo $event_button['title']; ?>
+                                                            </a>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                    <div class="bg-prefix bg-00DCC8-blur-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block me-2">
+                                                        <?php echo $formatted_date; ?>
                                                     </div>
                                                 </div>
-                                                    <div
-                                                    class="event-card-schedule radius10 dpt-15 dpb-15 d-flex justify-content-center align-items-center w-fit ms-lg-auto res-w-100"
-                                                    data-event-date="<?php echo esc_attr($event_date); ?>">
+                                            </div>
+                                            <div
+                                                class="event-card-schedule radius10 dpt-15 dpb-15 d-flex justify-content-center align-items-center w-fit ms-lg-auto res-w-100"
+                                                data-event-date="<?php echo esc_attr($event_date); ?>">
 
-                                                    <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
-                                                        <div class="roboto-medium font30 leading26 space-03 text-white countdown-days res-font25 res-leading32 res-space-0_25">00</div>
-                                                        <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Days</div>
-                                                    </div>
-                                                    <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
-                                                        <div class="roboto-medium font30 leading26 space-03 text-white countdown-hours res-font25 res-leading32 res-space-0_25">00</div>
-                                                        <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Hours</div>
-                                                    </div>
-                                                    <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
-                                                        <div class="roboto-medium font30 leading26 space-03 text-white countdown-minutes res-font25 res-leading32 res-space-0_25">00</div>
-                                                        <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Mins</div>
-                                                    </div>
-                                                    <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
-                                                        <div class="roboto-medium font30 leading26 space-03 text-white countdown-seconds res-font25 res-leading32 res-space-0_25">00</div>
-                                                        <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Secs</div>
-                                                    </div>
+                                                <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
+                                                    <div class="roboto-medium font30 leading26 space-03 text-white countdown-days res-font25 res-leading32 res-space-0_25">00</div>
+                                                    <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Days</div>
                                                 </div>
+                                                <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
+                                                    <div class="roboto-medium font30 leading26 space-03 text-white countdown-hours res-font25 res-leading32 res-space-0_25">00</div>
+                                                    <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Hours</div>
+                                                </div>
+                                                <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
+                                                    <div class="roboto-medium font30 leading26 space-03 text-white countdown-minutes res-font25 res-leading32 res-space-0_25">00</div>
+                                                    <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Mins</div>
+                                                </div>
+                                                <div class="event-card-time d-flex flex-column justify-content-center align-items-center px-lg-3 px-4">
+                                                    <div class="roboto-medium font30 leading26 space-03 text-white countdown-seconds res-font25 res-leading32 res-space-0_25">00</div>
+                                                    <div class="roboto-regular font12 leading26 space-0_12 text-white opacity-50">Secs</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="position-absolute top-0 w-100 start-0 px-3 mt-3">
@@ -774,7 +780,7 @@ $flexibleContent = get_field('flexible_content');
                         </div>
                     <?php endif; ?>
                     <div class="mx-auto col-lg-10 col-12">
-                       <div class="review-cards-container row row11" id="feedbackContainer">
+                        <div class="review-cards-container row row11" id="feedbackContainer">
                             <div class="col-lg-4 col-12" id="col-0"></div>
                             <div class="col-lg-4 col-12" id="col-1"></div>
                             <div class="col-lg-4 col-12" id="col-2"></div>
@@ -782,9 +788,9 @@ $flexibleContent = get_field('flexible_content');
                     </div>
                 </div>
                 <div class="bg-layer position-absolute bottom-0 w-100 d-flex justify-content-center align-items-center p-initial tmt-20">
-                        <a id="loadMoreFeedback" class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none align-content-center transition" href="#">
-                            View more
-                        </a>
+                    <a id="loadMoreFeedback" class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none align-content-center transition" href="#">
+                        View more
+                    </a>
                 </div>
 
 
@@ -1177,9 +1183,9 @@ $flexibleContent = get_field('flexible_content');
 
 
                         <?php
-                        // Query upcoming events
+
                         $events = tribe_get_events([
-                            'posts_per_page' => 6, // Adjust as needed
+                            'posts_per_page' => 6,
                             'start_date'     => current_time('Y-m-d H:i:s'),
                             'eventDisplay'   => 'list',
                         ]);
@@ -1268,55 +1274,56 @@ $flexibleContent = get_field('flexible_content');
                                     <div class="dpb-20 dpt-15 agenda-col">
                                         <div class="roboto-regular font16 leading24 space-0_16 text-172426 "><?php echo $start_time; ?> - <?php echo $end_date; ?></div>
 
-                                        <?php if(count($single_row) == 1): ?>
-                                             <?php foreach ($single_row as $single_row_full) :
-                                            $schedule_heading = $single_row_full['schedule_heading'];
-                                            $schedule_details = $single_row_full['schedule_details'];
-                                        ?>
-                                            <div class="d-flex flex-column flex-lg-row ">
-                                                <div class="col-lg-5 col-12">
-                                                     <?php if (!empty($schedule_heading)): ?>
-                                                    <div
-                                                        class="roboto-regular font16 leading24 space-0_16 text-172426 fw-bold col-lg-8 col-10">
-                                                        <?php echo $schedule_heading; ?>
+                                        <?php if (count($single_row) == 1): ?>
+                                            <?php foreach ($single_row as $single_row_full) :
+                                                $schedule_heading = $single_row_full['schedule_heading'];
+                                                $schedule_details = $single_row_full['schedule_details'];
+                                            ?>
+                                                <div class="d-flex flex-column flex-lg-row ">
+                                                    <div class="col-lg-5 col-12">
+                                                        <?php if (!empty($schedule_heading)): ?>
+                                                            <div
+                                                                class="roboto-regular font16 leading24 space-0_16 text-172426 fw-bold col-lg-8 col-10">
+                                                                <?php echo $schedule_heading; ?>
+                                                            </div>
+                                                        <?php endif; ?>
                                                     </div>
-                                                     <?php endif; ?>
+                                                    <div class="col-lg-6 col-12">
+                                                        <?php if (!empty($schedule_details)): ?>
+                                                            <div class="roboto-regular font16 leading24 space-0_16 text-172426 pe-2 pe-lg-0 tmt-25">
+                                                                <?php echo $schedule_details; ?>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-6 col-12">
-                                                    <?php if (!empty($schedule_details)): ?>
-                                                        <div class="roboto-regular font16 leading24 space-0_16 text-172426 pe-2 pe-lg-0 tmt-25">
-                                                            <?php echo $schedule_details; ?>
-                                                        </div>
-                                                <?php endif; ?>
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
+                                            <?php endforeach; ?>
                                         <?php else: ?>
-                                        <?php if (!empty($single_row)) : ?>
-                                            <div class="d-flex flex-column flex-lg-row agenda-wrapper">
-                                                <div class="col-lg-5 col-12">
-                                                <?php foreach ($single_row as $index => $single_row_full) :
-                                                    $schedule_heading = $single_row_full['schedule_heading'];
-                                                    $schedule_details = $single_row_full['schedule_details'];
-                                                    if (!empty($schedule_heading)) :
-                                                ?>
-                                                    <div
-                                                    class="roboto-regular font16 leading24 space-0_16 text-172426 fw-bold col-lg-8 col-10 d-flex opacity30 agenda-title cursor-pointer transition dmb-15<?php echo $index === 0 ? ' active' : ''; ?>">
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/templates/images/right-black-arrow.svg"
-                                                        data-desc="<?php echo wp_kses_post( strip_tags( $schedule_details ) ); ?>"
-                                                        class="agenda-arrow me-2 mt-2" alt="">
-                                                    <?php echo $schedule_heading; ?>
+                                            <?php if (!empty($single_row)) : ?>
+                                                <div class="d-flex flex-column flex-lg-row agenda-wrapper">
+                                                    <div class="col-lg-5 col-12">
+                                                        <?php foreach ($single_row as $index => $single_row_full) :
+                                                            $schedule_heading = $single_row_full['schedule_heading'];
+                                                            $schedule_details = $single_row_full['schedule_details'];
+                                                            if (!empty($schedule_heading)) :
+                                                        ?>
+                                                                <div
+                                                                    class="roboto-regular font16 leading24 space-0_16 text-172426 fw-bold col-lg-8 col-10 d-flex opacity30 agenda-title cursor-pointer transition dmb-15<?php echo $index === 0 ? ' active' : ''; ?>">
+                                                                    <img src="<?php echo get_template_directory_uri(); ?>/templates/images/right-black-arrow.svg"
+                                                                        data-desc="<?php echo wp_kses_post(strip_tags($schedule_details)); ?>"
+                                                                        class="agenda-arrow me-2 mt-2" alt="">
+                                                                    <?php echo $schedule_heading; ?>
+                                                                </div>
+                                                        <?php endif;
+                                                        endforeach; ?>
                                                     </div>
-                                                <?php endif; endforeach; ?>
-                                                </div>
 
-                                                <div class="col-lg-6 col-12">
-                                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 pe-2 pe-lg-0 tmt-25 description"></div>
+                                                    <div class="col-lg-6 col-12">
+                                                        <div class="roboto-regular font16 leading24 space-0_16 text-172426 pe-2 pe-lg-0 tmt-25 description"></div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            <?php endif; ?>
+
                                         <?php endif; ?>
-
-                                    <?php endif; ?>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
@@ -1733,7 +1740,13 @@ $flexibleContent = get_field('flexible_content');
 
 
         <?php elseif (get_row_layout() == 'all_news') :
+            $heading = get_sub_field('heading');
+            $main_post = get_sub_field('main_post');
 
+            $id = $main_post->ID;
+            $main_post_title = $main_post->post_title;
+            $main_post_date = $main_post->post_date;
+            $news_content = get_field('news_content', $id);
 
             $args = array(
                 'taxonomy' => 'category',
@@ -1750,15 +1763,17 @@ $flexibleContent = get_field('flexible_content');
             ]);
 
 
+
+
         ?>
             <section class="insights-cards-section">
                 <div class="container">
                     <div class="col-lg-6 col-12 mx-auto dmb-55 tmb-65 text-center">
                         <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20 tmb-25">
-                            Clients
+                            Insights
                         </div>
                         <div class="basker-regular font66 space-0_66 leading70 text-172426 text-center dmb-20 res-font35 res-leading44 res-space-0_35">
-                            Latest Insights
+                            <?php echo $heading; ?>
                         </div>
                         <div class="filter-button-row activity-category d-lg-flex align-items-center justify-content-center text-nowrap overflow-auto">
                             <button data-category="all"
@@ -1772,38 +1787,57 @@ $flexibleContent = get_field('flexible_content');
                             <?php endforeach; ?>
                         </div>
                     </div>
-                    <!-- <div class="latest-post-card dmb-60">
+                    <div class="latest-post-card dmb-60">
                         <div class="row align-items-center">
                             <div class="col-lg-8 col-12">
                                 <div class="pe-lg-5">
-                                    <div class="latest-post-img radius30 res-radius20 overflow-hidden tmb-30"><img src="assets/images/about-hero-img.png" class="w-100 h-100 object-cover" alt=""></div>
+                                    <div class="latest-post-img radius30 res-radius20 overflow-hidden tmb-30"><img src="<?php echo get_the_post_thumbnail_url($id, 'full'); ?>" class="w-100 h-100 object-cover" alt=""></div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-12">
                                 <div class="d-flex dmb-30 tmb-25">
-                                    <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 me-1 d-inline-block">
-                                        Insights</div>
+
+                                    <?php
+                                    $categories = get_the_category($id);
+                                    if (!empty($categories)) :
+                                    ?>
+
+                                        <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 me-1 d-inline-block">
+                                            <?php echo esc_html($categories[0]->name); ?>
+                                        </div>
+
+                                    <?php endif; ?>
                                     <div
                                         class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 me-1 d-inline-block">
-                                        9 min read
+                                        <?php
+
+                                        $total_word_count = 0;
+                                        foreach ($news_content as $content_single) {
+                                            $content = $content_single['post_content'];
+                                            $total_word_count += str_word_count(strip_tags($content));
+                                        }
+
+                                        $total_read_time = ceil($total_word_count / 200);
+                                        echo $total_read_time . ' min read';
+                                        ?>
                                     </div>
                                     <div
                                         class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 me-1 d-inline-block">
-                                        3rd Apr, 2025
+                                        <?php echo get_the_date('jS M, Y', $id); ?>
                                     </div>
                                 </div>
-                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-40 tmb-30 res-font30 res-leading32 res-space-03">8×8 Analyst Summit 2025: Transforming in more ways than one</div>
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-40 tmb-30 res-font30 res-leading32 res-space-03"><?php echo $main_post_title; ?></div>
                                 <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                    href="">
-                                    Member login
+                                    href="<?php echo get_permalink($id); ?>">
+                                    Read post
                                 </a>
                             </div>
                         </div>
-                    </div> -->
-                    <div class="row row10 dmb-60" id="postsContainer">
                     </div>
 
 
+                    <div class="row row10 dmb-60" id="postsContainer">
+                    </div>
                     <script id="post-template" type="text/x-handlebars-template">
                         {{#each posts}}
                             <div class="col-lg-4 col-md-6 col-12 insights-col dmt-95 tmt-60 tmt-">
@@ -1811,14 +1845,18 @@ $flexibleContent = get_field('flexible_content');
                                     <div>
                                         <div class="insights-card-img radius15 position-relative dmb-20 overflow-hidden">
                                             <img src="{{thumbnail}}" class="w-100 h-100 object-cover img" alt="">
-                                            <div class="bg-1F6678-blur-prefix roboto-medium font14 leading19 space-0_14 text-white position-absolute top-0 end-0 radius5 m-3 bg-prefix">Tag One</div>
+                                            <div class="dmb-15">
+                                                {{#each categories}}
+                                                    <div class="bg-1F6678-blur-prefix roboto-medium font14 leading19 space-0_14 text-white position-absolute top-0 end-0 radius5 m-3 bg-prefix">{{name}}</div>
+                                                {{/each}}
+                                            </div>
                                         </div>
                                         <div class="roboto-medium font22 leading28 space-0_22 text-172426 dmb-25 col-lg-10 res-font18 res-leading26 res-space-0_18">{{title}}</div>
                                     </div>
                                     <div class="d-flex flex-wrap">
                                         <div
                                             class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 d-inline-block me-2">
-                                            9 min read
+                                            {{{read_time}}}
                                         </div>
                                         <div
                                             class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 d-inline-block me-2">
@@ -1829,10 +1867,6 @@ $flexibleContent = get_field('flexible_content');
                             </div>
                         {{/each}}
                     </script>
-
-
-
-
 
                     <div class="d-flex justify-content-center">
                         <button id="loadMorePost" class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white px-4 text-decoration-none justify-content-center align-items-center transition">
