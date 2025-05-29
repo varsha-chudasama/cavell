@@ -70,8 +70,8 @@ $flexibleContent = get_field('flexible_content');
                 </div>
             </section>
 
-            <?php echo do_shortcode('[hubspot type="form" portal="242919235" id="19f5b9d5-c05d-4bb4-8872-eb82f98de85e"]'); ?>
-            
+
+
 
 
         <?php elseif (get_row_layout() == 'link_cards') :
@@ -273,7 +273,7 @@ $flexibleContent = get_field('flexible_content');
                             $select_post_single_id = $select_post_single->ID;
                             $select_post_single_title = $select_post_single->post_title;
                             $select_post_single_category = $select_post_single->post_title;
-                                       $news_content = get_field('news_content', $select_post_single_id);
+                            $news_content = get_field('news_content', $select_post_single_id);
                         ?>
                             <a href="<?php echo get_permalink($select_post_single_id); ?>" class="insights-card d-inline-flex flex-column justify-content-between text-decoration-none card-hover overflow-hidden w-100 h-100">
                                 <div>
@@ -1779,11 +1779,11 @@ $flexibleContent = get_field('flexible_content');
                         </div>
                         <div class="filter-button-row activity-category d-lg-flex align-items-center justify-content-center text-nowrap overflow-auto">
                             <button data-category="all"
-                                class="fcategory-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
+                                class="category-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
                                 View all
                             </button>
                             <?php foreach ($cats as $cat): ?>
-                                <button data-category="<?php echo $cat->slug; ?>" class="fcategory-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 radius5 border-0">
+                                <button data-category="<?php echo $cat->slug; ?>" class="category-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 radius5 border-0">
                                     <?php echo $cat->name; ?>
                                 </button>
                             <?php endforeach; ?>
@@ -1878,6 +1878,161 @@ $flexibleContent = get_field('flexible_content');
 
                 </div>
             </section>
+        <?php elseif (get_row_layout() == 'faqs') :
+            $faqs_display = get_sub_field('faqs_display');
+            $prefix = get_sub_field('prefix');
+            $heading = get_sub_field('heading');
+            $select_faqs = get_sub_field('select_faqs');
+        ?>
+
+            <section class="faq-accordion-section">
+                <div class="container">
+                    <div class="col-lg-4 col-11 dmb-20">
+                        <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 text-uppercase tmb-25 dmb-15">
+                            <?php echo $prefix; ?>
+                        </div>
+                        <div class="basker-regular font56 leading60 res-font35 res-leading44 res-space-0_35 text-172426">
+                            <?php echo $heading; ?>
+                        </div>
+                    </div>
+                    <?php if ($faqs_display == "all") :
+
+                        $faq_master = new WP_Query([
+                            'post_type' => 'faqs',
+                            'posts_per_page' => -1,
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                        ]);
+
+                    ?>
+                        <?php if ($faq_master->have_posts()): ?>
+                            <div class="ps-lg-1">
+                                <?php
+                                while ($faq_master->have_posts()):
+                                    $faq_master->the_post();
+                                    $id = get_the_ID();
+                                    $post_title = get_the_title();
+                                    $faq_sontent = get_field('content_faqs', $id);
+
+                                ?>
+                                    <div class="col-lg-9 closet-accordion ms-lg-auto">
+                                        <div class="accordion-item overflow-hidden">
+                                            <div
+                                                class="closet-header position-relative dpt-10 dpb-10 d-flex justify-content-between align-items-center cursor-pointer transition">
+                                                <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $post_title; ?></div>
+                                                <div
+                                                    class="arrow-bg bg-505050 rounded-circle d-flex justify-content-center align-items-center">
+                                                    <div class="accordion-arrow transition">
+                                                        <img class="w-100 object-cover" src="<?php echo get_template_directory_uri(); ?>/templates/images/black-plus.svg" alt="...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="closet-content dmb-30">
+                                                <div class="col-lg-10 col-11">
+                                                    <div class="roboto-regular font16 leading19 dmt-20">
+                                                        <?php echo $faq_sontent; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php wp_reset_postdata(); ?>
+                    <?php endif; ?>
+
+                    <?php if ($faqs_display == "selected") :
+                        $select_faqs == get_sub_field('select_faqs');
+                    ?>
+                        <div class="ps-lg-1">
+                            <div class="col-lg-9 closet-accordion ms-lg-auto">
+                                <?php foreach ($select_faqs as $select_faq_single) :
+                                    $select_faq_single_id = $select_faq_single->ID;
+                                    $select_faq_single_title = $select_faq_single->post_title;
+                                    $select_faq_single = get_field('content_faqs', $select_faq_single_id);
+                                ?>
+                                    <div class="accordion-item overflow-hidden">
+                                        <div
+                                            class="closet-header position-relative dpt-20 dpb-20 d-flex justify-content-between align-items-center cursor-pointer transition">
+                                            <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $select_faq_single_title; ?></div>
+                                            <div
+                                                class="arrow-bg bg-505050 rounded-circle d-flex justify-content-center align-items-center">
+                                                <div class="accordion-arrow transition">
+                                                    <img class="w-100 object-cover" src="<?php echo get_template_directory_uri(); ?>/templates/images/black-plus.svg" alt="...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="closet-content dmb-30">
+                                            <div class="col-lg-10 col-11">
+                                                <div class="roboto-regular font16 leading19 dmt-20">
+                                                    <?php echo $select_faq_single; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </section>
+
+
+
+        <?php elseif (get_row_layout() == 'policies') :
+            $single_policy = get_sub_field('single_policy');
+        ?>
+
+            <section class="privacy-section position-relative h-vh">
+                <div class="bg--layer position-fixed bottom-0 w-100"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 left-content">
+                            <ul class="list-none position-sticky d-inline-flex justify-content-between flex-lg-column flex-row privacy-links mb-0 ps-0"
+                                id="privacy-links">
+                                <?php foreach ($single_policy as $key => $single_policy_list) :
+                                    $heading = $single_policy_list['heading'];
+                               
+                                ?>
+                                    <li class="dmb-10 tmb-40 me-2">
+                                        <a class="roboto-medium font14 leading18 text-172426 radius5 py-2 px-2 d-inline-flex justify-content-center text-capitalize text-172426 text-decoration-none transition"
+                                            href="#policy-<?php echo $key; ?>"><?php echo $heading; ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <div class="col-lg-9 pe-lg-5">
+
+
+                            <?php foreach ($single_policy as $key => $single_policy_list) :
+                                $heading = $single_policy_list['heading'];
+                                $content_repeater = $single_policy_list['content_repeater'];
+                            ?>
+                                <div class="single-content dpt-100 tpt-65 pe-lg-5" id="policy-<?php echo $key; ?>">
+                                    <div class="basker-regular font56 leading60 res-font30 res-leading32 text-172426 text-capitalize dmb-25 tmb-15">
+                                        <?php echo $heading; ?>
+                                    </div>
+                                    <?php foreach ($content_repeater as $key => $content_repeater_single) :
+                                        $point_title = $content_repeater_single['point_title'];
+                                        $descriptions = $content_repeater_single['descriptions'];
+                                    ?>
+                                        <div class="dmb-50">
+                                            <div class="roboto-medium font16 space-0_16 leading24 text-172426 dmb-5">
+                                                <?php echo $key + 1; ?>. <?php echo $point_title; ?>
+                                            </div>
+                                            <div class="roboto-regular font16 leading24 text-172426 dmb-20">
+                                                <?php echo $descriptions; ?>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
         <?php elseif (get_row_layout() == 'spacing') :
             $desktop = get_sub_field('desktop');
