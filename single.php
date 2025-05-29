@@ -234,3 +234,81 @@
        </section>
 
        <div class="dpt-180 tpb-90"></div>
+
+       <section class="insights-slider-section overflow-hidden">
+           <div class="container">
+
+               <div class="d-flex justify-content-between flex-column flex-lg-row align-items-end dmb-50 tmb-40">
+                   <div class="basker-regular font50 leading56 space-05 text-172426 col-lg-7 col-12 res-font30 res-leading44 res-space-03">
+                       Continue reading
+                   </div>
+
+               </div>
+               <div class="insights-slider col-11 col-lg-12 pe-2 pe-lg-0 tmb-60">
+
+                   <?php
+                    $current_post_id = get_the_ID();
+                    $categories = get_the_category($current_post_id);
+
+                    if (!empty($categories)) {
+                        $category_id = $categories[0]->term_id;
+
+                        $args = array(
+                            'cat' => $category_id,
+                            'post__not_in' => array($current_post_id),
+                            'posts_per_page' => 3,
+                        );
+
+                        $related_query = new WP_Query($args);
+
+                        if ($related_query->have_posts()) :
+                            while ($related_query->have_posts()) : $related_query->the_post();
+
+
+ $id = get_the_ID();;
+      $news_content = get_field('news_content', $id);
+                                $post_categories = get_the_category();
+                                $tag_name = !empty($post_categories) ? esc_html($post_categories[0]->name) : '';
+                    ?>
+                               <a href="<?php the_permalink(); ?>" class="insights-card d-inline-flex flex-column justify-content-between text-decoration-none card-hover overflow-hidden w-100 h-100">
+                                   <div>
+                                       <div class="insights-card-img radius15 position-relative dmb-20 overflow-hidden">
+                                           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" class="w-100 h-100 object-cover img" alt="">
+                                           <?php if ($tag_name) : ?>
+                                               <div class="bg-1F6678-blur-prefix roboto-medium font14 leading19 space-0_14 text-white position-absolute top-0 end-0 radius5 m-3 bg-prefix"><?php echo $tag_name; ?></div>
+                                           <?php endif; ?>
+                                       </div>
+                                       <div class="roboto-medium font22 leading28 space-0_22 text-172426 dmb-25 col-lg-10 res-font18 res-leading26 res-space-0_18"><?php the_title(); ?></div>
+                                   </div>
+                                   <div class="d-flex flex-wrap">
+                                       <div class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 d-inline-block me-2">
+                                           <?php
+                                            $total_word_count = 0;
+                                            foreach ($news_content as $content_single) {
+                                                $content = $content_single['post_content'];
+                                                $total_word_count += str_word_count(strip_tags($content));
+                                            }
+
+                                            $total_read_time = ceil($total_word_count / 200);
+                                            echo $total_read_time . ' min read';
+                                            ?>
+                                       </div>
+                                       <div class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 d-inline-block me-2">
+                                           <?php echo get_the_date('jS M, Y'); ?>
+                                       </div>
+                                   </div>
+                               </a>
+                   <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                    }
+                    ?>
+
+
+               </div>
+
+           </div>
+       </section>
+
+       <div class="spacing dpt-185"></div>
