@@ -1918,7 +1918,7 @@ $flexibleContent = get_field('flexible_content');
                                     <div class="col-lg-9 closet-accordion ms-lg-auto">
                                         <div class="accordion-item overflow-hidden">
                                             <div
-                                                class="closet-header position-relative dpt-10 dpb-10 d-flex justify-content-between align-items-center cursor-pointer transition">
+                                                class="closet-header position-relative dpt-20 dpb-20 d-flex justify-content-between align-items-center cursor-pointer transition">
                                                 <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $post_title; ?></div>
                                                 <div
                                                     class="arrow-bg bg-505050 rounded-circle d-flex justify-content-center align-items-center">
@@ -1929,7 +1929,7 @@ $flexibleContent = get_field('flexible_content');
                                             </div>
                                             <div class="closet-content dmb-30">
                                                 <div class="col-lg-10 col-11">
-                                                    <div class="roboto-regular font16 leading19 dmt-20">
+                                                    <div class="roboto-regular font16 leading19 space-0_16 dmt-20">
                                                         <?php echo $faq_sontent; ?>
                                                     </div>
                                                 </div>
@@ -1984,7 +1984,7 @@ $flexibleContent = get_field('flexible_content');
             $single_policy = get_sub_field('single_policy');
         ?>
 
-            <section class="privacy-section position-relative h-vh">
+            <section class="privacy-section position-relative">
                 <div class="bg--layer position-fixed bottom-0 w-100"></div>
                 <div class="container">
                     <div class="row">
