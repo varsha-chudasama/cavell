@@ -14,15 +14,16 @@
     ?>
 
     <header class="header position-fixed top-0 start-0 w-100 transition">
-         <?php if (!empty($event_title)): ?>
-        <div class="header-notice position-relative bg-ACFCFE d-flex justify-content-lg-center">
-            <div class="roboto-regular font14 leading19 res-font10 space-0_14  text-172426 d-flex align-items-center">
-                Upcoming event: <span class="roboto-medium"> <?php echo $event_title; ?></span>
-            </div>
-            <div
-                class="d-flex align-items-center justify-content-end position-absolute h-100 top-0 end-0 pe-lg-3 me-lg-2">
-                <div class="header-close-icon d-inline-flex align-items-center me-lg-2 cursor-pointer">
-                    <img src="<?php echo get_template_directory_uri(); ?>/templates/images/notice-close.svg" alt="" class="h-100">
+        <?php if (!empty($event_title)): ?>
+            <div class="header-notice position-relative bg-ACFCFE d-flex justify-content-lg-center">
+                <div class="roboto-regular font14 leading19 res-font10 space-0_14  text-172426 d-flex align-items-center">
+                    Upcoming event: <span class="roboto-medium"> <?php echo $event_title; ?></span>
+                </div>
+                <div
+                    class="d-flex align-items-center justify-content-end position-absolute h-100 top-0 end-0 pe-lg-3 me-lg-2">
+                    <div class="header-close-icon d-inline-flex align-items-center me-lg-2">
+                        <img src="<?php echo get_template_directory_uri(); ?>/templates/images/notice-close.svg" alt="" class="h-100">
+                    </div>
                 </div>
             </div>
         <?php endif; ?>
