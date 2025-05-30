@@ -27,27 +27,27 @@ $flexibleContent = get_field('flexible_content');
                                 <?php if (!empty($back_link['url'])):
                                     $target_2 = ($back_link['target'] == '_blank') ? "_blank" : ""; ?>
                                     <a href="<?php echo $back_link['url']; ?>" target="<?php echo $target_2; ?>"
-                                        class="bg-prefix bg-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-white radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration=".5s">
+                                        class="bg-prefix bg-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-white radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                         <?php echo $back_link['title']; ?>
                                     </a>
                                 <?php endif; ?>
                                 <div
-                                    class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block me-2 dmb-20 wow animated animate__fadeInUp" data-wow-duration=".5s">
+                                    class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block me-2 dmb-20 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                     <?php echo get_the_title(); ?>
                                 </div>
                             <?php endif; ?>
                             <?php if ($show_page_title == "custom") : ?>
 
                                 <div
-                                    class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block me-2 dmb-20 wow animated animate__fadeInUp" data-wow-duration=".5s">
+                                    class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block me-2 dmb-20 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                     <?php echo $custom_label; ?>
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($heading)): ?>
-                                <div class="basker-regular font76 leading80 text-white dmb-20 res-font35 res-leading44 res-space-0_35 wow animated animate__fadeInUp" data-wow-duration=".5s"><?php echo $heading; ?></div>
+                                <div class="basker-regular font76 leading80 text-white dmb-20 res-font35 res-leading44 res-space-0_35 wow animated animate__fadeInUp" data-wow-duration="1.5s"><?php echo $heading; ?></div>
                             <?php endif; ?>
                             <?php if (!empty($content)): ?>
-                                <div class="roboto-regular font20 leading28 space-02 text-white dmb-20 col-lg-10 col-12 mx-auto res-font16 res-leading24 space-0_16 tmb-40 wow animated animate__fadeInUp" data-wow-duration=".5s">
+                                <div class="roboto-regular font20 leading28 space-02 text-white dmb-20 col-lg-10 col-12 mx-auto res-font16 res-leading24 space-0_16 tmb-40 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                     <?php echo $content; ?>
                                 </div>
                             <?php endif; ?>
@@ -58,7 +58,7 @@ $flexibleContent = get_field('flexible_content');
                                 ?>
                                     <?php if (!empty($link_single['url'])):
                                         $target_2 = ($link_single['target'] == '_blank') ? "_blank" : ""; ?>
-                                        <a class="btnA bg-00DCC8-btn roboto-medium font16 space-0_16 radius5 text-172426 text-decoration-none d-inline-flex justify-content-center align-items-center transition tmb-15 me-2 wow animated animate__fadeInUp" data-wow-duration=".5s"
+                                        <a class="btnA bg-00DCC8-btn roboto-medium font16 space-0_16 radius5 text-172426 text-decoration-none d-inline-flex justify-content-center align-items-center transition tmb-15 me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s"
                                             href=" <?php echo $link_single['url']; ?>" target="<?php echo $target_2; ?>">
                                             <?php echo $link_single['title']; ?>
                                         </a>
@@ -97,7 +97,7 @@ $flexibleContent = get_field('flexible_content');
                                     $page_link_single = $single_card_single['page_link'];
                                 ?>
                                     <a href="<?php echo $page_link_single; ?>"
-                                        class="service-card d-inline-block text-decoration-none radius30 transition h-100 wow animated animate__fadeInUp" data-wow-duration=".5s">
+                                        class="service-card d-inline-block text-decoration-none radius30 transition h-100 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                         <div class="d-flex flex-column justify-content-between h-100">
                                             <div>
                                                 <div class="service-logo dmb-30 tmb-35 d-flex justify-content-end">
@@ -167,38 +167,40 @@ $flexibleContent = get_field('flexible_content');
             <?php endif; ?>
 
             <?php if ($number_of_cards == "2") : ?>
-                <section class="our-work-section container" id="<?php echo ($prefix_id !== '' ? $prefix_id : ''); ?>">
-                    <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-100 tmb-35 text-center col-lg-8 col-10 mx-auto res-font30 res-leading32 res-space-03">
-                        <?php echo $heading; ?>
-                    </div>
-                    <div class="row row8">
-                        <?php if (!empty($single_card)): ?>
-                            <?php foreach ($single_card as $single_card_single) :
-                                $single_card_single_icon = $single_card_single['icon'];
-                                $single_card_single_heading = $single_card_single['heading'];
-                                $single_card_single_content = $single_card_single['content'];
-                                $page_link_single = $single_card_single['page_link'];
-
-                            ?>
-                                <div class="col-lg-6 col-12 dmb-20 tmb-10">
-                                    <a href="<?php echo $page_link_single; ?>"
-                                        class="service-card d-inline-flex flex-column justify-content-between text-decoration-none radius30 res-radius20 transition h-100 w-100">
-                                        <div class="service-logo d-flex justify-content-end tmb-25">
-                                            <img src="<?php echo $single_card_single_icon; ?>" class="h-100" alt="">
-                                        </div>
-                                        <div>
-                                            <div class="basker-regular font30 leading44 space-03 text-172426 dmb-20 res-font25 res-leading32 res-space-0_25 tmb-10"><?php echo $single_card_single_heading; ?></div>
-                                            <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-25"><?php echo $single_card_single_content; ?></div>
-                                        </div>
-                                        <?php if (!empty($page_link_single)): ?>
-                                            <div class="service-arrow bg-172426 radius10 d-flex justify-content-center align-items-center transition">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/templates/images/service-arrow.svg" alt="">
+                <section class="our-work-section" id="<?php echo ($prefix_id !== '' ? $prefix_id : ''); ?>">
+                    <div class="container">
+                        <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-100 tmb-35 text-center col-lg-8 col-10 mx-auto res-font30 res-leading32 res-space-03 wow animated animate__fadeInUp" data-wow-duration="1.5s">
+                            <?php echo $heading; ?>
+                        </div>
+                        <div class="row row8">
+                            <?php if (!empty($single_card)): ?>
+                                <?php foreach ($single_card as $single_card_single) :
+                                    $single_card_single_icon = $single_card_single['icon'];
+                                    $single_card_single_heading = $single_card_single['heading'];
+                                    $single_card_single_content = $single_card_single['content'];
+                                    $page_link_single = $single_card_single['page_link'];
+    
+                                ?>
+                                    <div class="col-lg-6 col-12 dmb-20 tmb-10">
+                                        <a href="<?php echo $page_link_single; ?>"
+                                            class="service-card d-inline-flex flex-column justify-content-between text-decoration-none radius30 res-radius20 transition h-100 w-100">
+                                            <div class="service-logo d-flex justify-content-end tmb-25">
+                                                <img src="<?php echo $single_card_single_icon; ?>" class="h-100" alt="">
                                             </div>
-                                        <?php endif; ?>
-                                    </a>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                                            <div>
+                                                <div class="basker-regular font30 leading44 space-03 text-172426 dmb-20 res-font25 res-leading32 res-space-0_25 tmb-10"><?php echo $single_card_single_heading; ?></div>
+                                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-25"><?php echo $single_card_single_content; ?></div>
+                                            </div>
+                                            <?php if (!empty($page_link_single)): ?>
+                                                <div class="service-arrow bg-172426 radius10 d-flex justify-content-center align-items-center transition">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/templates/images/service-arrow.svg" alt="">
+                                                </div>
+                                            <?php endif; ?>
+                                        </a>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </section>
             <?php endif; ?>
@@ -212,12 +214,12 @@ $flexibleContent = get_field('flexible_content');
             <section class="logo-slider-section overflow-hidden">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="basker-regular font30 space-03 leading32 text-center dmb-40 text-172426 pe-3 pe-lg-0 tmb-25 wow animated animate__fadeInUp" data-wow-duration=".5s"><?php echo $heading; ?></div>
+                        <div class="basker-regular font30 space-03 leading32 text-center dmb-40 text-172426 pe-3 pe-lg-0 tmb-25 wow animated animate__fadeInUp" data-wow-duration="1.5s"><?php echo $heading; ?></div>
                     <?php endif; ?>
                     <?php if (!empty($investors_logos)): ?>
                         <div class="logo-slider col-7 col-lg-12">
                             <?php foreach ($investors_logos as $investors_logo) : ?>
-                                <div class="logo-slide d-flex align-items-center justify-content-center bg-white radius20 wow animated animate__fadeInUp" data-wow-duration=".5s">
+                                <div class="logo-slide d-flex align-items-center justify-content-center bg-white radius20 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                     <div class="logo-img">
                                         <img src="<?php echo $investors_logo; ?>" alt="logo-img"
                                             class="h-100 w-auto object-fit-contain">
@@ -248,19 +250,19 @@ $flexibleContent = get_field('flexible_content');
             <section class="insights-slider-section overflow-hidden">
                 <div class="container">
                     <?php if (!empty($label)): ?>
-                        <div class="bg-prefix bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-25 wow animated animate__fadeInUp" data-wow-duration=".5s">
+                        <div class="bg-prefix bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-25 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                             <?php echo $label; ?>
                         </div>
                     <?php endif; ?>
                     <div class="d-flex justify-content-between flex-column flex-lg-row align-items-end dmb-50 tmb-40">
                         <?php if (!empty($heading)): ?>
-                            <div class="basker-regular font50 leading56 space-05 text-172426 col-lg-7 col-12 res-font30 res-leading44 res-space-03 wow animated animate__fadeInUp" data-wow-duration=".5s"> <?php echo $heading; ?></div>
+                            <div class="basker-regular font50 leading56 space-05 text-172426 col-lg-7 col-12 res-font30 res-leading44 res-space-03 wow animated animate__fadeInUp" data-wow-duration="1.5s"> <?php echo $heading; ?></div>
                         <?php endif; ?>
 
                         <?php if (!empty($link['url'])):
                             $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
 
-                            <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-none d-lg-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration=".5s" href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
+                            <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-none d-lg-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration="1.5s" href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
                                 <?php echo $link['title']; ?>
                             </a>
                         <?php endif; ?>
@@ -272,7 +274,7 @@ $flexibleContent = get_field('flexible_content');
                             $select_post_single_category = $select_post_single->post_title;
                             $news_content = get_field('news_content', $select_post_single_id);
                         ?>
-                            <a href="<?php echo get_permalink($select_post_single_id); ?>" class="insights-card d-inline-flex flex-column justify-content-between text-decoration-none card-hover overflow-hidden w-100 h-100 wow animated animate__fadeInUp" data-wow-duration=".5s">
+                            <a href="<?php echo get_permalink($select_post_single_id); ?>" class="insights-card d-inline-flex flex-column justify-content-between text-decoration-none card-hover overflow-hidden w-100 h-100 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                 <div>
                                     <div class="insights-card-img radius15 position-relative dmb-20 overflow-hidden">
                                         <img src="<?php echo get_the_post_thumbnail_url($select_post_single_id, 'full'); ?>" class="w-100 h-100 object-cover img" alt="">
@@ -350,16 +352,16 @@ $flexibleContent = get_field('flexible_content');
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-12">
                             <?php if (!empty($label)): ?>
-                                <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-25 tmb-15 wow animated animate__fadeInUp" data-wow-duration=".5s"><?php echo $label; ?></div>
+                                <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-25 tmb-15 wow animated animate__fadeInUp" data-wow-duration="1.5s"><?php echo $label; ?></div>
                             <?php endif; ?>
 
                             <?php if (!empty($heading)): ?>
-                                <div class="basker-regular font50 leading56 space-05 text-172426 dmb-40 col-lg-10 col-12 pe-lg-3 res-font25 res-leading32 res-space-0_25 tmb-30 wow animated animate__fadeInUp" data-wow-duration=".5s"><?php echo $heading; ?></div>
+                                <div class="basker-regular font50 leading56 space-05 text-172426 dmb-40 col-lg-10 col-12 pe-lg-3 res-font25 res-leading32 res-space-0_25 tmb-30 wow animated animate__fadeInUp" data-wow-duration="1.5s"><?php echo $heading; ?></div>
                             <?php endif; ?>
 
                             <?php if (!empty($link['url'])):
                                 $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
-                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-none d-lg-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration=".5s"
+                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-none d-lg-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration="1.5s"
                                     href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
                                     <?php echo $link['title']; ?>
                                 </a>
@@ -367,7 +369,7 @@ $flexibleContent = get_field('flexible_content');
                         </div>
                         <div class="col-lg-7 col-12">
                             <div class="ps-lg-1 tmb-40">
-                                <div class="event-left-right-img radius30 res-radius20 overflow-hidden position-relative wow animated animate__fadeInUp" data-wow-duration=".5s">
+                                <div class="event-left-right-img radius30 res-radius20 overflow-hidden position-relative wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                     <img src="<?php echo $event_image; ?>" class="w-100 h-100 object-cover" alt="">
                                     <div class="bg-black-layer position-absolute bottom-0 w-100"></div>
                                     <div class="position-absolute bottom-0 w-100 start-0">
@@ -496,7 +498,7 @@ $flexibleContent = get_field('flexible_content');
                         <div class="row align-items-center">
                             <div class="col-lg-7 col-12">
                                 <div class="pe-lg-5">
-                                    <div class="overflow-hidden radius30 res-radius20 left-img position-relative bg-black tmb-30">
+                                    <div class="overflow-hidden radius30 res-radius20 left-img position-relative bg-black tmb-30 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                         <?php if ($media_type == "image") : ?>
                                             <img src="<?php echo $image; ?>" alt="left-image"
                                                 class="h-100 w-100 object-cover">
@@ -552,21 +554,19 @@ $flexibleContent = get_field('flexible_content');
                             <div class="col-lg-5 col-12">
                                 <div class="pe-3">
                                     <?php if (!empty($heading)): ?>
-                                        <div class="basker-regular font46 space-0_46 text-172426 leading56 dmb-20 res-font25 res-leading28 tmb-15"><?php echo $heading; ?>
+                                        <div class="basker-regular font46 space-0_46 text-172426 leading56 dmb-20 res-font25 res-leading28 tmb-15 wow animated animate__fadeInUp" data-wow-duration="1.5s"><?php echo $heading; ?>
                                         </div>
                                     <?php endif; ?>
 
                                     <?php if (!empty($content)): ?>
-                                        <div class="roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-30 pe-3 pe-lg-0 check-ul">
-
+                                        <div class="roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-30 pe-3 pe-lg-0 check-ul wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                             <?php echo $content; ?>
-
                                         </div>
                                     <?php endif; ?>
 
                                     <?php if (!empty($link['url'])):
                                         $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
-                                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration="1.5s"
                                             href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
                                             <?php echo $link['title']; ?>
                                         </a>
@@ -588,12 +588,12 @@ $flexibleContent = get_field('flexible_content');
                             <div class="col-lg-5 col-12">
                                 <div class="ps-3">
                                     <?php if (!empty($heading)): ?>
-                                        <div class="basker-regular font46 space-0_46 text-172426 leading56 dmb-20 res-font25 res-leading28 tmb-15"><?php echo $heading; ?>
+                                        <div class="basker-regular font46 space-0_46 text-172426 leading56 dmb-20 res-font25 res-leading28 tmb-15 wow animated animate__fadeInUp" data-wow-duration="1.5s"><?php echo $heading; ?>
                                         </div>
                                     <?php endif; ?>
 
                                     <?php if (!empty($content)): ?>
-                                        <div class="roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-30 pe-3 pe-lg-0 check-ul">
+                                        <div class="roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-30 pe-3 pe-lg-0 check-ul wow animated animate__fadeInUp" data-wow-duration="1.5s">
 
                                             <?php echo $content; ?>
 
@@ -602,7 +602,7 @@ $flexibleContent = get_field('flexible_content');
 
                                     <?php if (!empty($link['url'])):
                                         $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
-                                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration="1.5s"
                                             href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
                                             <?php echo $link['title']; ?>
                                         </a>
@@ -611,7 +611,7 @@ $flexibleContent = get_field('flexible_content');
                             </div>
                             <div class="col-lg-7 col-12">
                                 <div class="ps-lg-5">
-                                    <div class="overflow-hidden radius30 res-radius20 left-img position-relative bg-black tmb-30">
+                                    <div class="overflow-hidden radius30 res-radius20 left-img position-relative bg-black tmb-30 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                         <?php if ($media_type == "image") : ?>
                                             <img src="<?php echo $image; ?>" alt="left-image"
                                                 class="h-100 w-100 object-cover">
@@ -1154,14 +1154,14 @@ $flexibleContent = get_field('flexible_content');
         ?>
             <section class="testimonial-section">
                 <div class="container">
-                    <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 dmb-30 tmb-40">
+                    <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 dmb-30 tmb-40 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                         Testimonial
                     </div>
                     <div class="row">
-                        <div class="col-lg-1 col-12">
+                        <div class="col-lg-1 col-12 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                             <img src="<?php echo get_template_directory_uri(); ?>/templates/images/quote.svg" alt="" class="quote">
                         </div>
-                        <div class="col-lg-10 col-12">
+                        <div class="col-lg-10 col-12 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($content)): ?>
                                 <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-40 res-font30 res-leading44 res-space-03 pe-2 pe-lg-0 tmb-30"><?php echo $content; ?></div>
                             <?php endif; ?>
