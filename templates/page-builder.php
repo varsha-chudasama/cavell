@@ -75,7 +75,7 @@ $flexibleContent = get_field('flexible_content');
             $heading = get_sub_field('heading');
             $descriptions = get_sub_field('descriptions');
             $single_card = get_sub_field('single_card');
-              $prefix_id = get_sub_field('prefix_id');
+            $prefix_id = get_sub_field('prefix_id');
         ?>
             <?php if ($number_of_cards == "4") : ?>
                 <section class="service-cards-slider-section overflow-hidden" id="<?php echo ($prefix_id !== '' ? $prefix_id : ''); ?>">
@@ -414,9 +414,12 @@ $flexibleContent = get_field('flexible_content');
                                     </div>
                                     <div class="position-absolute top-0 w-100 start-0 px-3 mt-3">
                                         <div class="d-flex d-lg-none flex-wrap">
-                                            <a href="<?php echo $event_button['url']; ?>" class="text-decoration-none bg-prefix bg-dark-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20 me-2">
-                                                <?php echo $event_button['title']; ?>
-                                            </a>
+                                            <?php if (!empty($event_button['url'])):
+                                                $target_2 = ($event_button['target'] == '_blank') ? "_blank" : ""; ?>
+                                                <a href="<?php echo $event_button['url']; ?>" class="text-decoration-none bg-prefix bg-dark-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20 me-2" target="<?php echo $target_2; ?>">
+                                                    <?php echo $event_button['title']; ?>
+                                                </a>
+                                            <?php endif; ?>
                                             <div class="bg-prefix bg-00DCC8-blur-prefix roboto-medium font14 leading19 space-0_18 text-white radius5 d-inline-block dmb-20 me-2">
                                                 <?php echo $formatted_date; ?>
                                             </div>
@@ -576,7 +579,95 @@ $flexibleContent = get_field('flexible_content');
                 </section>
             <?php endif; ?>
 
+            <?php if ($media_position == "right") : ?>
+                <section class="left-right-section" id="<?php echo ($prefix_id !== '' ? $prefix_id : ''); ?>">
 
+                    <div class="container">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-5 col-12">
+                                <div class="ps-3">
+                                    <?php if (!empty($heading)): ?>
+                                        <div class="basker-regular font46 space-0_46 text-172426 leading56 dmb-20 res-font25 res-leading28 tmb-15"><?php echo $heading; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($content)): ?>
+                                        <div class="roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-30 pe-3 pe-lg-0 check-ul">
+
+                                            <?php echo $content; ?>
+
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($link['url'])):
+                                        $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
+                                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                            href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
+                                            <?php echo $link['title']; ?>
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-12">
+                                <div class="ps-lg-5">
+                                    <div class="overflow-hidden radius30 res-radius20 left-img position-relative bg-black tmb-30">
+                                        <?php if ($media_type == "image") : ?>
+                                            <img src="<?php echo $image; ?>" alt="left-image"
+                                                class="h-100 w-100 object-cover">
+                                        <?php endif; ?>
+
+                                        <?php if ($media_type == "video") : ?>
+                                            <video loop autoplay muted="true" playsinline data-wf-ignore="true" preload="none"
+                                                class="w-100 h-100 object-cover left-video" data-object-fit="cover">
+                                                <source src="<?php echo $video['url']; ?>"
+                                                    data-wf-ignore="true" />
+                                            </video>
+                                        <?php endif; ?>
+
+                                        <?php if ($media_type == "youtube") : ?>
+                                            <iframe id="vimeo-player" class="w-100 h-100 object-cover vimeo-video"
+                                                src="https://player.vimeo.com/video/<?php echo $youtube; ?>?autoplay=1&loop=1&background=1&controls=0&rel=0&mute=1"
+                                                frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                                            </iframe>
+                                        <?php endif; ?>
+
+                                        <?php if ($media_type == "vimeo") : ?>
+                                            <iframe id="youtube-player" class="w-100 h-100 object-cover"
+                                                src="https://www.youtube.com/embed/<?php echo $vimeo; ?>?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=<?php echo $vimeo; ?>"
+                                                frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                                            </iframe>
+                                        <?php endif; ?>
+
+                                        <?php if ($media_type != "image") : ?>
+                                            <div class="position-absolute play-audio">
+                                                <div class="cursor-pointer audio-button radius5">
+                                                    <div class="align-items-center play-audio-btn">
+                                                        <div class="play-img d-flex">
+                                                            <img src="<?php echo get_template_directory_uri(); ?>/templates/images/play.svg" alt="play-icon"
+                                                                class="h-100 w-100 object-fit-contain ">
+                                                        </div>
+                                                        <div class="roboto-medium font16 space-0_16 text-white leading21 ms-2">Play
+                                                            Audio</div>
+                                                    </div>
+                                                    <div class="align-items-center pause-audio-btn">
+                                                        <div class="play-img d-flex">
+                                                            <img src="<?php echo get_template_directory_uri(); ?>/templates/images/pause.svg" alt="play-icon"
+                                                                class="h-100 w-100 object-fit-contain ">
+                                                        </div>
+                                                        <div class="roboto-medium font16 space-0_16 text-white leading21 ms-2">Pause
+                                                            Audio</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <?php endif; ?>
         <?php elseif (get_row_layout() == 'team_section') :
             $heading = get_sub_field('heading');
             $descriptions = get_sub_field('descriptions');
@@ -623,17 +714,23 @@ $flexibleContent = get_field('flexible_content');
                                     <div class="team-img overflow-hidden radius20 bg-1f66780d transition dmb-30 tmb-20 position-relative">
                                         <img src="<?php echo $team_image; ?>" alt="team" class="h-100 w-100 object-cover">
                                         <div class="position-absolute team-linkdin">
-                                            <a href="<?php echo $linkedin_link; ?>" target="_blank" class="bg-prefix bg-white-prefix radius30 overflow-hidden d-flex align-items-center justify-content-center">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/templates/images/LinkedIn_white.svg" alt="">
-                                            </a>
+                                            <?php if (!empty($linkedin_link)): ?>
+                                                <a href="<?php echo $linkedin_link; ?>" target="_blank" class="bg-prefix bg-white-prefix radius30 overflow-hidden d-flex align-items-center justify-content-center">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/templates/images/LinkedIn_white.svg" alt="">
+                                                </a>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
-                                    <div class="roboto-medium font20 space-02 leading24 text-172426 mb-1">
-                                        <?php echo $team_title; ?>
-                                    </div>
-                                    <div class="roboto-regular font16 space-0_16 leading24 text-172426">
-                                        <?php echo $designation; ?>
-                                    </div>
+                                    <?php if (!empty($team_title)): ?>
+                                        <div class="roboto-medium font20 space-02 leading24 text-172426 mb-1">
+                                            <?php echo $team_title; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($designation)): ?>
+                                        <div class="roboto-regular font16 space-0_16 leading24 text-172426">
+                                            <?php echo $designation; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </a>
                             </div>
                         <?php endforeach; ?>
@@ -888,32 +985,36 @@ $flexibleContent = get_field('flexible_content');
             <section class="contents-table-section">
                 <div class="container">
                     <div class="contents-table bg-white radius20">
-                        <div class="basker-regular font56 leading60 space-0_56 text-172426 dmb-30 res-font35 res-leading44 res-space-0_35"><?php echo $heading; ?></div>
-                        <div class="table-row row">
-                            <?php foreach ($table_col as  $table_col_single):
-                                $table_col_single_content = $table_col_single['content'];
-                            ?>
+                        <?php if (!empty($heading)): ?>
+                            <div class="basker-regular font56 leading60 space-0_56 text-172426 dmb-30 res-font35 res-leading44 res-space-0_35"><?php echo $heading; ?></div>
+                        <?php endif; ?>
+                        <?php if (!empty($table_col)): ?>
+                            <div class="table-row row">
+                                <?php foreach ($table_col as  $table_col_single):
+                                    $table_col_single_content = $table_col_single['content'];
+                                ?>
 
-                                <div class="table-col col-lg-3">
-                                    <?php foreach ($table_col_single_content as $table_col_inner_content) :
-                                        $point_heading = $table_col_inner_content['point_heading'];
-                                        $points = $table_col_inner_content['points'];
-                                    ?>
-                                        <div class="roboto-medium font16 leading18 space-0_16 text-172426 dmb-20"><?php echo $point_heading; ?></div>
-                                        <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
-                                            <ul>
-                                                <?php foreach ($points as $point) :
-                                                    $point_single = $point['point'];
-                                                ?>
-                                                    <li><?php echo $point_single; ?></li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
+                                    <div class="table-col col-lg-3">
+                                        <?php foreach ($table_col_single_content as $table_col_inner_content) :
+                                            $point_heading = $table_col_inner_content['point_heading'];
+                                            $points = $table_col_inner_content['points'];
+                                        ?>
+                                            <div class="roboto-medium font16 leading18 space-0_16 text-172426 dmb-20"><?php echo $point_heading; ?></div>
+                                            <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
+                                                <ul>
+                                                    <?php foreach ($points as $point) :
+                                                        $point_single = $point['point'];
+                                                    ?>
+                                                        <li><?php echo $point_single; ?></li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
 
-                            <?php endforeach; ?>
-                        </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>
@@ -950,43 +1051,49 @@ $flexibleContent = get_field('flexible_content');
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                                    <div class="basker-regular font46 leading56 space-0_46 text-white dmb-20 res-font30 res-leading44 res-space-03">
-                                        <?php echo $heading; ?>
-                                    </div>
-                                    <div class="roboto-regular font20 leading28 space-02 text-white dmb-25 pe-lg-5 res-font16 res-leading24 res-space-0_16 full-left-right-card-desc check-ul full-ul">
-                                        <?php echo $content; ?>
-                                    </div>
+                                    <?php if (!empty($heading)): ?>
+                                        <div class="basker-regular font46 leading56 space-0_46 text-white dmb-20 res-font30 res-leading44 res-space-03">
+                                            <?php echo $heading; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($content)): ?>
+                                        <div class="roboto-regular font20 leading28 space-02 text-white dmb-25 pe-lg-5 res-font16 res-leading24 res-space-0_16 full-left-right-card-desc check-ul full-ul">
+                                            <?php echo $content; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($links)): ?>
+                                        <div class="full-text-img-buttons">
+                                            <?php foreach ($links as $link_single) :
+                                                $link_type = $link_single['link_type'];
+                                                $link = $link_single['link'];
+                                                $button_text = $link_single['button_text'];
+                                                $button_file = $link_single['button_file'];
 
-                                    <div class="full-text-img-buttons">
-                                        <?php foreach ($links as $link_single) :
-                                            $link_type = $link_single['link_type'];
-                                            $link = $link_single['link'];
-                                            $button_text = $link_single['button_text'];
-                                            $button_file = $link_single['button_file'];
-
-                                        ?>
-                                            <?php if ($link_type == "link") : ?>
-                                                <a class="btnA bg-00DCC8-btn roboto-medium font16 space-0_16 radius5 text-decoration-none d-inline-flex justify-content-center align-items-center transition mx-1"
-                                                    href="<?php echo $link['url']; ?>">
-                                                    <?php echo $link['title']; ?>
-                                                </a>
-                                            <?php endif; ?>
-                                            <?php if ($link_type == "file") : ?>
-                                                <a download class="btnA bg-00DCC8-btn roboto-medium font16 space-0_16 radius5 text-decoration-none d-inline-flex justify-content-center align-items-center transition mx-1"
-                                                    href="<?php echo $button_file['url']; ?>">
-                                                    <?php echo $button_text; ?>
-                                                </a>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </div>
-
+                                            ?>
+                                                <?php if ($link_type == "link") : ?>
+                                                    <a class="btnA bg-00DCC8-btn roboto-medium font16 space-0_16 radius5 text-decoration-none d-inline-flex justify-content-center align-items-center transition mx-1"
+                                                        href="<?php echo $link['url']; ?>">
+                                                        <?php echo $link['title']; ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                                <?php if ($link_type == "file") : ?>
+                                                    <a download class="btnA bg-00DCC8-btn roboto-medium font16 space-0_16 radius5 text-decoration-none d-inline-flex justify-content-center align-items-center transition mx-1"
+                                                        href="<?php echo $button_file['url']; ?>">
+                                                        <?php echo $button_text; ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
-                            <div class="col-lg-7 col-12">
-                                <div class="full-left-right-card-img tmb-80">
-                                    <img src="<?php echo $image; ?>" alt="" class="w-100 h-100 object-cover">
+                            <?php if (!empty($image)): ?>
+                                <div class="col-lg-7 col-12">
+                                    <div class="full-left-right-card-img tmb-80">
+                                        <img src="<?php echo $image; ?>" alt="" class="w-100 h-100 object-cover">
+                                    </div>
                                 </div>
-                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -1001,8 +1108,12 @@ $flexibleContent = get_field('flexible_content');
             <section class="center-content-section">
                 <div class="container">
                     <div class="col-lg-9 col-12 mx-auto text-center px-lg-4 px-2">
-                        <div class="basker-regular font56 leading60 space-0_56 text-172426  dmb-20 res-font30 res-leading32 res-space-03 tmb-15 px-4 pg-lg-0"><?php echo $heading; ?></div>
-                        <div class="roboto-regular font16 leading24 space-0_16 text-172426 px-lg-3 res-font16 res-leading24 res-space-0_16"><?php echo $content; ?></div>
+                        <?php if (!empty($heading)): ?>
+                            <div class="basker-regular font56 leading60 space-0_56 text-172426  dmb-20 res-font30 res-leading32 res-space-03 tmb-15 px-4 pg-lg-0"><?php echo $heading; ?></div>
+                        <?php endif; ?>
+                        <?php if (!empty($content)): ?>
+                            <div class="roboto-regular font16 leading24 space-0_16 text-172426 px-lg-3 res-font16 res-leading24 res-space-0_16"><?php echo $content; ?></div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>
@@ -1015,17 +1126,23 @@ $flexibleContent = get_field('flexible_content');
             <section class="counter-section">
                 <div class="container">
                     <div class="row row8">
-                        <?php foreach ($counter_card as $counter_card_single) :
-                            $counter_card_single_number = $counter_card_single['number'];
-                            $counter_card_single_details = $counter_card_single['details'];
-                        ?>
-                            <div class="col-lg-4 tmb-15">
-                                <div class="counter-card radius30 res-radius20 bg-white d-flex flex-column justify-content-center align-items-center text-center">
-                                    <div class="basker-regular font90 leading100 space-09 res-font60 res-leading70 res-space-06"><?php echo $counter_card_single_number; ?></div>
-                                    <div class="roboto-regular font16 leading24 space-0_16 text-172426"><?php echo $counter_card_single_details; ?></div>
+                        <?php if (!empty($counter_card)): ?>
+                            <?php foreach ($counter_card as $counter_card_single) :
+                                $counter_card_single_number = $counter_card_single['number'];
+                                $counter_card_single_details = $counter_card_single['details'];
+                            ?>
+                                <div class="col-lg-4 tmb-15">
+                                    <div class="counter-card radius30 res-radius20 bg-white d-flex flex-column justify-content-center align-items-center text-center">
+                                        <?php if (!empty($counter_card_single_number)): ?>
+                                            <div class="basker-regular font90 leading100 space-09 res-font60 res-leading70 res-space-06"><?php echo $counter_card_single_number; ?></div>
+                                        <?php endif; ?>
+                                        <?php if (!empty($counter_card_single_details)): ?>
+                                            <div class="roboto-regular font16 leading24 space-0_16 text-172426"><?php echo $counter_card_single_details; ?></div>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>
@@ -1045,8 +1162,12 @@ $flexibleContent = get_field('flexible_content');
                             <img src="<?php echo get_template_directory_uri(); ?>/templates/images/quote.svg" alt="" class="quote">
                         </div>
                         <div class="col-lg-10 col-12">
-                            <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-40 res-font30 res-leading44 res-space-03 pe-2 pe-lg-0 tmb-30"><?php echo $content; ?></div>
-                            <div class="roboto-regular font16 leading24 space-0_16 text-172426"><?php echo $details; ?></div>
+                            <?php if (!empty($content)): ?>
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-40 res-font30 res-leading44 res-space-03 pe-2 pe-lg-0 tmb-30"><?php echo $content; ?></div>
+                            <?php endif; ?>
+                            <?php if (!empty($details)): ?>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426"><?php echo $details; ?></div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -1064,14 +1185,19 @@ $flexibleContent = get_field('flexible_content');
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-4 col-12 tmb-50">
-                            <div class="basker-regular font50 leading56 space-05 text-172426 dmb-15 res-font30 res-leading44 res-space-03"><?php echo $heading; ?></div>
-                            <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-40 col-lg-10 col-12"><?php echo $content; ?></div>
-
-                            <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                href="<?php echo $link['url']; ?>">
-                                <?php echo $link['title']; ?>
-                            </a>
-
+                            <?php if (!empty($heading)): ?>
+                                <div class="basker-regular font50 leading56 space-05 text-172426 dmb-15 res-font30 res-leading44 res-space-03"><?php echo $heading; ?></div>
+                            <?php endif; ?>
+                            <?php if (!empty($content)): ?>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-40 col-lg-10 col-12"><?php echo $content; ?></div>
+                            <?php endif; ?>
+                            <?php if (!empty($link['url'])):
+                                $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
+                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                    href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
+                                    <?php echo $link['title']; ?>
+                                </a>
+                            <?php endif; ?>
                         </div>
                         <div class="col-lg-8 col-12">
                             <div class="industry-card-slider ps-lg-1 col-11 pe-3 pe-lg-0 col-lg-12">
@@ -1113,12 +1239,16 @@ $flexibleContent = get_field('flexible_content');
                         <div class="col-lg-4 col-12">
                             <div class="d-flex flex-column justify-content-between h-100">
                                 <div>
-                                    <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 dmb-15 tmb-25">
-                                        <?php echo $prefix; ?>
-                                    </div>
-                                    <div class="basker-regular font50 leading56 space-05 text-172426 pe-lg-4 col-10 col-lg-12 res-font35 res-leading44 res-space-0_35 tmb-25">
-                                        <?php echo $heading; ?>
-                                    </div>
+                                    <?php if (!empty($prefix)): ?>
+                                        <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 dmb-15 tmb-25">
+                                            <?php echo $prefix; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($heading)): ?>
+                                        <div class="basker-regular font50 leading56 space-05 text-172426 pe-lg-4 col-10 col-lg-12 res-font35 res-leading44 res-space-0_35 tmb-25">
+                                            <?php echo $heading; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="slick-arrow d-none d-lg-block">
                                     <div class="d-flex">
@@ -1256,7 +1386,7 @@ $flexibleContent = get_field('flexible_content');
             $video = get_sub_field('video');
             $youtube = get_sub_field('youtube');
             $vimeo = get_sub_field('vimeo');
-  $prefix_id = get_sub_field('prefix_id');
+            $prefix_id = get_sub_field('prefix_id');
         ?>
             <section class="agenda-section" id="<?php echo ($prefix_id !== '' ? $prefix_id : ''); ?>">
                 <div class="container">
@@ -1359,7 +1489,7 @@ $flexibleContent = get_field('flexible_content');
 
         <?php elseif (get_row_layout() == 'previous_sponsors') :
             $sponsors_group = get_sub_field('sponsors_group');
-              $prefix_id = get_sub_field('prefix_id');
+            $prefix_id = get_sub_field('prefix_id');
         ?>
             <section class="event-logo-section overflow-hidden" id="<?php echo ($prefix_id !== '' ? $prefix_id : ''); ?>">
                 <div class="container">
@@ -1372,7 +1502,9 @@ $flexibleContent = get_field('flexible_content');
                         ?>
                             <?php if ($select_sponsors_archivement == "gold") : ?>
                                 <div class="event-col dpb-60 dpt-50">
-                                    <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-35 res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
+                                    <?php if (!empty($heading)): ?>
+                                        <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-35 res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
+                                    <?php endif; ?>
                                     <div class="d-flex justify-content-center overflow-auto">
                                         <?php foreach ($gallery as $single_image) : ?>
                                             <div
@@ -1385,7 +1517,9 @@ $flexibleContent = get_field('flexible_content');
                             <?php endif; ?>
                             <?php if ($select_sponsors_archivement == "silver") : ?>
                                 <div class="event-col dpb-60 dpt-50">
-                                    <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-35 res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
+                                    <?php if (!empty($heading)): ?>
+                                        <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-35 res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
+                                    <?php endif; ?>
                                     <div class="d-flex justify-content-lg-center overflow-auto">
                                         <?php foreach ($gallery as $single_image) : ?>
                                             <div
@@ -1398,7 +1532,9 @@ $flexibleContent = get_field('flexible_content');
                             <?php endif; ?>
                             <?php if ($select_sponsors_archivement == "bronze") : ?>
                                 <div class="event-col dpb-60 dpt-50">
-                                    <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-35 res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
+                                    <?php if (!empty($heading)): ?>
+                                        <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-35 res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
+                                    <?php endif; ?>
                                     <div class="d-flex justify-content-lg-center overflow-auto">
                                         <?php foreach ($gallery as $single_image) : ?>
                                             <div
@@ -1417,14 +1553,16 @@ $flexibleContent = get_field('flexible_content');
         <?php elseif (get_row_layout() == 'previous_speakers') :
             $heading = get_sub_field('heading');
             $select_speakers = get_sub_field('select_speakers');
-              $prefix_id = get_sub_field('prefix_id');
+            $prefix_id = get_sub_field('prefix_id');
         ?>
             <section class="event-speakers-slider-section overflow-hidden" id="<?php echo ($prefix_id !== '' ? $prefix_id : ''); ?>">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-12">
-                            <div class="basker-regular font50 leading56 space-05 text-172426 dmb-120 tmb-30 res-font30 res-leading32 res-space-03 text-center text-lg-start"><?php echo $heading; ?>
-                            </div>
+                            <?php if (!empty($heading)): ?>
+                                <div class="basker-regular font50 leading56 space-05 text-172426 dmb-120 tmb-30 res-font30 res-leading32 res-space-03 text-center text-lg-start"><?php echo $heading; ?>
+                                </div>
+                            <?php endif; ?>
                             <div class="slick-arrow d-none d-lg-block">
                                 <div class="d-flex">
                                     <div
@@ -1452,12 +1590,19 @@ $flexibleContent = get_field('flexible_content');
                                                 <img src="<?php echo get_the_post_thumbnail_url($id); ?>" class="h-100 w-100 object-cover"
                                                     alt="">
                                             </div>
-                                            <div class="roboto-medium font20 leading24 space-02 text-172426 dmb-5 res-font20 res-leading24 res-space-02"><?php echo $title; ?></div>
-                                            <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-15">
-                                                <?php echo $content; ?></div>
-                                            <div class="event-slider-logo">
-                                                <img src="<?php echo $speakerLogo; ?>" class="h-100" alt="">
-                                            </div>
+                                            <?php if (!empty($title)): ?>
+                                                <div class="roboto-medium font20 leading24 space-02 text-172426 dmb-5 res-font20 res-leading24 res-space-02"><?php echo $title; ?></div>
+                                            <?php endif; ?>
+                                            <?php if (!empty($content)): ?>
+                                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-15">
+                                                    <?php echo $content; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if (!empty($speakerLogo)): ?>
+                                                <div class="event-slider-logo">
+                                                    <img src="<?php echo $speakerLogo; ?>" class="h-100" alt="">
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
@@ -1507,12 +1652,16 @@ $flexibleContent = get_field('flexible_content');
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-10 col-11 dmb-20 tmb-15 res-font25 res-leading32 res-space-0_25">
-                                <?php echo $heading; ?>
-                            </div>
-                            <div class="roboto-regular font20 leading28 space-02 text-172426 col-lg-11 pe-3 pe-lg-0 dmb-25 tmb-40 res-font16 res-leading24 res-space-0_16">
-                                <?php echo $content; ?>
-                            </div>
+                            <?php if (!empty($heading)): ?>
+                                <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-10 col-11 dmb-20 tmb-15 res-font25 res-leading32 res-space-0_25">
+                                    <?php echo $heading; ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (!empty($content)): ?>
+                                <div class="roboto-regular font20 leading28 space-02 text-172426 col-lg-11 pe-3 pe-lg-0 dmb-25 tmb-40 res-font16 res-leading24 res-space-0_16">
+                                    <?php echo $content; ?>
+                                </div>
+                            <?php endif; ?>
                             <?php foreach ($links as $link_single) :
                                 $link_type = $link_single['link_type'];
                                 $link = $link_single['link'];
@@ -1520,10 +1669,14 @@ $flexibleContent = get_field('flexible_content');
                                 $button_file = $link_single['button_file'];
                             ?>
                                 <?php if ($link_type == "link") : ?>
-                                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white px-4 text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                        href="<?php echo $link['url']; ?>">
-                                        <?php echo $link['title']; ?>
-                                    </a>
+                                    <?php if (!empty($link['url'])):
+                                        $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
+                                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white px-4 text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                            href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
+                                            <?php echo $link['title']; ?>
+                                        </a>
+                                    <?php endif; ?>
+
                                 <?php endif; ?>
                                 <?php if ($link_type == "file") : ?>
                                     <a download class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white px-4 text-decoration-none d-inline-flex justify-content-center align-items-center transition"
@@ -1535,9 +1688,11 @@ $flexibleContent = get_field('flexible_content');
                         </div>
                         <div class="col-lg-6 col-12 right-side-content">
                             <div class="col-lg-11 col-12 ps-lg-5 ms-auto">
-                                <div class="about-hero-img radius20 overflow-hidden tmb-35">
-                                    <img src="<?php echo $image; ?>" alt="" class="w-100 h-100 object-cover">
-                                </div>
+                                <?php if (!empty($image)): ?>
+                                    <div class="about-hero-img radius20 overflow-hidden tmb-35">
+                                        <img src="<?php echo $image; ?>" alt="" class="w-100 h-100 object-cover">
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -1558,10 +1713,14 @@ $flexibleContent = get_field('flexible_content');
                     <div class="associate-card bg-prefix bg-1F6678-prefix radius30 dmb-35 tmb-20">
                         <div class="row">
                             <div class="col-lg-4 col-12">
-                                <div class="basker-regular font30 leading32 space-03 text-172426 dmb-10 res-font28 res-leading32 res-space-0_25"><?php echo $job_card_heading; ?>
-                                </div>
-                                <div class="basker-regular font16 leading24 space-0_16 text-172426 dmb-30 tmb-25"><?php echo $job_card_locations; ?>
-                                </div>
+                                <?php if (!empty($job_card_heading)): ?>
+                                    <div class="basker-regular font30 leading32 space-03 text-172426 dmb-10 res-font28 res-leading32 res-space-0_25"><?php echo $job_card_heading; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (!empty($job_card_locations)): ?>
+                                    <div class="basker-regular font16 leading24 space-0_16 text-172426 dmb-30 tmb-25"><?php echo $job_card_locations; ?>
+                                    </div>
+                                <?php endif; ?>
                                 <div>
                                     <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-none d-lg-inline-flex justify-content-center align-items-center transition"
                                         href="#enquiryModal" data-bs-toggle="modal">
@@ -1570,9 +1729,11 @@ $flexibleContent = get_field('flexible_content');
                                 </div>
                             </div>
                             <div class="col-lg-8 col-12 tmb-45">
-                                <div class="content-text roboto-regular font16 leading24 space-0_16 text-172426 dmb-15">
-                                    <?php echo $job_card_content; ?>
-                                </div>
+                                <?php if (!empty($job_card_content)): ?>
+                                    <div class="content-text roboto-regular font16 leading24 space-0_16 text-172426 dmb-15">
+                                        <?php echo $job_card_content; ?>
+                                    </div>
+                                <?php endif; ?>
                                 <a href="javascript:void(0);"
                                     class="toggle-read roboto-medium font16 leading24 space-0_16 text-172426">Read more</a>
                             </div>
@@ -1609,13 +1770,18 @@ $flexibleContent = get_field('flexible_content');
         ?>
             <section class="left-content-section">
                 <div class="container">
-                    <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-10 dmb-20 tmb-30 res-font30 res-leading32 res-space-03">
-                        <?php echo $heading; ?>
-                    </div>
-                    <a class="get-touch-btn btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                        href="<?php echo $link['url']; ?>">
-                        <?php echo $link['title']; ?>
-                    </a>
+                    <?php if (!empty($heading)): ?>
+                        <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-10 dmb-20 tmb-30 res-font30 res-leading32 res-space-03">
+                            <?php echo $heading; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($link['url'])):
+                        $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
+                        <a class="get-touch-btn btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                            href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
+                            <?php echo $link['title']; ?>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </section>
 
@@ -1628,12 +1794,16 @@ $flexibleContent = get_field('flexible_content');
                     class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20 tmb-25">
                     <?php echo get_the_title(); ?>
                 </div>
-                <div class="basker-regular font76 leading80 space-0_76 text-172426 dmb-20 tmb-15 col-lg-8 res-font35 res-leading44 res-space-0_35">
-                    <?php echo $heading; ?>
-                </div>
-                <div class="roboto-regular font20 leading28 space-02 text-172426 col-lg-7 res-font16 res-leading24 res-space-0_16">
-                    <?php echo $descriptions; ?>
-                </div>
+                <?php if (!empty($heading)): ?>
+                    <div class="basker-regular font76 leading80 space-0_76 text-172426 dmb-20 tmb-15 col-lg-8 res-font35 res-leading44 res-space-0_35">
+                        <?php echo $heading; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($descriptions)): ?>
+                    <div class="roboto-regular font20 leading28 space-02 text-172426 col-lg-7 res-font16 res-leading24 res-space-0_16">
+                        <?php echo $descriptions; ?>
+                    </div>
+                <?php endif; ?>
             </section>
 
         <?php elseif (get_row_layout() == 'our_services') :
@@ -1649,18 +1819,27 @@ $flexibleContent = get_field('flexible_content');
                     <div class="row align-items-center dmb-60 tmb-55 client-left-right-card">
                         <div class="col-lg-8 col-12 pe-lg-5">
                             <div class="pe-lg-2">
-                                <div class="client-img radius20 overflow-hidden">
-                                    <img src="<?php echo $card_single_image; ?>" alt="" class="w-100 h-100 object-cover">
-                                </div>
+                                <?php if (!empty($card_single_image)): ?>
+                                    <div class="client-img radius20 overflow-hidden">
+                                        <img src="<?php echo $card_single_image; ?>" alt="" class="w-100 h-100 object-cover">
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="col-lg-4 col-12">
-                            <div class="basker-regular font50 leading56 space-05 text-172426 dmb-15 res-font28 tmb-10"><?php echo $card_single_heading; ?></div>
-                            <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-25 pe-4"><?php echo $card_single_content; ?></div>
-                            <a class="learn-more-btn btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none
-                         d-inline-flex justify-content-center align-items-center transition" href="<?php echo $card_single_link['url']; ?>">
-                                <?php echo $card_single_link['title']; ?>
-                            </a>
+                            <?php if (!empty($card_single_heading)): ?>
+                                <div class="basker-regular font50 leading56 space-05 text-172426 dmb-15 res-font28 tmb-10"><?php echo $card_single_heading; ?></div>
+                            <?php endif; ?>
+                            <?php if (!empty($card_single_content)): ?>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-25 pe-4"><?php echo $card_single_content; ?></div>
+                            <?php endif; ?>
+                            <?php if (!empty($card_single_link['url'])):
+                                $target_2 = ($card_single_link['target'] == '_blank') ? "_blank" : ""; ?>
+                                <a class="learn-more-btn btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none
+                         d-inline-flex justify-content-center align-items-center transition" href="<?php echo $card_single_link['url']; ?>" target="<?php echo $target_2; ?>">
+                                    <?php echo $card_single_link['title']; ?>
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -1676,18 +1855,24 @@ $flexibleContent = get_field('flexible_content');
         ?>
             <section class="client-service-hero-section container">
                 <div class="d-flex align-items-center justify-content-center dmb-15 tmb-25">
-                    <a href="<?php echo $back_link['url']; ?>"
-                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2 text-decoration-none">
-                        <?php echo $back_link['title']; ?>
-                    </a>
+                    <?php if (!empty($back_link['url'])):
+                        $target_2 = ($back_link['target'] == '_blank') ? "_blank" : ""; ?>
+                        <a href="<?php echo $back_link['url']; ?>"
+                            class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2 text-decoration-none" target="<?php echo $target_2; ?>">
+                            <?php echo $back_link['title']; ?>
+                        </a>
+                    <?php endif; ?>
+
                     <div
                         class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 d-inline-flex">
                         <?php echo get_the_title(); ?>
                     </div>
                 </div>
-                <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-9 px-3 px-lg-0  mx-auto text-center res-font35 res-leading44 res-space-0_35">
-                    <?php echo $heading; ?>
-                </div>
+                <?php if (!empty($heading)): ?>
+                    <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-9 px-3 px-lg-0  mx-auto text-center res-font35 res-leading44 res-space-0_35">
+                        <?php echo $heading; ?>
+                    </div>
+                <?php endif; ?>
                 <div class="col-lg-7 px-lg-5 mx-auto text-center dpt-15">
                     <div class="roboto-regular  font20 leading28 space-02 text-172426 res-font16 res-leading24 res">Become our event sponsor and unlock the opportunity to position your company at the forefront of industry recognition.</div>
                 </div>
@@ -1773,9 +1958,11 @@ $flexibleContent = get_field('flexible_content');
                         <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20 tmb-25">
                             Insights
                         </div>
-                        <div class="basker-regular font66 space-0_66 leading70 text-172426 text-center dmb-20 res-font35 res-leading44 res-space-0_35">
-                            <?php echo $heading; ?>
-                        </div>
+                        <?php if (!empty($heading)): ?>
+                            <div class="basker-regular font66 space-0_66 leading70 text-172426 text-center dmb-20 res-font35 res-leading44 res-space-0_35">
+                                <?php echo $heading; ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="filter-button-row activity-category d-lg-flex align-items-center justify-content-center text-nowrap overflow-auto">
                             <button data-category="all"
                                 class="category-btn filter-button activity-button tag-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
@@ -1887,12 +2074,16 @@ $flexibleContent = get_field('flexible_content');
             <section class="faq-accordion-section">
                 <div class="container">
                     <div class="col-lg-4 col-11 dmb-20">
-                        <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 text-uppercase tmb-25 dmb-15">
-                            <?php echo $prefix; ?>
-                        </div>
-                        <div class="basker-regular font56 leading60 res-font35 res-leading44 res-space-0_35 text-172426">
-                            <?php echo $heading; ?>
-                        </div>
+                        <?php if (!empty($prefix)): ?>
+                            <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 text-uppercase tmb-25 dmb-15">
+                                <?php echo $prefix; ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($heading)): ?>
+                            <div class="basker-regular font56 leading60 res-font35 res-leading44 res-space-0_35 text-172426">
+                                <?php echo $heading; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <?php if ($faqs_display == "all") :
 
@@ -1917,8 +2108,10 @@ $flexibleContent = get_field('flexible_content');
                                     <div class="col-lg-9 closet-accordion ms-lg-auto">
                                         <div class="accordion-item overflow-hidden">
                                             <div
-                                                class="closet-header position-relative dpt-20 dpb-20 d-flex justify-content-between align-items-center cursor-pointer transition">
-                                                <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $post_title; ?></div>
+                                                class="closet-header position-relative dpt-10 dpb-10 d-flex justify-content-between align-items-center cursor-pointer transition">
+                                                <?php if (!empty($post_title)): ?>
+                                                    <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $post_title; ?></div>
+                                                <?php endif; ?>
                                                 <div
                                                     class="arrow-bg bg-505050 rounded-circle d-flex justify-content-center align-items-center">
                                                     <div class="accordion-arrow transition">
@@ -1928,9 +2121,11 @@ $flexibleContent = get_field('flexible_content');
                                             </div>
                                             <div class="closet-content dmb-30">
                                                 <div class="col-lg-10 col-11">
-                                                    <div class="roboto-regular font16 leading19 space-0_16 dmt-20">
-                                                        <?php echo $faq_sontent; ?>
-                                                    </div>
+                                                    <?php if (!empty($faq_sontent)): ?>
+                                                        <div class="roboto-regular font16 leading19 dmt-20">
+                                                            <?php echo $faq_sontent; ?>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -1949,12 +2144,14 @@ $flexibleContent = get_field('flexible_content');
                                 <?php foreach ($select_faqs as $select_faq_single) :
                                     $select_faq_single_id = $select_faq_single->ID;
                                     $select_faq_single_title = $select_faq_single->post_title;
-                                    $select_faq_single = get_field('content_faqs', $select_faq_single_id);
+                                    $select_faq_single_custom = get_field('content_faqs', $select_faq_single_id);
                                 ?>
                                     <div class="accordion-item overflow-hidden">
                                         <div
                                             class="closet-header position-relative dpt-20 dpb-20 d-flex justify-content-between align-items-center cursor-pointer transition">
-                                            <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $select_faq_single_title; ?></div>
+                                            <?php if (!empty($select_faq_single_title)): ?>
+                                                <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $select_faq_single_title; ?></div>
+                                            <?php endif; ?>
                                             <div
                                                 class="arrow-bg bg-505050 rounded-circle d-flex justify-content-center align-items-center">
                                                 <div class="accordion-arrow transition">
@@ -1964,9 +2161,11 @@ $flexibleContent = get_field('flexible_content');
                                         </div>
                                         <div class="closet-content dmb-30">
                                             <div class="col-lg-10 col-11">
-                                                <div class="roboto-regular font16 leading19 dmt-20">
-                                                    <?php echo $select_faq_single; ?>
-                                                </div>
+                                                <?php if (!empty($select_faq_single_custom)): ?>
+                                                    <div class="roboto-regular font16 leading19 dmt-20">
+                                                        <?php echo $select_faq_single_custom; ?>
+                                                    </div>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -1992,7 +2191,7 @@ $flexibleContent = get_field('flexible_content');
                                 id="privacy-links">
                                 <?php foreach ($single_policy as $key => $single_policy_list) :
                                     $heading = $single_policy_list['heading'];
-                               
+
                                 ?>
                                     <li class="dmb-10 tmb-40 me-2">
                                         <a class="roboto-medium font14 leading18 text-172426 radius5 py-2 px-2 d-inline-flex justify-content-center text-capitalize text-172426 text-decoration-none transition"
@@ -2031,7 +2230,38 @@ $flexibleContent = get_field('flexible_content');
                     </div>
                 </div>
             </section>
+        <?php elseif (get_row_layout() == 'banner') :
+            $image = get_sub_field('image');
+            $heading = get_sub_field('heading');
+            $link = get_sub_field('link');
 
+        ?>
+            <section class="book-full-banner-section">
+                <div class="container">
+                    <div class="book-full-banner position-relative overflow-hidden radius20">
+                        <?php if (!empty($image)): ?>
+                            <img src="<?php echo $image; ?>" alt="" class="w-100 h-100 object-cover">
+                        <?php endif; ?>
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity10"></div>
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                            <div class="text-center">
+                                <?php if (!empty($heading)): ?>
+                                    <div class="basker-regular font60 leading70 space-06 text-white dmb-20 res-font35 res-leading44 px-4 px-lg-0">
+                                        <?php echo $heading; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (!empty($link['url'])):
+                                    $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
+                                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                        href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
+                                        <?php echo $link['title']; ?>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         <?php elseif (get_row_layout() == 'spacing') :
             $desktop = get_sub_field('desktop');
