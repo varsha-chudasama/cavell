@@ -23,11 +23,11 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "mini-css-extract-plugin": "^0.8.0",
     "minimatch": "^3.0.4",
+    "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "querystring": "^0.2.0",
     "resolve-url-loader": "^3.1.0",
-    "node-sass": "^4.12.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.40.2",
@@ -62,11 +62,13 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.1",
     "fancybox": "^3.0.1",
-     "handlebars": "^4.7.7",
+    "handlebars": "^4.7.7",
     "jquery": "^3.7.0",
     "masonry-layout": "^4.2.2",
     "popper.js": "^1.16.1",
     "select2": "^4.1.0-rc.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "wow.js": "^1.2.2",
+    "wowjs": "^1.1.3"
   }
 }
