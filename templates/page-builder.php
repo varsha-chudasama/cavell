@@ -1708,7 +1708,7 @@ $flexibleContent = get_field('flexible_content');
             $job_cards = get_sub_field('job_cards');
         ?>
 
-            <section class="associate-cards-section container">
+            <section class="associate-cards-section container" id="job-list">
                 <?php foreach ($job_cards as $job_card) :
                     $job_card_heading = $job_card['heading'];
                     $job_card_locations = $job_card['locations'];
@@ -1878,7 +1878,7 @@ $flexibleContent = get_field('flexible_content');
                     </div>
                 <?php endif; ?>
                 <div class="col-lg-7 px-lg-5 mx-auto text-center dpt-15">
-                    <div class="roboto-regular  font20 leading28 space-02 text-172426 res-font16 res-leading24 res">Become our event sponsor and unlock the opportunity to position your company at the forefront of industry recognition.</div>
+                    <div class="roboto-regular  font20 leading28 space-02 text-172426 res-font16 res-leading24 res"><?php echo $descriptions; ?></div>
                 </div>
                 <?php if (!empty($image)): ?>
                     <div class="client-service-img radius20 overflow-hidden dmt-60">
