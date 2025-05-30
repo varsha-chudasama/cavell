@@ -14,6 +14,7 @@
     ?>
 
     <header class="header position-fixed top-0 start-0 w-100 transition">
+         <?php if (!empty($event_title)): ?>
         <div class="header-notice position-relative bg-ACFCFE d-flex justify-content-lg-center">
             <div class="roboto-regular font14 leading19 res-font10 space-0_14  text-172426 d-flex align-items-center">
                 Upcoming event: <span class="roboto-medium"> <?php echo $event_title; ?></span>

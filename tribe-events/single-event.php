@@ -256,17 +256,12 @@ $events_sticky_bar = get_field('events_sticky_bar');
 <section class="faq-accordion-section" id="<?php echo $faqs_prefix_id; ?>">
     <div class="container">
         <div class="col-lg-4 col-11 dmb-20">
-
-            <?php if (!empty($faq_heading)): ?>
-                <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 text-uppercase tmb-25 dmb-15">
-                    <?php echo $faq_heading; ?>
-                </div>
-            <?php endif; ?>
-            <?php if (!empty($faq_sub_heading)): ?>
-                <div class="basker-regular font56 leading60 res-font35 res-leading44 res-space-0_35 text-172426">
-                    <?php echo $faq_sub_heading; ?>
-                </div>
-            <?php endif; ?>
+            <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 text-uppercase tmb-25 dmb-15">
+                <?php echo $faq_heading; ?>
+            </div>
+            <div class="basker-regular font56 leading60 res-font35 res-leading44 res-space-0_35 text-172426">
+                <?php echo $faq_sub_heading; ?>
+            </div>
         </div>
         <div class="ps-lg-1">
             <div class="col-lg-9 closet-accordion ms-lg-auto">
@@ -274,14 +269,12 @@ $events_sticky_bar = get_field('events_sticky_bar');
                 <?php foreach ($select_faqs as $select_faq_single) :
                     $select_faq_single_id = $select_faq_single->ID;
                     $select_faq_single_title = $select_faq_single->post_title;
-                    $select_faq_single_custom = get_field('content_faqs', $select_faq_single_id);
+                    $select_faq_single = get_field('content_faqs', $select_faq_single_id);
                 ?>
                     <div class="accordion-item overflow-hidden">
                         <div
                             class="closet-header position-relative dpt-20 dpb-20 d-flex justify-content-between align-items-center cursor-pointer transition">
-                            <?php if (!empty($select_faq_single_title)): ?>
-                                <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $select_faq_single_title; ?></div>
-                            <?php endif; ?>
+                            <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $select_faq_single_title; ?></div>
                             <div
                                 class="arrow-bg bg-505050 rounded-circle d-flex justify-content-center align-items-center">
                                 <div class="accordion-arrow transition">
@@ -291,11 +284,9 @@ $events_sticky_bar = get_field('events_sticky_bar');
                         </div>
                         <div class="closet-content dmb-30">
                             <div class="col-lg-10 col-11">
-                                <?php if (!empty($select_faq_single_custom)): ?>
-                                    <div class="roboto-regular font16 leading19 dmt-20">
-                                        <?php echo $select_faq_single_custom; ?>
-                                    </div>
-                                <?php endif; ?>
+                                <div class="roboto-regular font16 leading19 dmt-20">
+                                    <?php echo $select_faq_single; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -322,25 +313,15 @@ $events_sticky_bar = get_field('events_sticky_bar');
                         class="event-filter-button filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 text-decoration-none">
                       <?php echo $events_sticky_link_single['title'] ?>
                     </a>
-                    <?php foreach ($events_sticky_bar as $events_sticky_link) :
-                        $events_sticky_link_single = $events_sticky_link['link'];
-                    ?>
-                        <?php if (!empty($events_sticky_link_single['url'])):
-                            $target_2 = ($events_sticky_link_single['target'] == '_blank') ? "_blank" : ""; ?>
-                            <a href="<?php echo $events_sticky_link_single['url'] ?>"
-                                class="event-filter-button filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 " target="<?php echo $target_2; ?>">
-                                <?php echo $events_sticky_link_single['title'] ?>
-                            </a>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </div>
-                <div>
-                    <a class="book-tickets-btn bg-172426 roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                        href="#ticket_book">
-                        Book tickets
-                    </a>
-                </div>
+                <?php endforeach; ?>
+            </div>
+            <div>
+                <a class="book-tickets-btn bg-172426 roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                    href="#ticket">
+                    Book tickets
+                </a>
             </div>
         </div>
     </div>
-<?php endif; ?>
+</div>
+       <?php endif; ?>
