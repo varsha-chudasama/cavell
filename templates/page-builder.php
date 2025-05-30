@@ -2186,7 +2186,7 @@ $flexibleContent = get_field('flexible_content');
             $single_policy = get_sub_field('single_policy');
         ?>
 
-            <section class="privacy-section position-relative h-vh">
+            <section class="privacy-section position-relative">
                 <div class="bg--layer position-fixed bottom-0 w-100"></div>
                 <div class="container">
                     <div class="row">
