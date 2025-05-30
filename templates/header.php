@@ -14,24 +14,26 @@
     ?>
 
     <header class="header position-fixed top-0 start-0 w-100 transition">
-        <div class="header-notice position-relative bg-ACFCFE d-flex justify-content-lg-center">
-            <div class="roboto-regular font14 leading19 res-font10 space-0_14  text-172426 d-flex align-items-center">
-                Upcoming event: <span class="roboto-medium"> <?php echo $event_title; ?></span>
-            </div>
-            <div
-                class="d-flex align-items-center justify-content-end position-absolute h-100 top-0 end-0 pe-lg-3 me-lg-2">
-                <div class="close-icon d-inline-flex align-items-center me-lg-2">
-                    <img src="<?php echo get_template_directory_uri(); ?>/templates/images/notice-close.svg" alt="" class="h-100">
+        <?php if (!empty($event_title)): ?>
+            <div class="header-notice position-relative bg-ACFCFE d-flex justify-content-lg-center">
+                <div class="roboto-regular font14 leading19 res-font10 space-0_14  text-172426 d-flex align-items-center">
+                    Upcoming event: <span class="roboto-medium"> <?php echo $event_title; ?></span>
+                </div>
+                <div
+                    class="d-flex align-items-center justify-content-end position-absolute h-100 top-0 end-0 pe-lg-3 me-lg-2">
+                    <div class="close-icon d-inline-flex align-items-center me-lg-2">
+                        <img src="<?php echo get_template_directory_uri(); ?>/templates/images/notice-close.svg" alt="" class="h-100">
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
         <div class="nav bg-white position-relative">
             <div class="container h-100">
                 <div class="h-100 d-flex flex-lg-row flex-column align-items-lg-center justify-content-between">
                     <div class="menu-icons d-flex align-items-center justify-content-between">
                         <a href="<?php echo get_home_url(); ?>" class="header-logo">
                             <img src="<?php echo $logo; ?>" alt="" class="h-100">
-</a>
+                        </a>
                         <div class="menu-icon d-lg-none d-flex flex-column justify-content-between">
                             <span></span>
                             <span></span>
@@ -73,41 +75,51 @@
                                                     <div class="col-lg-4">
                                                         <div
                                                             class="roboto-regular font18 leading18 space-0_18 text-1724264D dmb-15 tmb-35 d-lg-flex d-none">
-                                                           <?php echo $sub_menu; ?>
+                                                            <?php echo $sub_menu; ?>
                                                         </div>
                                                         <ul class="sub-menus list-none ps-0 mb-0">
-                                                            <?php foreach($sub_menu_links as $sub_menu_link) :
+                                                            <?php foreach ($sub_menu_links as $sub_menu_link) :
                                                                 $sub_menu_link_single = $sub_menu_link['link'];
-                                                                ?>
-                                                            <li class="dmb-15">
-                                                                <a href="<?php echo $sub_menu_link_single['url']; ?>"
-                                                                    class="text-decoration-none roboto-regular font18 leading18 space-0_18 res-font16 res-space-0_16 text-172426">
-                                                                    <?php echo $sub_menu_link_single['title']; ?>
-                                                                </a>
-                                                            </li>
-                                                           <?php endforeach; ?>
+                                                            ?>
+                                                                <?php if (!empty($sub_menu_link_single['url'])):
+                                                                    $target_2 = ($sub_menu_link_single['target'] == '_blank') ? "_blank" : ""; ?>
+                                                                    <li class="dmb-15">
+                                                                        <a href="<?php echo $sub_menu_link_single['url']; ?>"
+                                                                            class="text-decoration-none roboto-regular font18 leading18 space-0_18 res-font16 res-space-0_16 text-172426" target="<?php echo $target_2; ?>">
+                                                                            <?php echo $sub_menu_link_single['title']; ?>
+                                                                        </a>
+                                                                    </li>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-8 ps-lg-4">
                                                         <div
                                                             class="header-banner bg-172426 radius20 d-flex align-items-center position-relative tmt-25">
                                                             <div class="position-relative z-2">
+                                                                <?php if (!empty($banner_heading)): ?>
+                                                                    <div
+                                                                        class="basker-regular  font30 leading32 space-03 text-white dmb-15 tmb-25">
+                                                                        <?php echo $banner_heading; ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                                <?php if (!empty($banner_link['url'])):
+                                                                    $target_2 = ($banner_link['target'] == '_blank') ? "_blank" : ""; ?>
+                                                                    <div>
+                                                                        <a href="<?php echo $banner_link['url']; ?>"
+                                                                            class="btnA bg-white-btn roboto-medium font16 space-0_16 radius5 text-decoration-none d-inline-flex justify-content-center align-items-center transition" target="<?php echo $target_2; ?>">
+                                                                            <?php echo $banner_link['title']; ?>
+                                                                        </a>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                            <?php if (!empty($banner_image)): ?>
                                                                 <div
-                                                                    class="basker-regular  font30 leading32 space-03 text-white dmb-15 tmb-25">
-                                                                   <?php echo $banner_heading; ?>
+                                                                    class="header-banner-icon position-absolute bottom-0 end-0 z-1">
+                                                                    <img src="<?php echo $banner_image; ?>" alt=""
+                                                                        class="h-100">
                                                                 </div>
-                                                                <div>
-                                                                    <a href="<?php echo $banner_link['url']; ?>"
-                                                                        class="btnA bg-white-btn roboto-medium font16 space-0_16 radius5 text-decoration-none d-inline-flex justify-content-center align-items-center transition">
-                                                                        <?php echo $banner_link['title']; ?>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="header-banner-icon position-absolute bottom-0 end-0 z-1">
-                                                                <img src="<?php echo $banner_image; ?>" alt=""
-                                                                    class="h-100">
-                                                            </div>
+                                                            <?php endif; ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -119,22 +131,28 @@
                             <?php if ($link_type == "single_link") : ?>
                                 <div class="mx-2 dmt-35 tmt-0 dpb-35">
                                     <li class="px-xl-2 d-flex align-items-center">
-                                        <a href="  <?php echo $single_link['url']; ?>"
-                                            class="text-decoration-none roboto-medium font16 leading21 space-0_16 res-font20 text-172426 text-capitalize">
-                                            <?php echo $single_link['title']; ?>
-                                        </a>
+                                        <?php if (!empty($single_link['url'])):
+                                            $target_2 = ($single_link['target'] == '_blank') ? "_blank" : ""; ?>
+                                            <a href="  <?php echo $single_link['url']; ?>"
+                                                class="text-decoration-none roboto-medium font16 leading21 space-0_16 res-font20 text-172426 text-capitalize" target="<?php echo $target_2; ?>">
+                                                <?php echo $single_link['title']; ?>
+                                            </a>
+                                        <?php endif; ?>
                                     </li>
                                 </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
 
                     </ul>
-                    <div class="d-lg-flex d-none">
-                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                            href="<?php echo $header_button['url']; ?>">
-                           <?php echo $header_button['title']; ?>
-                        </a>
-                    </div>
+                    <?php if (!empty($header_button['url'])):
+                        $target_2 = ($header_button['target'] == '_blank') ? "_blank" : ""; ?>
+                        <div class="d-lg-flex d-none">
+                            <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                href="<?php echo $header_button['url']; ?>" target="<?php echo $target_2; ?>">
+                                <?php echo $header_button['title']; ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

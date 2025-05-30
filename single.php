@@ -38,8 +38,8 @@
                             ?>
                            <div class="d-lg-flex align-items-center d-none">
                                <div class="left-content-img radius10 overflow-hidden me-4 bg-black">
-                                    <img class="w-100 h-100 object-cover" src="<?php echo $team_image; ?>"
-                                        alt="Blog-open">
+                                   <img class="w-100 h-100 object-cover" src="<?php echo $team_image; ?>"
+                                       alt="Blog-open">
                                </div>
                                <div>
                                    <div class="roboto-regular font16 leading21 text-172426">
@@ -111,73 +111,75 @@
 
                         ?>
                            <div class="col-lg-11" id="inslight-<?php echo $key; ?>">
-                                <div class="pe-lg-3">
-                                    <div class="video-content position-relative radius20 overflow-hidden dmt-35 tmb-50 dmb-70">
-    
-                                        <?php if ($content_single_media == "thumbnail") : ?>
-                                            <img class="w-100 h-100 object-cover" src="<?php echo get_the_post_thumbnail_url($id, 'full'); ?>" alt="">
-                                        <?php endif; ?>
-    
-    
-                                        <?php if ($content_single_media == "image" || $content_single_media == "video" || $content_single_media == "youtube" || $content_single_media == "vimeo") : ?>
-                                            <img class="w-100 h-100 object-cover" src="<?php echo $content_single_image; ?>" alt="">
-                                        <?php endif; ?>
-    
-                                        <div class="position-absolute top-left-center cursor-pointer">
-                                            <?php if ($content_single_media == "youtube") : ?>
-                                                <div data-type="iframe" data-fancybox="gallery"
-                                                    data-src="https://www.youtube.com/embed/<?php echo $content_single_youtube; ?>?autoplay=1&mute=1&playlist=<?php echo $content_single_youtube; ?>&loop=1"
-                                             >
+                               <div class="pe-lg-3">
+                                   <div class="video-content position-relative radius20 overflow-hidden dmt-35 tmb-50 dmb-70">
+
+                                       <?php if ($content_single_media == "thumbnail") : ?>
+                                           <img class="w-100 h-100 object-cover" src="<?php echo get_the_post_thumbnail_url($id, 'full'); ?>" alt="">
+                                       <?php endif; ?>
+
+
+                                       <?php if ($content_single_media == "image" || $content_single_media == "video" || $content_single_media == "youtube" || $content_single_media == "vimeo") : ?>
+                                           <img class="w-100 h-100 object-cover" src="<?php echo $content_single_image; ?>" alt="">
+                                       <?php endif; ?>
+
+                                       <div class="position-absolute top-left-center cursor-pointer">
+                                           <?php if ($content_single_media == "youtube") : ?>
+                                               <div data-type="iframe" data-fancybox="gallery"
+                                                   data-src="https://www.youtube.com/embed/<?php echo $content_single_youtube; ?>?autoplay=1&mute=1&playlist=<?php echo $content_single_youtube; ?>&loop=1">
                                                    <div class="play-button play-btn d-flex align-items-center justify-content-center">
-                                                            <img src="<?php echo get_template_directory_uri(); ?>/templates/images/play.svg" class="me-1" alt="">
-                                                            <div class="roboto-medium font16 leading21 space-0_16 text-white">
-                                                                Play Video
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            <?php endif; ?>
-    
-                                            <?php if ($content_single_media == "vimeo") : ?>
-                                                <div
-                                                    data-type="iframe"
-                                                    data-fancybox="gallery"
-                                                    data-src="https://player.vimeo.com/video/<?php echo $content_single_vimeo; ?>?autoplay=1&muted=1&loop=1&background=1&badge=0"
-                                                  >
+                                                       <img src="<?php echo get_template_directory_uri(); ?>/templates/images/play.svg" class="me-1" alt="">
+                                                       <div class="roboto-medium font16 leading21 space-0_16 text-white">
+                                                           Play Video
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           <?php endif; ?>
+
+                                           <?php if ($content_single_media == "vimeo") : ?>
+                                               <div
+                                                   data-type="iframe"
+                                                   data-fancybox="gallery"
+                                                   data-src="https://player.vimeo.com/video/<?php echo $content_single_vimeo; ?>?autoplay=1&muted=1&loop=1&background=1&badge=0">
                                                    <div class="play-button play-btn d-flex align-items-center justify-content-center">
-                                                            <img src="<?php echo get_template_directory_uri(); ?>/templates/images/play.svg" class="me-1" alt="">
-                                                            <div class="roboto-medium font16 leading21 space-0_16 text-white">
-                                                                Play Video
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            <?php endif; ?>
-    
-                                            <?php if ($content_single_media == "video") : ?>
-    
-                                                <div data-type="video" data-fancybox="gallery"
-                                                    data-src="<?php echo $content_single_video['url']; ?>">
-                                                        <div class="play-button play-btn d-flex align-items-center justify-content-center">
-                                                            <img src="<?php echo get_template_directory_uri(); ?>/templates/images/play.svg" class="me-1" alt="">
-                                                            <div class="roboto-medium font16 leading21 space-0_16 text-white">
-                                                                Play Video
-                                                            </div>
-                                                        </div>
-                                                </div>
-    
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                </div>
+                                                       <img src="<?php echo get_template_directory_uri(); ?>/templates/images/play.svg" class="me-1" alt="">
+                                                       <div class="roboto-medium font16 leading21 space-0_16 text-white">
+                                                           Play Video
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           <?php endif; ?>
+
+                                           <?php if ($content_single_media == "video") : ?>
+
+                                               <div data-type="video" data-fancybox="gallery"
+                                                   data-src="<?php echo $content_single_video['url']; ?>">
+                                                   <div class="play-button play-btn d-flex align-items-center justify-content-center">
+                                                       <img src="<?php echo get_template_directory_uri(); ?>/templates/images/play.svg" class="me-1" alt="">
+                                                       <div class="roboto-medium font16 leading21 space-0_16 text-white">
+                                                           Play Video
+                                                       </div>
+                                                   </div>
+                                               </div>
+
+                                           <?php endif; ?>
+                                       </div>
+                                   </div>
+                               </div>
                            </div>
 
                            <div class="single-content pe-lg-5">
                                <div class="me-lg-5 pe-5 tmb-65">
-                                   <div class="basker-regular font30 leading32 space-03 text-172426 dmb-15">
-                                       <?php echo $content_single_heading; ?>
-                                   </div>
-                                   <div class="roboto-regular font16 leading24 res-space-0_16 text-172426 dmb-25">
-                                       <?php echo $content_single_post_content; ?>
-                                   </div>
+                                   <?php if (!empty($content_single_heading)): ?>
+                                       <div class="basker-regular font30 leading32 space-03 text-172426 dmb-15">
+                                           <?php echo $content_single_heading; ?>
+                                       </div>
+                                   <?php endif; ?>
+                                   <?php if (!empty($content_single_post_content)): ?>
+                                       <div class="roboto-regular font16 leading24 res-space-0_16 text-172426 dmb-25">
+                                           <?php echo $content_single_post_content; ?>
+                                       </div>
+                                   <?php endif; ?>
                                    <?php if ($link_option == "link") :
 
                                     ?>
@@ -209,25 +211,25 @@
                        <?php endforeach; ?>
 
 
-                        <?php
-                            $team_id = $article_by->ID;
-                            $title = $article_by->post_title;
-                            $team_image = get_the_post_thumbnail_url($team_id);
-                            ?>
-                           <div class="d-flex align-items-center d-lg-none">
-                               <div class="left-content-img radius10 overflow-hidden me-4 bg-black">
-                                    <img class="w-100 h-100 object-cover" src="<?php echo $team_image; ?>"
-                                        alt="Blog-open">
+                       <?php
+                        $team_id = $article_by->ID;
+                        $title = $article_by->post_title;
+                        $team_image = get_the_post_thumbnail_url($team_id);
+                        ?>
+                       <div class="d-flex align-items-center d-lg-none">
+                           <div class="left-content-img radius10 overflow-hidden me-4 bg-black">
+                               <img class="w-100 h-100 object-cover" src="<?php echo $team_image; ?>"
+                                   alt="Blog-open">
+                           </div>
+                           <div>
+                               <div class="roboto-regular font16 leading21 text-172426">
+                                   Article by
                                </div>
-                               <div>
-                                   <div class="roboto-regular font16 leading21 text-172426">
-                                       Article by
-                                   </div>
-                                   <div class="roboto-medium font16 leading21">
-                                       <?php echo $title; ?>
-                                   </div>
+                               <div class="roboto-medium font16 leading21">
+                                   <?php echo $title; ?>
                                </div>
                            </div>
+                       </div>
                    </div>
                </div>
            </div>
@@ -265,8 +267,8 @@
                             while ($related_query->have_posts()) : $related_query->the_post();
 
 
- $id = get_the_ID();;
-      $news_content = get_field('news_content', $id);
+                                $id = get_the_ID();;
+                                $news_content = get_field('news_content', $id);
                                 $post_categories = get_the_category();
                                 $tag_name = !empty($post_categories) ? esc_html($post_categories[0]->name) : '';
                     ?>
