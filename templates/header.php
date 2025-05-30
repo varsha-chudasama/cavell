@@ -20,7 +20,7 @@
             </div>
             <div
                 class="d-flex align-items-center justify-content-end position-absolute h-100 top-0 end-0 pe-lg-3 me-lg-2">
-                <div class="close-icon d-inline-flex align-items-center me-lg-2">
+                <div class="header-close-icon d-inline-flex align-items-center me-lg-2 cursor-pointer">
                     <img src="<?php echo get_template_directory_uri(); ?>/templates/images/notice-close.svg" alt="" class="h-100">
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     <div class="menu-icons d-flex align-items-center justify-content-between">
                         <a href="<?php echo get_home_url(); ?>" class="header-logo">
                             <img src="<?php echo $logo; ?>" alt="" class="h-100">
-</a>
+                        </a>
                         <div class="menu-icon d-lg-none d-flex flex-column justify-content-between">
                             <span></span>
                             <span></span>

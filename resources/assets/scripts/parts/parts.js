@@ -4,6 +4,7 @@ export class Parts {
     this.ReadmoreToggle();
     this.AgendaTitle();
     this.ReportsButton();
+    this.EventOpenButton();
   }
   AudioPlay() {
 let youtubePlayer;
@@ -127,4 +128,45 @@ let youtubePlayer;
       }
     });
   }
+
+
+   EventOpenButton() {
+      $(document).ready(function () {
+          var filterButtons = $(".event-filter-button");
+          var viewAllButton = filterButtons.filter('[href="#"]');
+
+          function updateStickyActive() {
+              var scrollTop = $(window).scrollTop();
+              var anySectionActive = false;
+
+              filterButtons.each(function () {
+                  var targetId = $(this).attr("href");
+                  if (!targetId || targetId === "#") return;
+
+                  var section = $(targetId);
+                  if (section.length) {
+                      var sectionTop = section.offset().top;
+                      var sectionHeight = section.outerHeight();
+
+                      // Section top near viewport top
+                      if (scrollTop >= sectionTop - 100 && scrollTop < sectionTop + sectionHeight - 100) {
+                          filterButtons.removeClass("active");
+                          $(this).addClass("active");
+                          anySectionActive = true;
+                          return false; // break .each loop
+                      }
+                  }
+              });
+
+              // If no section is active, set "View all" active
+              if (!anySectionActive) {
+                  filterButtons.removeClass("active");
+                  viewAllButton.addClass("active");
+              }
+          }
+
+          $(window).on("scroll", updateStickyActive);
+          updateStickyActive(); // Run on page load
+      });
+    }
 }

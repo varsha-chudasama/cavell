@@ -14,6 +14,8 @@ import { Header } from './parts/header';
 import { Video } from './parts/video.js';
 import { Feedback } from './parts/feedback.js';
 import { Filter } from './parts/filter.js';
+import WOW from 'wow.js';
+import "../../node_modules/wow.js";
 
 
 // export for others scripts to use
@@ -63,3 +65,13 @@ $(function () {
 });
 
 // ===========================================================================
+
+
+jQuery(document).ready(function ($) {
+  new WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      once: true,
+      mobile: true,
+  }).init();
+});

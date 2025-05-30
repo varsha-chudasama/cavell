@@ -170,3 +170,13 @@ body{
     background: linear-gradient(180deg, rgba(243, 255, 255, 0) 0%, #B7FCFE 100%);
   }
 }
+
+.booking-section{
+  .booking-box{
+    height: 550px;
+    border: 1px solid $black;
+    @include media-breakpoint-down(lg){
+      height: 353px;
+    }
+  }
+}

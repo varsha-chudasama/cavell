@@ -23,7 +23,7 @@ $website_develop_by_link = get_field('website_develop_by_link', 'option');
 <?php if ($footer_banner == "global") : ?>
     <section class="cavell-full-banner">
         <div class="container">
-            <div class="cavell-full-banner-img position-relative radius20 overflow-hidden">
+            <div class="cavell-full-banner-img position-relative radius20 overflow-hidden wow animated animate__fadeInUp" data-wow-duration=".5s">
                 <img class="w-100 h-100 object-cover" src="<?php echo $banner_section_image['url']; ?>" alt="banner-image">
                 <div class="position-absolute top-left-center w-100 z-3">
                     <div class="mx-auto">
@@ -55,7 +55,7 @@ $website_develop_by_link = get_field('website_develop_by_link', 'option');
 ?>
     <section class="cavell-full-banner">
         <div class="container">
-            <div class="cavell-full-banner-img position-relative radius20 overflow-hidden">
+            <div class="cavell-full-banner-img position-relative radius20 overflow-hidden wow animated animate__fadeInUp" data-wow-duration=".5s">
                 <img class="w-100 h-100 object-cover" src="<?php echo $banner_image; ?>" alt="banner-image">
                 <div class="position-absolute top-left-center w-100 z-3">
                     <div class="mx-auto">
@@ -84,7 +84,7 @@ $website_develop_by_link = get_field('website_develop_by_link', 'option');
     </section>
 <?php endif; ?>
 
-<footer class="footer tmt-80 tmb-40 dmt-75 dmb-20">
+<footer class="footer tpt-80 tpb-40 dpt-75 dpb-20">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 col-12">

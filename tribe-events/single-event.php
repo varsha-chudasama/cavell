@@ -202,6 +202,14 @@ $events_sticky_bar = get_field('events_sticky_bar');
 <?php echo do_shortcode('[page_builder]'); ?>
 
 
+<section class="booking-section">
+    <div class="container">
+        <div class="booking-box radius10 d-flex align-items-center justify-content-center">
+            <div class="roboto-regular font26 leading32 space-0_24 text-black res-font18 res-leading24 res-space-0_18">Ticket / booking extension</div>
+        </div>
+    </div>
+</section>
+
 <div class="dpt-160"></div>
 <section class="location-section" id="<?php echo $event_location_prefix_id; ?>">
     <div class="container">
@@ -290,19 +298,19 @@ $events_sticky_bar = get_field('events_sticky_bar');
 </section>
 
 <?php if (!empty($events_sticky_bar)): ?>
-<div class="bg-white position-sticky bottom-0 z-3 w-100">
+<div class="bg-white position-fixed bottom-0 z-3 w-100">
     <div class="container">
         <div class="filter-button-row d-flex align-items-center justify-content-lg-between dpt-15 dpb-15 overflow-auto text-nowrap">
             <div class="me-4 me-lg-0">
                 <a href="#"
-                    class="event-filter-button filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active">
+                    class="event-filter-button filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 active text-decoration-none">
                     View all
                 </a>
                 <?php foreach ($events_sticky_bar as $events_sticky_link) :
                     $events_sticky_link_single = $events_sticky_link['link'];
                     ?>
                     <a href="<?php echo $events_sticky_link_single['url'] ?>"
-                        class="event-filter-button filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 ">
+                        class="event-filter-button filter-button roboto-medium font14 leading19 space-0_14 me-1 border-0 radius5 text-decoration-none">
                       <?php echo $events_sticky_link_single['title'] ?>
                     </a>
                 <?php endforeach; ?>

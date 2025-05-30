@@ -3,6 +3,7 @@ export class Header {
         this.ActiveHoverState();
         this.MenuIconActive();
         this.HeaderFixed();
+        this.HeaderNotice();
     }
 
     ActiveHoverState() {
@@ -94,6 +95,12 @@ export class Header {
                 $(".header").addClass("hidden");
             }
             prevScrollPos = currentScrollPos;
+        });
+    }
+
+    HeaderNotice(){
+        $('.header-close-icon').on('click', function() {
+            $('.header-notice').addClass('d-none');
         });
     }
 }
