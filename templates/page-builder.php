@@ -1118,7 +1118,7 @@ $flexibleContent = get_field('flexible_content');
 
             <section>
                 <div class="container">
-               <div class="row align-items-center">
+               <div class="row">
                    <div class="col-lg-6">
                         <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 tmb-15">
                             Contact Us
