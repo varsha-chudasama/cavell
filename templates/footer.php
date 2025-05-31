@@ -170,7 +170,7 @@ $website_develop_by_link = get_field('website_develop_by_link', 'option');
             <div class="col-lg-5 col-12">
                 <div class="col-lg-11 col-12 ms-auto tmb-40">
                     <div class="footer-form radius20">
-                        <div>Subscribe to our newsletter for the latest updates.</div>
+                        <div class="bak">Subscribe to our newsletter for the latest updates.</div>
                     </div>
                 </div>
             </div>
