@@ -1202,12 +1202,12 @@ $flexibleContent = get_field('flexible_content');
                         </a>
                     </div>
                     <div class="row row8">
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-6 col-12 tmb-40">
                             <div class="sponcer-cards radius30">
-                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10">Bronze</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15">Starting from</div>
-                                <div class="basker-regular font36 leading32 space-0_36 dmb-25">£6,000($7,500)</div>
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10 res-font30 res-leading32 res-space-03 tmb-15">Bronze</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-30">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15 tmb-30">Starting from</div>
+                                <div class="basker-regular font36 leading32 space-0_36 dmb-25 res-font24 res-leading32 res-space-0_24">£6,000($7,500)</div>
                                 <div class="bottom-border dmb-35"></div>
                                 <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
                                     <ul>
@@ -1222,12 +1222,12 @@ $flexibleContent = get_field('flexible_content');
                                 </a>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-6 col-12 tmb-40">
                             <div class="sponcer-cards radius30">
-                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10">Bronze</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15">Starting from</div>
-                                <div class="basker-regular font36 leading32 space-0_36 dmb-25">£6,000($7,500)</div>
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10 res-font30 res-leading32 res-space-03 tmb-15">Bronze</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-30">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15 tmb-30">Starting from</div>
+                                <div class="basker-regular font36 leading32 space-0_36 dmb-25 res-font24 res-leading32 res-space-0_24">£6,000($7,500)</div>
                                 <div class="bottom-border dmb-35"></div>
                                 <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
                                     <ul>
@@ -1242,12 +1242,12 @@ $flexibleContent = get_field('flexible_content');
                                 </a>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-6 col-12 tmb-40">
                             <div class="sponcer-cards radius30">
-                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10">Bronze</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15">Starting from</div>
-                                <div class="basker-regular font36 leading32 space-0_36 dmb-25">£6,000($7,500)</div>
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10 res-font30 res-leading32 res-space-03 tmb-15">Bronze</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-30">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15 tmb-30">Starting from</div>
+                                <div class="basker-regular font36 leading32 space-0_36 dmb-25 res-font24 res-leading32 res-space-0_24">£6,000($7,500)</div>
                                 <div class="bottom-border dmb-35"></div>
                                 <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
                                     <ul>
