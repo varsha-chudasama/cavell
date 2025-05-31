@@ -60,12 +60,12 @@
                                 if (!empty($categories)) :
                                 ?>
                                    <div
-                                       class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5">
+                                       class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                        <?php echo esc_html($categories[0]->name); ?>
                                    </div>
                                <?php endif; ?>
                                <div
-                                   class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5">
+                                   class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                    <?php
                                     $total_word_count = 0;
 
@@ -80,16 +80,16 @@
 
                                </div>
                                <div
-                                   class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5">
+                                   class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                    <?php echo get_the_date('jS M, Y', $id); ?>
                                </div>
                            </div>
                            <div
-                               class="basker-regular font56 space-0_56 leading60 res-font30 res-leading32 res-space-03 text-172426 dmb-20 tmb-15 pe-3 pe-lg-0">
+                               class="basker-regular font56 space-0_56 leading60 res-font30 res-leading32 res-space-03 text-172426 dmb-20 tmb-15 pe-3 pe-lg-0 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                <?php echo get_the_title(); ?>
                            </div>
                            <div
-                               class="roboto-regular font22 leading30 space-0_22 res-font16 res-leading24 res-space-0_16 text-172426 pe-5 pe-lg-0">
+                               class="roboto-regular font22 leading30 space-0_22 res-font16 res-leading24 res-space-0_16 text-172426 pe-5 pe-lg-0 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                <?php echo get_the_content(); ?>
                            </div>
                        </div>
@@ -112,7 +112,7 @@
                         ?>
                            <div class="col-lg-11" id="inslight-<?php echo $key; ?>">
                                <div class="pe-lg-3">
-                                   <div class="video-content position-relative radius20 overflow-hidden dmt-35 tmb-50 dmb-70">
+                                   <div class="video-content position-relative radius20 overflow-hidden dmt-35 tmb-50 dmb-70 wow animated animate__fadeInUp" data-wow-duration="1.5s">
 
                                        <?php if ($content_single_media == "thumbnail") : ?>
                                            <img class="w-100 h-100 object-cover" src="<?php echo get_the_post_thumbnail_url($id, 'full'); ?>" alt="">
@@ -168,15 +168,15 @@
                                </div>
                            </div>
 
-                           <div class="single-content pe-lg-5">
+                           <div class="single-content pe-lg-5 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                <div class="me-lg-5 pe-5 tmb-65">
                                    <?php if (!empty($content_single_heading)): ?>
-                                       <div class="basker-regular font30 leading32 space-03 text-172426 dmb-15">
+                                       <div class="basker-regular font30 leading32 space-03 text-172426 dmb-15 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                            <?php echo $content_single_heading; ?>
                                        </div>
                                    <?php endif; ?>
                                    <?php if (!empty($content_single_post_content)): ?>
-                                       <div class="roboto-regular font16 leading24 res-space-0_16 text-172426 dmb-25">
+                                       <div class="roboto-regular font16 leading24 res-space-0_16 text-172426 dmb-25 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                            <?php echo $content_single_post_content; ?>
                                        </div>
                                    <?php endif; ?>
@@ -188,7 +188,7 @@
                                            <div class="tmb-65">
                                                <a
                                                    target="<?php echo $target_2; ?>"
-                                                   class="btnA bg-172426-btn d-inline-flex align-items-center text-white radius5 text-decoration-none transition"
+                                                   class="btnA bg-172426-btn d-inline-flex align-items-center text-white radius5 text-decoration-none transition wow animated animate__fadeInUp" data-wow-duration="1.5s"
                                                    href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a>
                                            </div>
                                        <?php endif; ?>
@@ -199,7 +199,7 @@
                                     ?>
                                        <?php if (!empty($button_file)): ?>
                                            <div class="tmb-65">
-                                               <a download class="btnA bg-172426-btn d-inline-flex align-items-center text-white radius5 text-decoration-none transition"
+                                               <a download class="btnA bg-172426-btn d-inline-flex align-items-center text-white radius5 text-decoration-none transition wow animated animate__fadeInUp" data-wow-duration="1.5s"
                                                    href="<?php echo $button_file; ?>"><?php echo $button_text; ?></a>
                                            </div>
                                        <?php endif; ?>
@@ -241,7 +241,7 @@
            <div class="container">
 
                <div class="d-flex justify-content-between flex-column flex-lg-row align-items-end dmb-50 tmb-40">
-                   <div class="basker-regular font50 leading56 space-05 text-172426 col-lg-7 col-12 res-font30 res-leading44 res-space-03">
+                   <div class="basker-regular font50 leading56 space-05 text-172426 col-lg-7 col-12 res-font30 res-leading44 res-space-03 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                        Continue reading
                    </div>
 
@@ -272,7 +272,7 @@
                                 $post_categories = get_the_category();
                                 $tag_name = !empty($post_categories) ? esc_html($post_categories[0]->name) : '';
                     ?>
-                               <a href="<?php the_permalink(); ?>" class="insights-card d-inline-flex flex-column justify-content-between text-decoration-none card-hover overflow-hidden w-100 h-100">
+                               <a href="<?php the_permalink(); ?>" class="insights-card d-inline-flex flex-column justify-content-between text-decoration-none card-hover overflow-hidden w-100 h-100 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                                    <div>
                                        <div class="insights-card-img radius15 position-relative dmb-20 overflow-hidden">
                                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" class="w-100 h-100 object-cover img" alt="">

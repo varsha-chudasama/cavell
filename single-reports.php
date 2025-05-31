@@ -8,7 +8,7 @@ $back_link = $report_archive_content['back_link'];
 
 ?>
 
-<section class="full-text-image-card-section dpt-155">
+<section class="full-text-image-card-section dpt-155 tpt-125">
     <div class="container">
         <div class="full-text-img-card dpt-50 dpb-45 tpt-15 tpb-60 radius30 res-radius20">
             <div class="row align-items-center flex-column-reverse flex-lg-row">

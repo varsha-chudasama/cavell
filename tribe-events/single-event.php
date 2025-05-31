@@ -63,7 +63,7 @@ $events_sticky_bar = get_field('events_sticky_bar');
                 <div class="text-center col-10 col-lg-12">
                     <div class="d-flex justify-content-center align-items-center dmb-15 tmb-25 flex-wrap">
                         <a href="/cavell-events/"
-                            class="bg-prefix bg-00DCC8 roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
+                            class="bg-prefix bg-00DCC8 text-decoration-none roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                             Event
                         </a>
                         <div
@@ -112,12 +112,11 @@ $events_sticky_bar = get_field('events_sticky_bar');
             <div class="event-full-banner position-relative radius20 overflow-hidden">
                 <img src="<?php echo $event_image; ?>" alt="" class="w-100 h-100 object-cover">
                 <div class="bg-blue-layer h-100 position-absolute bottom-0 start-0 w-100"></div>
-                <div
-                    class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
                     <div class="text-center">
                         <div class="d-flex justify-content-center align-items-center dmb-15 tmb-25 flex-wrap">
                             <a href="/cavell-events/"
-                                class="bg-prefix bg-00DCC8 roboto-medium font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
+                                class="bg-prefix bg-00DCC8 roboto-medium text-decoration-none font14 leading19 space-0_18 text-172426 tmb-10 radius5 d-inline-block me-2">
                                 Event
                             </a>
                             <div
@@ -201,8 +200,10 @@ $events_sticky_bar = get_field('events_sticky_bar');
 
 <?php echo do_shortcode('[page_builder]'); ?>
 
+<div class="dpt-120 tpt-80"></div>
 
-<section class="booking-section">
+
+<section class="booking-section wow animated animate__fadeInUp" data-wow-duration="1.5s">
     <div class="container">
         <div class="booking-box radius10 d-flex align-items-center justify-content-center">
             <div class="roboto-regular font26 leading32 space-0_24 text-black res-font18 res-leading24 res-space-0_18">Ticket / booking extension</div>
@@ -216,7 +217,7 @@ $events_sticky_bar = get_field('events_sticky_bar');
         <div class="row align-items-center">
             <div class="col-lg-6 col-12 ">
                 <div class="col-lg-11 pe-lg-5">
-                    <div class="location-img radius30 overflow-hidden tmb-30">
+                    <div class="location-img radius30 overflow-hidden tmb-30 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                         <?php echo $event_map_embed; ?>
                     </div>
                 </div>
@@ -224,24 +225,24 @@ $events_sticky_bar = get_field('events_sticky_bar');
             <div class="col-lg-6 col-12">
                 <div class="ps-lg-2 pe-lg-5">
                     <div
-                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20">
+                        class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block dmb-20 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                         Location
                     </div>
-                    <div class="basker-regular font56 leading60 space-0_56 text-172426 dmb-30 res-font25 res-leading32 res-space-0_25 tmb-20"><?php echo $event_location; ?></div>
+                    <div class="basker-regular font56 leading60 space-0_56 text-172426 dmb-30 res-font25 res-leading32 res-space-0_25 tmb-20 wow animated animate__fadeInUp" data-wow-duration="1.5s"><?php echo $event_location; ?></div>
                     <div class="d-inline-flex flex-column">
                         <div
-                            class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 w-fit dmb-15">
+                            class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 w-fit dmb-15 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                             <?php echo $event_address; ?>
                         </div>
                         <div
-                            class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 w-fit dmb-15">
+                            class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 w-fit dmb-15 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                             <?php echo $event_phone; ?>
                         </div>
                     </div>
-                    <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-30 pe-3 pe-lg-0 tmb-40">
+                    <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-30 pe-3 pe-lg-0 tmb-40 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                         <?php echo $events_location_content; ?>
                     </div>
-                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration="1.5s"
                         href="/">
                         Learn more
                     </a>
@@ -256,10 +257,10 @@ $events_sticky_bar = get_field('events_sticky_bar');
 <section class="faq-accordion-section" id="<?php echo $faqs_prefix_id; ?>">
     <div class="container">
         <div class="col-lg-4 col-11 dmb-20">
-            <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 text-uppercase tmb-25 dmb-15">
+            <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 text-uppercase tmb-25 dmb-15 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                 <?php echo $faq_heading; ?>
             </div>
-            <div class="basker-regular font56 leading60 res-font35 res-leading44 res-space-0_35 text-172426">
+            <div class="basker-regular font56 leading60 res-font35 res-leading44 res-space-0_35 text-172426 wow animated animate__fadeInUp" data-wow-duration="1.5s">
                 <?php echo $faq_sub_heading; ?>
             </div>
         </div>
@@ -271,7 +272,7 @@ $events_sticky_bar = get_field('events_sticky_bar');
                     $select_faq_single_title = $select_faq_single->post_title;
                     $select_faq_single = get_field('content_faqs', $select_faq_single_id);
                 ?>
-                    <div class="accordion-item overflow-hidden">
+                    <div class="accordion-item overflow-hidden wow animated animate__fadeInUp" data-wow-duration="1.5s">
                         <div
                             class="closet-header position-relative dpt-20 dpb-20 d-flex justify-content-between align-items-center cursor-pointer transition">
                             <div class="basker-regular font30 space-03 leading32 res-font25 res-leading32 res-space-0_35 text-172426"><?php echo $select_faq_single_title; ?></div>
@@ -284,7 +285,7 @@ $events_sticky_bar = get_field('events_sticky_bar');
                         </div>
                         <div class="closet-content dmb-30">
                             <div class="col-lg-10 col-11">
-                                <div class="roboto-regular font16 leading19 dmt-20">
+                                <div class="roboto-regular font16 leading24 dmt-20">
                                     <?php echo $select_faq_single; ?>
                                 </div>
                             </div>
