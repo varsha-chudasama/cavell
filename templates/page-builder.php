@@ -1172,6 +1172,101 @@ $flexibleContent = get_field('flexible_content');
                 </div>
             </section>
 
+            <div class="dpb-100"></div>
+
+            <!-- sponcer-content-section -->
+
+            <section class="">
+                <div class="container">
+                    <div class="d-flex align-items-center justify-content-center dmb-15 tmb-20">
+                        <div
+                            class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
+                            Events
+                        </div>
+                        <div
+                            class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 d-inline-flex">
+                            Event Sponsor
+                        </div>
+                    </div>
+                    <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-9 col-12 dmb-10 mx-auto text-center  res-font35 res-leading32 res-space-0_35">
+                        Become an event sponsor
+                    </div>
+                    <div class="roboto-regular font20 leading28 space-02 text-172426 col-lg-7 col-12 dmb-20 tmb-40 mx-auto text-center res-font16 res-leading24 res-space-0_16">
+                        Become our event sponsor and unlock the opportunity to position your company at the forefront of
+                        industry recognition.
+                    </div>
+                    <div class="d-flex justify-content-center dmb-70">
+                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition "
+                            href="">
+                            Get in touch
+                        </a>
+                    </div>
+                    <div class="row row8">
+                        <div class="col-4">
+                            <div class="sponcer-cards radius30">
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10">Bronze</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15">Starting from</div>
+                                <div class="basker-regular font36 leading32 space-0_36 dmb-25">£6,000($7,500)</div>
+                                <div class="bottom-border dmb-35"></div>
+                                <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
+                                    <ul>
+                                        <li>Conference Passes</li>
+                                        <li>Digital Branding</li>
+                                        <li>Exhibition Booth</li>
+                                    </ul>
+                                </div>
+                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition w-100"
+                                    href="">
+                                    Schedule a call
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="sponcer-cards radius30">
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10">Bronze</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15">Starting from</div>
+                                <div class="basker-regular font36 leading32 space-0_36 dmb-25">£6,000($7,500)</div>
+                                <div class="bottom-border dmb-35"></div>
+                                <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
+                                    <ul>
+                                        <li>Conference Passes</li>
+                                        <li>Digital Branding</li>
+                                        <li>Exhibition Booth</li>
+                                    </ul>
+                                </div>
+                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition w-100"
+                                    href="">
+                                    Schedule a call
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="sponcer-cards radius30">
+                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10">Bronze</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
+                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15">Starting from</div>
+                                <div class="basker-regular font36 leading32 space-0_36 dmb-25">£6,000($7,500)</div>
+                                <div class="bottom-border dmb-35"></div>
+                                <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
+                                    <ul>
+                                        <li>Conference Passes</li>
+                                        <li>Digital Branding</li>
+                                        <li>Exhibition Booth</li>
+                                    </ul>
+                                </div>
+                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition w-100"
+                                    href="">
+                                    Schedule a call
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
 
         <?php elseif (get_row_layout() == 'hero_section_2') :
             $back_link = get_sub_field('back_link');
