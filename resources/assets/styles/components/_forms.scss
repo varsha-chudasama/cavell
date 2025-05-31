@@ -1,0 +1,43 @@
+.footer-form,
+.enquire-form,
+.enquiry-modal-form{
+    .input{
+        height: 57px;
+        border: 1px solid $color-1F667834;   
+        &::placeholder{
+            font-family: "roboto-regular";
+            color: $color-172426;
+            font-size: $font16;
+            line-height: $leading26;
+            letter-spacing: $space-0_16;
+        }
+        @include media-breakpoint-down(lg){
+            height: 55px;
+        }
+        &.enquire-input{
+            height: 59px;
+        }
+
+        &.enquiry-modal-input{
+            color: rgba($color: $color-172426, $alpha: 0.6);
+            &::placeholder{
+                font-family: "roboto-regular";
+                color: rgba($color: $color-172426, $alpha: 0.6);
+                font-size: $font16;
+                line-height: $leading26;
+                letter-spacing: $space-0_16;
+            }
+        }
+    }
+
+    .textarea{
+         border: 1px solid $color-1F667834;   
+        &::placeholder{
+            font-family: "roboto-regular";
+            color: $color-172426;
+            font-size: $font16;
+            line-height: $leading26;
+            letter-spacing: $space-0_16;
+        }
+    }
+}

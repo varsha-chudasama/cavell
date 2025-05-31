@@ -169,9 +169,27 @@ $website_develop_by_link = get_field('website_develop_by_link', 'option');
             </div>
             <div class="col-lg-5 col-12">
                 <div class="col-lg-11 col-12 ms-auto tmb-40">
-                    <div class="footer-form radius20">
-                        <div class="bak">Subscribe to our newsletter for the latest updates.</div>
-                    </div>
+                    <Form class="footer-form radius20">
+                        <div class="basker-regular font30 leading32 space-03 text-172426 col-lg-9 col-11 dmb-15 tmb-20 res-font25 res-space-0_24">Subscribe to our newsletter for the latest updates.</div>
+                        <div class="row row5">
+                            <div class="col-lg-6 col-12 dmb-15">
+                                <input type="text" placeholder="First name…" class="input roboto-regular font16 leading26 space-0_16 text-172426 radius5 px-3 w-100">
+                            </div>
+                            <div class="col-lg-6 col-12 dmb-15">
+                                <input type="text" placeholder="Last name…" class="input roboto-regular font16 leading26 space-0_16 text-172426 radius5 px-3 w-100">
+                            </div>
+                            <div class="col-lg-6 col-12 dmb-15">
+                                <input type="text" placeholder="Company…" class="input roboto-regular font16 leading26 space-0_16 text-172426 radius5 px-3 w-100">
+                            </div>
+                            <div class="col-lg-6 col-12 dmb-15">
+                                <input type="email" placeholder="Email address…" class="input roboto-regular font16 leading26 space-0_16 text-172426 radius5 px-3 w-100">
+                            </div>
+                        </div>
+                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition tmt-20"
+                                href="">
+                                Submit form
+                        </a>
+                    </Form>
                 </div>
             </div>
         </div>

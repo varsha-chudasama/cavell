@@ -16,10 +16,10 @@
     }
   }
   .footer-form {
-    height: 375px;
+    padding: 45px 40px;
     background-color: rgba($color: $color-1F6678, $alpha: 0.05);
     @include media-breakpoint-down(lg){
-      height: 504px;
+      padding: 40px 25px;
     }
   }
   .social-media,

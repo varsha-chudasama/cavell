@@ -189,3 +189,11 @@
     padding-right: 13px;
   }
 }
+
+.enquire-form{
+    background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+    padding: 70px 92px;
+    @include media-breakpoint-down(lg){
+        padding: 30px 20px;
+    }
+}
