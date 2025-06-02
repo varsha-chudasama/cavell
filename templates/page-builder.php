@@ -179,7 +179,7 @@ $flexibleContent = get_field('flexible_content');
                                     $single_card_single_heading = $single_card_single['heading'];
                                     $single_card_single_content = $single_card_single['content'];
                                     $page_link_single = $single_card_single['page_link'];
-    
+
                                 ?>
                                     <div class="col-lg-6 col-12 dmb-20 tmb-10">
                                         <a href="<?php echo $page_link_single; ?>"
@@ -1019,12 +1019,48 @@ $flexibleContent = get_field('flexible_content');
                 </div>
             </section>
 
-            <div class="dpb-100"></div>
+
+        <?php elseif (get_row_layout() == 'enquire_reports_form') :
+            $heading = get_sub_field('heading');
+            $table_col = get_sub_field('table_col');
+
+        ?>
+
+        
 
             <section class="enquire-form-section">
                 <div class="container">
-                    <div class="basker-regular font56 leading60 space-0_56 text-172426 dmb-40 tmb-30 mx-auto col-lg-8 text-center res-font30 res-leading32 res-space-03">Enquire about our reports</div>
-                    <div class="col-lg-6 px-lg-2 mx-auto text-center">
+                    <div class="basker-regular font56 leading60 space-0_56 text-172426 dmb-40 tmb-30 mx-auto col-lg-8 text-center res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
+                      <?php echo do_shortcode('[contact-form-7 id="04019e8" title="Enquire about our reports"]'); ?>
+                </div>
+            </section>
+
+          
+
+            <!-- <section>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-12">
+                            <div class="col-lg-11 pe-lg-1 pe-2 tmb-50">
+                                <div class="d-flex dmb-15">
+                                    <a href=""
+                                        class="bg-prefix bg-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s">
+                                        Events
+                                    </a>
+                                    <a href=""
+                                        class="bg-prefix bg-1F6678-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s">
+                                        Event Speaker
+                                    </a>
+                                </div>
+                                <div class="basker-regular font66 leading70 space-0_66 text-172426 dmb-15 res-font35 res-leading44 res-space-0_35 pe-4 pe-lg-0">Interested in speaking at our next event?</div>
+                                <div class="roboto-regular font20 leading28 space-02 dmb-25 pe-lg-1 res-font16 res-leading24 res-space-0_16">At Cavell, we pride ourselves in curating events which entail an array of speakers which offer several different viewpoints and years of valuable experience.Our past speakers are a mixture of service providers, vendors, and investors who all share a real passion in cloud communications and cloud networking. If you fit this criteria, sign up today!</div>
+                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                    href="">
+                                    Submit form
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12 px-lg-2 mx-auto text-center">
                             <div class="px-lg-1">
                                 <form class="enquire-form radius30 res-radius20">
                                     <div class="row row5">
@@ -1038,78 +1074,20 @@ $flexibleContent = get_field('flexible_content');
                                             <input type="email" placeholder="Your email…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
                                         </div>
                                         <div class="col-12 dmb-15 tmb-10">
-                                            <input type="email" placeholder="Job Role…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                        </div>
-                                        <div class="col-12 dmb-40 tmb-20">
-                                            <input type="number" placeholder="Number…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
+                                            <textarea name="" id="" placeholder="Message…" rows="4" class="textarea enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100 dpt-15"></textarea>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="roboto-regular font14 leading18 space-0_14 text-172426 dmb-20 tmb-50 col-lg-11 mx-auto col-12">By filling out this form and clicking submit, you acknowledge our <a href="" class="text-172426 roboto-medium d-inline-block">privacy policy</a> and consent to receive communications about Cavell products, services, news and offers.</div>
 
                                     <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                            href="">
-                                            Submit form
+                                        href="">
+                                        Submit form
                                     </a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="dpb-100"></div>
-
-            <section>
-                <div class="container">
-               <div class="row align-items-center">
-                    <div class="col-lg-6 col-12">
-                        <div class="col-lg-11 pe-lg-1 pe-2 tmb-50">
-                            <div class="d-flex dmb-15">
-                                <a href=""
-                                    class="bg-prefix bg-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s">
-                                    Events
-                                </a>
-                                <a href=""
-                                    class="bg-prefix bg-1F6678-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s">
-                                    Event Speaker
-                                </a>
+                                </form>
                             </div>
-                            <div class="basker-regular font66 leading70 space-0_66 text-172426 dmb-15 res-font35 res-leading44 res-space-0_35 pe-4 pe-lg-0">Interested in speaking at our next event?</div>
-                            <div class="roboto-regular font20 leading28 space-02 dmb-25 pe-lg-1 res-font16 res-leading24 res-space-0_16">At Cavell, we pride ourselves in curating events which entail an array of speakers which offer several different viewpoints and years of valuable experience.Our past speakers are a mixture of service providers, vendors, and investors who all share a real passion in cloud communications and cloud networking. If you fit this criteria, sign up today!</div>
-                              <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                    href="">
-                                    Submit form
-                            </a>
                         </div>
                     </div>
-                   <div class="col-lg-6 col-12 px-lg-2 mx-auto text-center">
-                           <div class="px-lg-1">
-                               <form class="enquire-form radius30 res-radius20">
-                                   <div class="row row5">
-                                       <div class="col-lg-6 col-12 dmb-15 tmb-10">
-                                           <input type="text" placeholder="First name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                       </div>
-                                       <div class="col-lg-6 col-12 dmb-15 tmb-10">
-                                           <input type="text" placeholder="Last name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                       </div>
-                                       <div class=" col-12 dmb-15 tmb-10">
-                                           <input type="email" placeholder="Your email…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                       </div>
-                                       <div class="col-12 dmb-15 tmb-10">
-                                           <textarea name="" id="" placeholder="Message…" rows="4" class="textarea enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100 dpt-15"></textarea>
-                                       </div>
-                                   </div>
-                                   
-                                   <div class="roboto-regular font14 leading18 space-0_14 text-172426 dmb-20 tmb-50 col-lg-11 mx-auto col-12">By filling out this form and clicking submit, you acknowledge our <a href="" class="text-172426 roboto-medium d-inline-block">privacy policy</a> and consent to receive communications about Cavell products, services, news and offers.</div>
-
-                                   <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                           href="">
-                                           Submit form
-                                   </a>
-                           </form>
-                       </div>
-                   </div>
-               </div>
                 </div>
             </section>
 
@@ -1118,59 +1096,59 @@ $flexibleContent = get_field('flexible_content');
 
             <section>
                 <div class="container">
-               <div class="row">
-                   <div class="col-lg-6">
-                        <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 tmb-15">
-                            Contact Us
-                        </div>
-                        <div class="basker-regular font66 space-0_66 leading70 res-font30 res-leading32 res-space-03 text-172426 dmb-30 pe-5 pe-lg-0">
-                            Take the first step on a new journey together.
-                        </div>
-                        <div class="row flex-lg-row">
-                            <div class="col-lg-4 d-flex flex-column dmb-35">
-                                <a class="basker-regular font20 leading32 text-172426 text-decoration-none"
-                                    href="mailto:info@cavell.com">
-                                    info@cavell.com
-                                </a>
-                                <a class="basker-regular font20 leading32 text-172426 text-decoration-none" href="tel:+44 (0) 203 370 4734">
-                                    +44 (0) 203 370 4734
-                                </a>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 tmb-15">
+                                Contact Us
                             </div>
-                            <div class="col-lg-5 col-8 basker-regular font20 leading32 text-172426">
-                                133 Whitechapel High Street London E1 7PT United Kingdom
+                            <div class="basker-regular font66 space-0_66 leading70 res-font30 res-leading32 res-space-03 text-172426 dmb-30 pe-5 pe-lg-0">
+                                Take the first step on a new journey together.
+                            </div>
+                            <div class="row flex-lg-row">
+                                <div class="col-lg-4 d-flex flex-column dmb-35">
+                                    <a class="basker-regular font20 leading32 text-172426 text-decoration-none"
+                                        href="mailto:info@cavell.com">
+                                        info@cavell.com
+                                    </a>
+                                    <a class="basker-regular font20 leading32 text-172426 text-decoration-none" href="tel:+44 (0) 203 370 4734">
+                                        +44 (0) 203 370 4734
+                                    </a>
+                                </div>
+                                <div class="col-lg-5 col-8 basker-regular font20 leading32 text-172426">
+                                    133 Whitechapel High Street London E1 7PT United Kingdom
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12 px-lg-2 mx-auto text-center">
+                            <div class="px-lg-1">
+                                <form class="enquire-form radius30 res-radius20">
+                                    <div class="row row5">
+                                        <div class="col-lg-6 col-12 dmb-15 tmb-10">
+                                            <input type="text" placeholder="First name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
+                                        </div>
+                                        <div class="col-lg-6 col-12 dmb-15 tmb-10">
+                                            <input type="text" placeholder="Last name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
+                                        </div>
+                                        <div class=" col-12 dmb-15 tmb-10">
+                                            <input type="email" placeholder="Your email…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
+                                        </div>
+                                        <div class="col-12 dmb-15 tmb-10">
+                                            <textarea name="" id="" placeholder="Message…" rows="4" class="textarea enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100 dpt-15"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="roboto-regular font14 leading18 space-0_14 text-172426 dmb-20 tmb-50 col-lg-11 mx-auto col-12">By filling out this form and clicking submit, you acknowledge our <a href="" class="text-172426 roboto-medium d-inline-block">privacy policy</a> and consent to receive communications about Cavell products, services, news and offers.</div>
+
+                                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
+                                        href="">
+                                        Submit form
+                                    </a>
+                                </form>
                             </div>
                         </div>
                     </div>
-                   <div class="col-lg-6 col-12 px-lg-2 mx-auto text-center">
-                           <div class="px-lg-1">
-                               <form class="enquire-form radius30 res-radius20">
-                                   <div class="row row5">
-                                       <div class="col-lg-6 col-12 dmb-15 tmb-10">
-                                           <input type="text" placeholder="First name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                       </div>
-                                       <div class="col-lg-6 col-12 dmb-15 tmb-10">
-                                           <input type="text" placeholder="Last name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                       </div>
-                                       <div class=" col-12 dmb-15 tmb-10">
-                                           <input type="email" placeholder="Your email…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                       </div>
-                                       <div class="col-12 dmb-15 tmb-10">
-                                           <textarea name="" id="" placeholder="Message…" rows="4" class="textarea enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100 dpt-15"></textarea>
-                                       </div>
-                                   </div>
-                                   
-                                   <div class="roboto-regular font14 leading18 space-0_14 text-172426 dmb-20 tmb-50 col-lg-11 mx-auto col-12">By filling out this form and clicking submit, you acknowledge our <a href="" class="text-172426 roboto-medium d-inline-block">privacy policy</a> and consent to receive communications about Cavell products, services, news and offers.</div>
-
-                                   <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                           href="">
-                                           Submit form
-                                   </a>
-                           </form>
-                       </div>
-                   </div>
-               </div>
                 </div>
-            </section>
+            </section> -->
 
 
         <?php elseif (get_row_layout() == 'hero_section_2') :
@@ -1920,9 +1898,9 @@ $flexibleContent = get_field('flexible_content');
                                 <input type="text" placeholder="Your number…" class="input enquiry-modal-input radius5 roboto-regular font16 leading26 space-0_16 w-100 px-3">
                             </div>
                             <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition dmt-25"
-                                        href="">
-                                        Submit form
-                                </a>
+                                href="">
+                                Submit form
+                            </a>
                         </form>
                     </div>
                 </div>
@@ -2023,7 +2001,7 @@ $flexibleContent = get_field('flexible_content');
 
         ?>
             <section class="client-service-hero-section">
-                <div class="container">       
+                <div class="container">
                     <div class="d-flex align-items-center justify-content-center dmb-15 tmb-25">
                         <?php if (!empty($back_link['url'])):
                             $target_2 = ($back_link['target'] == '_blank') ? "_blank" : ""; ?>
@@ -2032,7 +2010,7 @@ $flexibleContent = get_field('flexible_content');
                                 <?php echo $back_link['title']; ?>
                             </a>
                         <?php endif; ?>
-    
+
                         <div
                             class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 d-inline-flex wow animated animate__fadeInUp" data-wow-duration="1.5s">
                             <?php echo get_the_title(); ?>

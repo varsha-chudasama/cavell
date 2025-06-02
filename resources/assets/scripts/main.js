@@ -75,3 +75,11 @@ jQuery(document).ready(function ($) {
       mobile: true,
   }).init();
 });
+
+jQuery(document).ready(function($) {
+    $(document).on('wpcf7submit', function(event) {
+        $('.wpcf7-response-output').hide();
+        $(event.target).find('input, textarea').val('');
+        $(event.target).find('select').prop('selectedIndex', 0);
+    });
+});
