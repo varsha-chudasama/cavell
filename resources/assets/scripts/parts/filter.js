@@ -4,53 +4,61 @@ export class Filter {
     init() {
 
 
-        $(document).ready(function () {
-            let currentPage = 1;
-            const postsPerPage = 12;
+jQuery(document).ready(function ($) {
+    let currentPage = 1;
+    const postsPerPage = 12;
 
-            function loadPosts(page) {
-                $.ajax({
-                    url: ajax_params.ajax_url,
-                    method: 'POST',
-                    data: {
-                        action: 'load_teams',
-                        page: page,
-                        posts_per_page: postsPerPage
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            renderPosts(response.data.posts);
+    function loadPosts(page) {
+        $.ajax({
+            url: ajax_params.ajax_url,
+            method: 'POST',
+            data: {
+                action: 'load_teams',
+                page: page,
+                posts_per_page: postsPerPage
+            },
+            success: function (response) {
+                if (response.success) {
+                    renderPosts(response.data.posts);
 
-                            if (response.data.posts.length < postsPerPage) {
-                                $('#loadMore').hide();
-                            } else {
-                                $('#loadMore').show();
-                            }
-                        } else {
-                            console.error('No posts found.');
-                            $('#loadMore').hide();
-                        }
-                    },
-                    error: function (error) {
-                        console.error('Error fetching posts:', error);
+                    if (response.data.posts.length < postsPerPage) {
+                        $('#loadMore').hide();
+                    } else {
+                        $('#loadMore').show();
                     }
-                });
+                } else {
+                    console.error('No posts found.');
+                    $('#loadMore').hide();
+                }
+            },
+            error: function (error) {
+                console.error('Error fetching posts:', error);
             }
-
-            function renderPosts(posts) {
-                const source = $("#team-template").html();
-                const template = Handlebars.compile(source);
-                const html = template({ posts });
-                $('#teamsContainer').append(html);
-            }
-
-            $('#loadMore').click(function () {
-                currentPage++;
-                loadPosts(currentPage);
-            });
-
-            loadPosts(currentPage);
         });
+    }
+
+    function renderPosts(posts) {
+        const source = $("#team-template").html();
+        const template = Handlebars.compile(source);
+        const html = template({ posts });
+        $('#teamsContainer').append(html);
+
+        // Rebind click events
+        $(".team-card").off("click").on("click", function () {
+            const selectedId = $(this).data("id");
+            $(".carousel-item").removeClass("active");
+            $(`.carousel-item[data-id="${selectedId}"]`).addClass("active");
+        });
+    }
+
+    $('#loadMore').click(function () {
+        currentPage++;
+        loadPosts(currentPage);
+    });
+
+    loadPosts(currentPage);
+});
+
 
     $(document).ready(function () {
             let currentPage = 1;

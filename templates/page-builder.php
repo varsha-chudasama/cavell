@@ -1023,226 +1023,187 @@ $flexibleContent = get_field('flexible_content');
         <?php elseif (get_row_layout() == 'enquire_reports_form') :
             $heading = get_sub_field('heading');
             $table_col = get_sub_field('table_col');
-
         ?>
-
-        
-
             <section class="enquire-form-section">
                 <div class="container">
                     <div class="basker-regular font56 leading60 space-0_56 text-172426 dmb-40 tmb-30 mx-auto col-lg-8 text-center res-font30 res-leading32 res-space-03"><?php echo $heading; ?></div>
-                      <?php echo do_shortcode('[contact-form-7 id="04019e8" title="Enquire about our reports"]'); ?>
+                    <?php echo do_shortcode('[contact-form-7 id="04019e8" title="Enquire about our reports"]'); ?>
                 </div>
             </section>
 
-          
+        <?php elseif (get_row_layout() == 'content_with_form') :
+            $back_link = get_sub_field('back_link');
+            $heading = get_sub_field('heading');
+            $descriptions = get_sub_field('descriptions');
+            $link = get_sub_field('link');
+            $form = get_sub_field('form');
 
-            <!-- <section>
+
+        ?>
+
+            <section>
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-12">
                             <div class="col-lg-11 pe-lg-1 pe-2 tmb-50">
                                 <div class="d-flex dmb-15">
-                                    <a href=""
-                                        class="bg-prefix bg-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s">
-                                        Events
-                                    </a>
-                                    <a href=""
+                                    <?php if (!empty($back_link['url'])):
+                                        $target_2 = ($back_link['target'] == '_blank') ? "_blank" : ""; ?>
+                                        <a href="<?php echo $back_link['url']; ?>" target="<?php echo $target_2; ?>"
+                                            class="bg-prefix bg-00DCC8-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s">
+                                            <?php echo $back_link['title']; ?>
+                                        </a>
+                                    <?php endif; ?>
+                                    <div
                                         class="bg-prefix bg-1F6678-prefix text-decoration-none roboto-medium font14 leading19 space-0_14 text-172426 radius5 d-inline-flex me-2 wow animated animate__fadeInUp" data-wow-duration="1.5s">
-                                        Event Speaker
-                                    </a>
+                                        <?php echo get_the_title(); ?>
+                                    </div>
                                 </div>
-                                <div class="basker-regular font66 leading70 space-0_66 text-172426 dmb-15 res-font35 res-leading44 res-space-0_35 pe-4 pe-lg-0">Interested in speaking at our next event?</div>
-                                <div class="roboto-regular font20 leading28 space-02 dmb-25 pe-lg-1 res-font16 res-leading24 res-space-0_16">At Cavell, we pride ourselves in curating events which entail an array of speakers which offer several different viewpoints and years of valuable experience.Our past speakers are a mixture of service providers, vendors, and investors who all share a real passion in cloud communications and cloud networking. If you fit this criteria, sign up today!</div>
-                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                    href="">
-                                    Submit form
-                                </a>
+                                <?php if (!empty($heading)): ?>
+                                    <div class="basker-regular font66 leading70 space-0_66 text-172426 dmb-15 res-font35 res-leading44 res-space-0_35 pe-4 pe-lg-0"><?php echo $heading; ?></div>
+                                <?php endif; ?>
+                                <?php if (!empty($descriptions)): ?>
+                                    <div class="roboto-regular font20 leading28 space-02 dmb-25 pe-lg-1 res-font16 res-leading24 res-space-0_16"><?php echo $descriptions; ?></div>
+                                <?php endif; ?>
+                                <?php if (!empty($link['url'])):
+                                    $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
+                                    <div class="">
+                                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration="1.5s"
+                                            href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
+                                            <?php echo $link['title']; ?>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12 px-lg-2 mx-auto text-center">
                             <div class="px-lg-1">
-                                <form class="enquire-form radius30 res-radius20">
-                                    <div class="row row5">
-                                        <div class="col-lg-6 col-12 dmb-15 tmb-10">
-                                            <input type="text" placeholder="First name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                        </div>
-                                        <div class="col-lg-6 col-12 dmb-15 tmb-10">
-                                            <input type="text" placeholder="Last name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                        </div>
-                                        <div class=" col-12 dmb-15 tmb-10">
-                                            <input type="email" placeholder="Your email…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                        </div>
-                                        <div class="col-12 dmb-15 tmb-10">
-                                            <textarea name="" id="" placeholder="Message…" rows="4" class="textarea enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100 dpt-15"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="roboto-regular font14 leading18 space-0_14 text-172426 dmb-20 tmb-50 col-lg-11 mx-auto col-12">By filling out this form and clicking submit, you acknowledge our <a href="" class="text-172426 roboto-medium d-inline-block">privacy policy</a> and consent to receive communications about Cavell products, services, news and offers.</div>
-
-                                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                        href="">
-                                        Submit form
-                                    </a>
-                                </form>
+                                <?php echo $form; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <div class="dpb-100"></div>
 
+        <?php elseif (get_row_layout() == 'contact_us_form') :
+            $heading = get_sub_field('heading');
+            $form = get_sub_field('form');
+            $company_mail = get_field('company_mail', 'option');
+            $company_contact_number = get_field('company_contact_number', 'option');
+            $company_address = get_field('company_address', 'option');
+        ?>
 
             <section>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 tmb-15">
-                                Contact Us
+                            <div class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 text-172426 d-inline-flex radius5 dmb-15">
+                                <?php echo get_the_title(); ?>
                             </div>
-                            <div class="basker-regular font66 space-0_66 leading70 res-font30 res-leading32 res-space-03 text-172426 dmb-30 pe-5 pe-lg-0">
-                                Take the first step on a new journey together.
-                            </div>
+                            <?php if (!empty($heading)): ?>
+                                <div class="basker-regular font66 space-0_66 leading70 res-font30 res-leading32 res-space-03 text-172426 dmb-30 pe-5 pe-lg-0">
+                                    <?php echo $heading; ?>
+                                </div>
+                            <?php endif; ?>
                             <div class="row flex-lg-row">
                                 <div class="col-lg-4 d-flex flex-column dmb-35">
-                                    <a class="basker-regular font20 leading32 text-172426 text-decoration-none"
-                                        href="mailto:info@cavell.com">
-                                        info@cavell.com
-                                    </a>
-                                    <a class="basker-regular font20 leading32 text-172426 text-decoration-none" href="tel:+44 (0) 203 370 4734">
-                                        +44 (0) 203 370 4734
-                                    </a>
+                                    <?php if (!empty($company_mail)): ?>
+                                        <a class="basker-regular font20 leading32 text-172426 text-decoration-none"
+                                            href="mailto:<?php echo $company_mail; ?>">
+                                            <?php echo $company_mail; ?>
+                                        </a>
+                                    <?php endif; ?>
+                                    <?php if (!empty($company_contact_number)): ?>
+                                        <a class="basker-regular font20 leading32 text-172426 text-decoration-none" href="tel:<?php echo $company_contact_number; ?>">
+                                            <?php echo $company_contact_number; ?>
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
-                                <div class="col-lg-5 col-8 basker-regular font20 leading32 text-172426">
-                                    133 Whitechapel High Street London E1 7PT United Kingdom
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12 px-lg-2 mx-auto text-center">
-                            <div class="px-lg-1">
-                                <form class="enquire-form radius30 res-radius20">
-                                    <div class="row row5">
-                                        <div class="col-lg-6 col-12 dmb-15 tmb-10">
-                                            <input type="text" placeholder="First name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                        </div>
-                                        <div class="col-lg-6 col-12 dmb-15 tmb-10">
-                                            <input type="text" placeholder="Last name…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                        </div>
-                                        <div class=" col-12 dmb-15 tmb-10">
-                                            <input type="email" placeholder="Your email…" class="input enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100">
-                                        </div>
-                                        <div class="col-12 dmb-15 tmb-10">
-                                            <textarea name="" id="" placeholder="Message…" rows="4" class="textarea enquire-input roboto-regular font16 leading26 space-0_16 text-172426 radius10 px-3 w-100 dpt-15"></textarea>
-                                        </div>
+                                <?php if (!empty($company_address)): ?>
+                                    <div class="col-lg-5 col-8 basker-regular font20 leading32 text-172426">
+                                        <?php echo $company_address; ?>
                                     </div>
-
-                                    <div class="roboto-regular font14 leading18 space-0_14 text-172426 dmb-20 tmb-50 col-lg-11 mx-auto col-12">By filling out this form and clicking submit, you acknowledge our <a href="" class="text-172426 roboto-medium d-inline-block">privacy policy</a> and consent to receive communications about Cavell products, services, news and offers.</div>
-
-                                    <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition"
-                                        href="">
-                                        Submit form
-                                    </a>
-                                </form>
+                                <?php endif; ?>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section> -->
-
-            <div class="dpb-100"></div>
-
-            <!-- sponcer-content-section -->
-
-            <section class="">
-                <div class="container">
-                    <div class="d-flex align-items-center justify-content-center dmb-15 tmb-20">
-                        <div
-                            class="bg-prefix bg-00DCC8-prefix roboto-medium font14 leading19 space-0_18 text-172426 radius5 d-inline-block me-2">
-                            Events
-                        </div>
-                        <div
-                            class="bg-prefix bg-1F6678-prefix roboto-medium font14 leading18 space-0_14 text-172426 radius5 py-2 px-4 d-inline-flex">
-                            Event Sponsor
-                        </div>
-                    </div>
-                    <div class="basker-regular font66 leading70 space-0_66 text-172426 col-lg-9 col-12 dmb-10 mx-auto text-center  res-font35 res-leading32 res-space-0_35">
-                        Become an event sponsor
-                    </div>
-                    <div class="roboto-regular font20 leading28 space-02 text-172426 col-lg-7 col-12 dmb-20 tmb-40 mx-auto text-center res-font16 res-leading24 res-space-0_16">
-                        Become our event sponsor and unlock the opportunity to position your company at the forefront of
-                        industry recognition.
-                    </div>
-                    <div class="d-flex justify-content-center dmb-70">
-                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition "
-                            href="">
-                            Get in touch
-                        </a>
-                    </div>
-                    <div class="row row8">
-                        <div class="col-lg-4 col-md-6 col-12 tmb-40">
-                            <div class="sponcer-cards radius30">
-                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10 res-font30 res-leading32 res-space-03 tmb-15">Bronze</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-30">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15 tmb-30">Starting from</div>
-                                <div class="basker-regular font36 leading32 space-0_36 dmb-25 res-font24 res-leading32 res-space-0_24">£6,000($7,500)</div>
-                                <div class="bottom-border dmb-35"></div>
-                                <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
-                                    <ul>
-                                        <li>Conference Passes</li>
-                                        <li>Digital Branding</li>
-                                        <li>Exhibition Booth</li>
-                                    </ul>
+                        <?php if (!empty($form)): ?>
+                            <div class="col-lg-6 col-12 px-lg-2 mx-auto text-center">
+                                <div class="px-lg-1">
+                                    <?php echo $form; ?>
                                 </div>
-                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition w-100"
-                                    href="">
-                                    Schedule a call
-                                </a>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12 tmb-40">
-                            <div class="sponcer-cards radius30">
-                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10 res-font30 res-leading32 res-space-03 tmb-15">Bronze</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-30">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15 tmb-30">Starting from</div>
-                                <div class="basker-regular font36 leading32 space-0_36 dmb-25 res-font24 res-leading32 res-space-0_24">£6,000($7,500)</div>
-                                <div class="bottom-border dmb-35"></div>
-                                <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
-                                    <ul>
-                                        <li>Conference Passes</li>
-                                        <li>Digital Branding</li>
-                                        <li>Exhibition Booth</li>
-                                    </ul>
-                                </div>
-                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition w-100"
-                                    href="">
-                                    Schedule a call
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12 tmb-40">
-                            <div class="sponcer-cards radius30">
-                                <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10 res-font30 res-leading32 res-space-03 tmb-15">Bronze</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-30">Gain visual exposure with a catered audience and associate your brand with the Cavell events.</div>
-                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15 tmb-30">Starting from</div>
-                                <div class="basker-regular font36 leading32 space-0_36 dmb-25 res-font24 res-leading32 res-space-0_24">£6,000($7,500)</div>
-                                <div class="bottom-border dmb-35"></div>
-                                <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
-                                    <ul>
-                                        <li>Conference Passes</li>
-                                        <li>Digital Branding</li>
-                                        <li>Exhibition Booth</li>
-                                    </ul>
-                                </div>
-                                <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition w-100"
-                                    href="">
-                                    Schedule a call
-                                </a>
-                            </div>
-                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>
+
+
+
+            <?php elseif (get_row_layout() == 'pricing_plan') :
+            $back_link = get_sub_field('select_plan');
+            $highlight_plan = get_sub_field('highlight_plan');
+            $highlight_plan_id = is_object($highlight_plan) ? $highlight_plan->ID : $highlight_plan;
+            $title_h = get_the_title($highlight_plan_id);
+
+            if ($select_plans):
+                $plans = is_array($select_plans) ? $select_plans : array($select_plans);
+            ?>
+                <section class="">
+                    <div class="container">
+                        <div class="row row8">
+                            <?php foreach ($plans as $plan):
+                                $plan_id = is_object($plan) ? $plan->ID : $plan;
+                                $title = get_the_title($plan_id);
+                                $price = get_post_meta($plan_id, 'pms_subscription_plan_price', true);
+                                $description = get_post_meta($plan_id, 'pms_subscription_plan_description', true);
+                                $feature_list = get_field('plan_details', $plan_id);
+                            ?>
+                                <div class="col-lg-4 col-md-6 col-12 tmb-40 <?php echo ($title_h == $title) ? 'higlight-plan' : ''; ?>">
+
+                                    <div class="sponcer-cards radius30">
+                                        <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10 res-font30 res-leading32 res-space-03 tmb-15">
+                                            <?php echo esc_html($title); ?>
+                                        </div>
+
+
+                                        <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-20 tmb-30">
+                                            <?php echo $description; ?>
+                                        </div>
+
+
+
+                                        <div class="roboto-regular font16 leading24 space-0_16 text-172426 opacity-50 dmb-15 tmb-30">Starting from</div>
+                                        <div class="basker-regular font36 leading32 space-0_36 dmb-25 res-font24 res-leading32 res-space-0_24">
+                                            £<?php echo $price; ?>
+                                        </div>
+
+
+                                        <div class="bottom-border dmb-35"></div>
+
+                                        <div class="check-ul full-ul roboto-regular font16 space-0_16 text-172426 leading24 dmb-35 tmb-45">
+
+
+                                            <?php echo $feature_list; ?>
+
+                                        </div>
+
+                                        <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition w-100"
+                                            href="">
+                                            Schedule a call
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+
+
+
+
 
 
 
@@ -2093,6 +2054,8 @@ $flexibleContent = get_field('flexible_content');
             $image = get_sub_field('image');
             $heading = get_sub_field('heading');
             $descriptions = get_sub_field('descriptions');
+            $link = get_sub_field('link');
+
 
         ?>
             <section class="client-service-hero-section">
@@ -2124,6 +2087,15 @@ $flexibleContent = get_field('flexible_content');
                             <img src="<?php echo $image; ?>" alt="" class="w-100 h-100 object-cover">
                         </div>
                     <?php endif; ?>
+                    <?php if (!empty($link['url'])):
+                        $target_2 = ($link['target'] == '_blank') ? "_blank" : ""; ?>
+                        <div class="text-center dmt-20">
+                            <a class="btnA bg-172426-btn roboto-medium font16 space-0_16 radius5 text-white text-decoration-none d-inline-flex justify-content-center align-items-center transition wow animated animate__fadeInUp" data-wow-duration="1.5s"
+                                href="<?php echo $link['url']; ?>" target="<?php echo $target_2; ?>">
+                                <?php echo $link['title']; ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </section>
 
@@ -2138,7 +2110,7 @@ $flexibleContent = get_field('flexible_content');
                     <script id="team-template" type="text/x-handlebars-template">
                         {{#each posts}}
                             <div class="col-lg-3 col-md-4 col-6 dmt-110 tem-card-col tmt-30 wow animated animate__fadeInUp" data-wow-duration="1.5s">
-                                <div data-bs-target="#memberModal" data-bs-toggle="modal" class="team-card cursor-pointer w-100">
+                                <div data-bs-target="#memberModal" data-bs-toggle="modal" class="team-card cursor-pointer w-100" data-id="{{id}}">
                                     <div class="team-img overflow-hidden radius20 bg-1f66780d transition dmb-30 tmb-20 position-relative">
                                         <img src="{{thumbnail}}" alt="team" class="h-100 w-100 object-cover">
                                         <div class="position-absolute team-linkdin">
@@ -2157,6 +2129,85 @@ $flexibleContent = get_field('flexible_content');
                             </div>
                         {{/each}}
                     </script>
+
+
+
+                    <!-- Modal -->
+                    <div class="modal member-modal fade text-center" id="memberModal" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content bg-white radius20 border-0">
+                                <div class="close-div position-absolute">
+                                    <button type="button" class="btn-close p-0 radius10 d-flex align-items-center justify-content-center" data-bs-dismiss="modal" aria-label="Close">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/templates/images/close.svg" alt="close-icon">
+                                    </button>
+                                </div>
+
+                                <div id="modalCarouselControls" class="carousel slide h-100" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <?php
+                                        $args = [
+                                            'post_type' => 'teams',
+                                            'posts_per_page' => -1,
+                                            'post_status' => 'publish',
+                                        ];
+                                        $query = new WP_Query($args);
+                                        $first = true;
+
+                                        if ($query->have_posts()):
+                                            while ($query->have_posts()): $query->the_post();
+                                                $id = get_the_ID();
+                                                $team_title = get_the_title();
+                                                $team_image = get_the_post_thumbnail_url($id);
+                                                $team_content = get_the_content();
+                                                $designation = get_field('designation', $id);
+                                                $linkedin_link = get_field('linkedin_link', $id);
+                                        ?>
+                                                <div class="carousel-item h-100<?php if ($first) {
+                                                                                    echo ' active';
+                                                                                    $first = false;
+                                                                                } ?>" data-id="<?php echo $id; ?>">
+                                                    <div class="w-100 d-inline-flex flex-column flex-lg-row align-items-center h-100">
+                                                        <div class="modal-member-img position-relative h-100 radius20">
+                                                            <img src="<?php echo esc_url($team_image); ?>" alt="" class="h-100 w-100 object-cover">
+                                                            <div class="position-absolute team-linkdin">
+                                                                <a href="<?php echo esc_url($linkedin_link); ?>" class="bg-prefix bg-white-prefix radius30 overflow-hidden d-flex align-items-center justify-content-center">
+                                                                    <img src="<?php echo get_template_directory_uri(); ?>/templates/images/LinkedIn_white.svg" alt="">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-member-content text-start w-auto h-100 d-flex align-items-lg-center">
+                                                            <div class="position-relative">
+                                                                <div class="roboto-medium font24 leading24 space-0_24 text-172426"><?php echo esc_html($team_title); ?></div>
+                                                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-30 tmb-20"><?php echo esc_html($designation); ?></div>
+                                                                <div class="roboto-regular font16 leading24 space-0_16 text-172426 dmb-40 modal-member-desc pe-4"><?php echo wp_kses_post($team_content); ?></div>
+                                                                <div class="carousel-arrow d-flex justify-content-start">
+                                                                    <button class="carousel-control-prev radius10 bg-1F6678 position-initial" type="button" data-bs-target="#modalCarouselControls" data-bs-slide="prev">
+                                                                        <span class="carousel-control-prev-icon rotate-circle-active" aria-hidden="true"></span>
+                                                                    </button>
+                                                                    <button class="carousel-control-next radius10 bg-1F6678 position-initial" type="button" data-bs-target="#modalCarouselControls" data-bs-slide="next">
+                                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        <?php
+                                            endwhile;
+                                            wp_reset_postdata();
+                                        endif;
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
 
                     <div class="d-flex justify-content-center mt-4">
                         <button id="loadMore"

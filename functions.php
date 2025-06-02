@@ -356,6 +356,7 @@ function load_teams()
       $id = get_the_ID();
 
       $posts[] = [
+        'id' => $id,
         'title' => get_the_title(),
         'thumbnail' => get_the_post_thumbnail_url($id, 'medium_large'),
         'designation' => get_field('designation'),
