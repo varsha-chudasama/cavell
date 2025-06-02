@@ -200,6 +200,11 @@
     border: 1px solid rgba($color: $color-172426, $alpha: 0.2);
   }
 
+  &.higlight-plan{
+    background-color: $white;
+    border: 1px solid $color-1F6678;
+  }
+
   @include media-breakpoint-down(lg){
     padding: 35px 20px;
   }

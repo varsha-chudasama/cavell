@@ -1092,6 +1092,8 @@ $flexibleContent = get_field('flexible_content');
             $company_mail = get_field('company_mail', 'option');
             $company_contact_number = get_field('company_contact_number', 'option');
             $company_address = get_field('company_address', 'option');
+            $social_media = get_field('social_media', 'option');
+
         ?>
 
             <section>
@@ -1119,6 +1121,20 @@ $flexibleContent = get_field('flexible_content');
                                             <?php echo $company_contact_number; ?>
                                         </a>
                                     <?php endif; ?>
+                                    <ul class="social-media list-none ps-0 tmb-55 d-flex align-items-center dmt-30 tmt-0">
+                                        <?php foreach ($social_media as $social_media_single) :
+                                            $social_media_single_icon = $social_media_single['icon'];
+                                            $social_media_single_url = $social_media_single['url'];
+                                        ?>
+                                            <?php if (!empty($social_media_single_url)): ?>
+                                                <li class="mx-2">
+                                                    <a href="<?php echo $social_media_single_url; ?>" target="_blank" class="d-flex align-items-center justify-content-center">
+                                                        <img src="<?php echo $social_media_single_icon; ?>" alt="">
+                                                    </a>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 </div>
                                 <?php if (!empty($company_address)): ?>
                                     <div class="col-lg-5 col-8 basker-regular font20 leading32 text-172426">
@@ -1141,7 +1157,8 @@ $flexibleContent = get_field('flexible_content');
 
 
             <?php elseif (get_row_layout() == 'pricing_plan') :
-            $back_link = get_sub_field('select_plan');
+            $select_plans = get_sub_field('select_plan');
+            $back_link = get_sub_field('back_link');
             $highlight_plan = get_sub_field('highlight_plan');
             $highlight_plan_id = is_object($highlight_plan) ? $highlight_plan->ID : $highlight_plan;
             $title_h = get_the_title($highlight_plan_id);
@@ -1151,7 +1168,7 @@ $flexibleContent = get_field('flexible_content');
             ?>
                 <section class="">
                     <div class="container">
-                        <div class="row row8">
+                        <div class="row row8 align-items-center">
                             <?php foreach ($plans as $plan):
                                 $plan_id = is_object($plan) ? $plan->ID : $plan;
                                 $title = get_the_title($plan_id);
@@ -1159,9 +1176,9 @@ $flexibleContent = get_field('flexible_content');
                                 $description = get_post_meta($plan_id, 'pms_subscription_plan_description', true);
                                 $feature_list = get_field('plan_details', $plan_id);
                             ?>
-                                <div class="col-lg-4 col-md-6 col-12 tmb-40 <?php echo ($title_h == $title) ? 'higlight-plan' : ''; ?>">
+                                <div class="col-lg-4 col-md-6 col-12 tmb-40">
 
-                                    <div class="sponcer-cards radius30">
+                                    <div class="sponcer-cards radius30 <?php echo ($title_h == $title) ? 'higlight-plan' : ''; ?>">
                                         <div class="basker-regular font46 leading56 space-0_46 text-172426 dmb-10 res-font30 res-leading32 res-space-03 tmb-15">
                                             <?php echo esc_html($title); ?>
                                         </div>

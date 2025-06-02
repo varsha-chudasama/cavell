@@ -2,6 +2,16 @@
   .footer-logo{
     height: 33px;
   }
+
+  .footer-form {
+    padding: 45px 40px;
+    background-color: rgba($color: $color-1F6678, $alpha: 0.05);
+    @include media-breakpoint-down(lg){
+      padding: 40px 25px;
+    }
+  }
+
+}
   .social-media {
     li {
       a{
@@ -15,13 +25,6 @@
       }
     }
   }
-  .footer-form {
-    padding: 45px 40px;
-    background-color: rgba($color: $color-1F6678, $alpha: 0.05);
-    @include media-breakpoint-down(lg){
-      padding: 40px 25px;
-    }
-  }
   .social-media,
   .footer-menu {
     li {
@@ -33,4 +36,3 @@
       }
     }
   }
-}
