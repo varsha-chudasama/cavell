@@ -449,3 +449,5 @@ function load_posts()
 }
 add_action('wp_ajax_load_posts', 'load_posts');
 add_action('wp_ajax_nopriv_load_posts', 'load_posts');
+
+add_filter('wpcf7_skip_mail', '__return_true');
